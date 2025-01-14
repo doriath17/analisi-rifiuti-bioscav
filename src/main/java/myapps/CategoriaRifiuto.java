@@ -2,6 +2,7 @@ package myapps;
 
 import javafx.beans.property.SimpleObjectProperty;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CategoriaRifiuto {
@@ -12,9 +13,16 @@ public class CategoriaRifiuto {
     private List<Rifiuto> rifiuti;
 
     public CategoriaRifiuto(Analisi currentAnalisi){
+        this.currentAnalisi = currentAnalisi;
+
         pesoTotale = new SimpleObjectProperty<>(0.0);
         pesoPercentuale = new SimpleObjectProperty<>(0.0);
-        this.currentAnalisi = currentAnalisi;
+
+        rifiuti = new ArrayList<>();
+    }
+
+    public void register(Rifiuto rifiuto){
+        rifiuti.add(rifiuto);
     }
 
     public void setRifiuti(List<Rifiuto> rifuti){
