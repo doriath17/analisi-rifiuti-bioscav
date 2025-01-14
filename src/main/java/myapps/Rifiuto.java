@@ -7,6 +7,9 @@ import javafx.scene.control.TextField;
 public class Rifiuto {
     private SimpleObjectProperty<Double> pesoLordo;
     private SimpleObjectProperty<Double> pesoTara;
+
+    // TODO: change the computation of pesoNetto (= pesoLordo - pesoTara)
+    // TODO: limit the value of pesoTara to be at least equal (but not greater than) to pesoLordo
     private SimpleObjectProperty<Double> pesoNetto;
 
     private CategoriaRifiuto categoria;

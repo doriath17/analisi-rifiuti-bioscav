@@ -23,41 +23,41 @@ public class PrimaryController {
     @FXML private TextField txtPesoTaraIndustriali;
     @FXML private Label lblPesoNettoIndustriali;
 
-//    @FXML private TextField txtPesoLordoUmido;
-//    @FXML private TextField txtPesoTaraUmido;
-//    @FXML private Label lblPesoNettoUmido;
-//
-//    @FXML private TextField txtPesoLordoVetro;
-//    @FXML private TextField txtPesoTaraVetro;
-//    @FXML private Label lblPesoNettoVetro;
-//
-//    @FXML private TextField txtPesoLordoMedicinali;
-//    @FXML private TextField txtPesoTaraMedicinali;
-//    @FXML private Label lblPesoNettoMedicinali;
-//
-//    @FXML private TextField txtPesoLordoAlluminioAcciaio;
-//    @FXML private TextField txtPesoTaraAlluminioAcciaio;
-//    @FXML private Label lblPesoNettoAlluminioAcciaio;
-//
-//    @FXML private TextField txtPesoLordoFrazioniFini2x2;
-//    @FXML private TextField txtPesoTaraFrazioniFini2x2;
-//    @FXML private Label lblPesoNettoFrazioniFini2x2;
-//
-//    @FXML private TextField txtPesoLordoRaee;
-//    @FXML private TextField txtPesoTaraRaee;
-//    @FXML private Label lblPesoNettoRaee;
-//
-//    @FXML private TextField txtPesoLordoLegno;
-//    @FXML private TextField txtPesoTaraLegno;
-//    @FXML private Label lblPesoNettoLegno;
-//
-//    @FXML private TextField txtPesoLordoInerti;
-//    @FXML private TextField txtPesoTaraInerti;
-//    @FXML private Label lblPesoNettoInerti;
-//
-//    @FXML private TextField txtPesoLordoTessuti;
-//    @FXML private TextField txtPesoTaraTessuti;
-//    @FXML private Label lblPesoNettoTessuti;
+    @FXML private TextField txtPesoLordoUmido;
+    @FXML private TextField txtPesoTaraUmido;
+    @FXML private Label lblPesoNettoUmido;
+
+    @FXML private TextField txtPesoLordoVetro;
+    @FXML private TextField txtPesoTaraVetro;
+    @FXML private Label lblPesoNettoVetro;
+
+    @FXML private TextField txtPesoLordoMedicinali;
+    @FXML private TextField txtPesoTaraMedicinali;
+    @FXML private Label lblPesoNettoMedicinali;
+
+    @FXML private TextField txtPesoLordoAlluminioAcciaio;
+    @FXML private TextField txtPesoTaraAlluminioAcciaio;
+    @FXML private Label lblPesoNettoAlluminioAcciaio;
+
+    @FXML private TextField txtPesoLordoFrazioniFini2x2;
+    @FXML private TextField txtPesoTaraFrazioniFini2x2;
+    @FXML private Label lblPesoNettoFrazioniFini2x2;
+
+    @FXML private TextField txtPesoLordoRaee;
+    @FXML private TextField txtPesoTaraRaee;
+    @FXML private Label lblPesoNettoRaee;
+
+    @FXML private TextField txtPesoLordoLegno;
+    @FXML private TextField txtPesoTaraLegno;
+    @FXML private Label lblPesoNettoLegno;
+
+    @FXML private TextField txtPesoLordoInerti;
+    @FXML private TextField txtPesoTaraInerti;
+    @FXML private Label lblPesoNettoInerti;
+
+    @FXML private TextField txtPesoLordoTessuti;
+    @FXML private TextField txtPesoTaraTessuti;
+    @FXML private Label lblPesoNettoTessuti;
 
 
     public PrimaryController(){
@@ -77,41 +77,41 @@ public class PrimaryController {
                 txtPesoLordoIndustriali, txtPesoTaraIndustriali, lblPesoNettoIndustriali
         );
 
-//        currentAnalisi.getUmido().setupControls(
-//                txtPesoLordoUmido, txtPesoTaraUmido, lblPesoNettoUmido
-//        );
-//
-//        currentAnalisi.getVetro().setupControls(
-//                txtPesoLordoVetro, txtPesoTaraVetro, lblPesoNettoVetro
-//        );
-//
-//        currentAnalisi.getMedicinali().setupControls(
-//                txtPesoLordoMedicinali, txtPesoTaraMedicinali, lblPesoNettoMedicinali
-//        );
-//
-//        currentAnalisi.getAlluminioAcciaio().setupControls(
-//                txtPesoLordoAlluminioAcciaio, txtPesoTaraAlluminioAcciaio, lblPesoNettoAlluminioAcciaio
-//        );
-//
-//        currentAnalisi.getFrazioniFini2x2().setupControls(
-//                txtPesoLordoFrazioniFini2x2, txtPesoTaraFrazioniFini2x2, lblPesoNettoFrazioniFini2x2
-//        );
-//
-//        currentAnalisi.getRaee().setupControls(
-//                txtPesoLordoRaee, txtPesoTaraRaee, lblPesoNettoRaee
-//        );
-//
-//        currentAnalisi.getLegno().setupControls(
-//                txtPesoLordoLegno, txtPesoTaraLegno, lblPesoNettoLegno
-//        );
-//
-//        currentAnalisi.getInerti().setupControls(
-//                txtPesoLordoInerti, txtPesoTaraInerti, lblPesoNettoInerti
-//        );
-//
-//        currentAnalisi.getTessuti().setupControls(
-//                txtPesoLordoTessuti, txtPesoTaraTessuti, lblPesoNettoTessuti
-//        );
+        currentAnalisi.getUmido().setupControls(
+                txtPesoLordoUmido, txtPesoTaraUmido, lblPesoNettoUmido
+        );
+
+        currentAnalisi.getVetro().setupControls(
+                txtPesoLordoVetro, txtPesoTaraVetro, lblPesoNettoVetro
+        );
+
+        currentAnalisi.getMedicinali().setupControls(
+                txtPesoLordoMedicinali, txtPesoTaraMedicinali, lblPesoNettoMedicinali
+        );
+
+        currentAnalisi.getAlluminioAcciaio().setupControls(
+                txtPesoLordoAlluminioAcciaio, txtPesoTaraAlluminioAcciaio, lblPesoNettoAlluminioAcciaio
+        );
+
+        currentAnalisi.getFrazioniFini2x2().setupControls(
+                txtPesoLordoFrazioniFini2x2, txtPesoTaraFrazioniFini2x2, lblPesoNettoFrazioniFini2x2
+        );
+
+        currentAnalisi.getRaee().setupControls(
+                txtPesoLordoRaee, txtPesoTaraRaee, lblPesoNettoRaee
+        );
+
+        currentAnalisi.getLegno().setupControls(
+                txtPesoLordoLegno, txtPesoTaraLegno, lblPesoNettoLegno
+        );
+
+        currentAnalisi.getInerti().setupControls(
+                txtPesoLordoInerti, txtPesoTaraInerti, lblPesoNettoInerti
+        );
+
+        currentAnalisi.getTessuti().setupControls(
+                txtPesoLordoTessuti, txtPesoTaraTessuti, lblPesoNettoTessuti
+        );
     }
 
 

@@ -7,20 +7,20 @@ public class Analisi {
 
     CategoriaRifiuto monomateriale;
     CategoriaRifiuto traccianti;
-//    CategoriaRifiuto frazioniEstranee;
+    CategoriaRifiuto frazioniEstranee;
 //    CategoriaRifiuto altreFE;
 
     Rifiuto imballaggi;
     Rifiuto industriali;
-//    Rifiuto umido;
-//    Rifiuto vetro;
-//    Rifiuto medicinali;
-//    Rifiuto alluminioAcciaio;
-//    Rifiuto frazioniFini2x2;
-//    Rifiuto raee;
-//    Rifiuto legno;
-//    Rifiuto inerti;
-//    Rifiuto tessuti;
+    Rifiuto umido;
+    Rifiuto vetro;
+    Rifiuto medicinali;
+    Rifiuto alluminioAcciaio;
+    Rifiuto frazioniFini2x2;
+    Rifiuto raee;
+    Rifiuto legno;
+    Rifiuto inerti;
+    Rifiuto tessuti;
 
 
     public Analisi(){
@@ -28,20 +28,19 @@ public class Analisi {
 
         monomateriale = new CategoriaRifiuto(this);
         traccianti = new CategoriaRifiuto(this);
-//        frazioniEstranee = new CategoriaRifiuto(this);
+        frazioniEstranee = new CategoriaRifiuto(this);
 
         imballaggi = new Rifiuto(this, monomateriale);
         industriali = new Rifiuto(this, traccianti);
-//        umido = new Rifiuto(this, frazioniEstranee);
-//        vetro = new Rifiuto(this, frazioniEstranee);
-//        medicinali = new Rifiuto(this, frazioniEstranee);
-//        alluminioAcciaio = new Rifiuto(this, frazioniEstranee);
-//        frazioniFini2x2 = new Rifiuto(this, frazioniEstranee);
-//        raee = new Rifiuto(this, frazioniEstranee);
-//        legno = new Rifiuto(this, frazioniEstranee);
-//        inerti = new Rifiuto(this, frazioniEstranee);
-//        tessuti = new Rifiuto(this, frazioniEstranee);
-
+        umido = new Rifiuto(this, frazioniEstranee);
+        vetro = new Rifiuto(this, frazioniEstranee);
+        medicinali = new Rifiuto(this, frazioniEstranee);
+        alluminioAcciaio = new Rifiuto(this, frazioniEstranee);
+        frazioniFini2x2 = new Rifiuto(this, frazioniEstranee);
+        raee = new Rifiuto(this, frazioniEstranee);
+        legno = new Rifiuto(this, frazioniEstranee);
+        inerti = new Rifiuto(this, frazioniEstranee);
+        tessuti = new Rifiuto(this, frazioniEstranee);
     }
 
     public SimpleObjectProperty<Double> pesoCampioneProperty() {
@@ -50,14 +49,12 @@ public class Analisi {
 
     public void updatePesoCampione(){
         pesoCampione.setValue(
-                imballaggi.pesoNettoProperty().getValue() +
-                industriali.pesoNettoProperty().getValue()
+                imballaggi.pesoNettoProperty().getValue()
         );
     }
 
-    public CategoriaRifiuto getMonomateriale() {
-        return monomateriale;
-    }
+    public CategoriaRifiuto getMonomateriale() { return monomateriale; }
+
 
     public Rifiuto getImballaggi() {
         return imballaggi;
@@ -67,23 +64,22 @@ public class Analisi {
         return industriali;
     }
 
-//    public Rifiuto getUmido() { return umido; }
-//
-//    public Rifiuto getVetro() { return vetro; }
-//
-//    public Rifiuto getMedicinali() { return medicinali; }
-//
-//    public Rifiuto getAlluminioAcciaio() { return alluminioAcciaio; }
-//
-//    public Rifiuto getFrazioniFini2x2() { return frazioniFini2x2; }
-//
-//    public Rifiuto getRaee() { return raee; }
-//
-//    public Rifiuto getLegno() { return legno; }
-//
-//    public Rifiuto getInerti() { return inerti; }
-//
-//    public Rifiuto getTessuti() { return tessuti; }
+    public Rifiuto getUmido() { return umido; }
 
+    public Rifiuto getVetro() { return vetro; }
+
+    public Rifiuto getMedicinali() { return medicinali; }
+
+    public Rifiuto getAlluminioAcciaio() { return alluminioAcciaio; }
+
+    public Rifiuto getFrazioniFini2x2() { return frazioniFini2x2; }
+
+    public Rifiuto getRaee() { return raee; }
+
+    public Rifiuto getLegno() { return legno; }
+
+    public Rifiuto getInerti() { return inerti; }
+
+    public Rifiuto getTessuti() { return tessuti; }
 
 }
