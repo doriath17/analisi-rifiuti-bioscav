@@ -48,8 +48,10 @@ public class Analisi {
     }
 
     public void updatePesoCampione(){
+        // TODO: add altreFE pesoTotale
         pesoCampione.setValue(
-                imballaggi.pesoNettoProperty().getValue()
+                monomateriale.pesoTotaleProperty().getValue()+traccianti.pesoTotaleProperty().getValue()+
+                frazioniEstranee.pesoTotaleProperty().getValue()
         );
     }
 
