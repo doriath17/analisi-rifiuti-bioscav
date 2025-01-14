@@ -1,6 +1,8 @@
 package myapps;
 
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class Rifiuto {
     private SimpleObjectProperty<Double> pesoLordo;
@@ -10,7 +12,6 @@ public class Rifiuto {
     private CategoriaRifiuto categoria;
 
     private Analisi currentAnalisi;
-
 
 
     public Rifiuto(Analisi currentAnalisi, CategoriaRifiuto categoria){
@@ -27,12 +28,32 @@ public class Rifiuto {
         return pesoLordo;
     }
 
-    public SimpleObjectProperty<Double> pesoTaraProperty(){
-        return pesoTara;
-    }
+    public SimpleObjectProperty<Double> pesoTaraProperty() { return pesoTara; }
 
     public SimpleObjectProperty<Double> pesoNettoProperty(){
         return pesoNetto;
+    }
+
+
+    public void updatePesoNetto(){
+        pesoNetto.setValue(pesoLordo.getValue() + pesoTara.getValue());
+    }
+
+
+    public void setupControls(TextField txtPesoLordo, TextField txtPesoTara, Label lblPesoNetto){
+        txtPesoLordo.setTextFormatter(PrimaryController.getTextFormatterInstance(pesoLordo));
+        txtPesoLordo.setOnAction(event -> {
+            updatePesoNetto();
+            currentAnalisi.updatePesoCampione();
+        });
+
+        txtPesoTara.setTextFormatter(PrimaryController.getTextFormatterInstance(pesoTara));
+        txtPesoTara.setOnAction(event -> {
+            updatePesoNetto();
+            currentAnalisi.updatePesoCampione();
+        });
+
+        lblPesoNetto.textProperty().bindBidirectional(pesoNetto, new PositiveDoubleStringConverter());
     }
 
 }
