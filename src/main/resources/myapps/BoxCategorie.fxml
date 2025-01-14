@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="182.0" prefWidth="192.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Categoria" />
+        <Separator prefWidth="200.0" />
+      <HBox alignment="CENTER" prefHeight="69.0" prefWidth="190.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="88.0" text="Kg" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" layoutX="11.0" layoutY="54.0" prefHeight="69.0" prefWidth="190.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="88.0" text="\%" />
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
+         </children>
+      </HBox>
+    </children>
+</VBox>
