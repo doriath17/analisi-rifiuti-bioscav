@@ -4,13 +4,13 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
 
 public class AnalisiResult {
-    private SimpleObjectProperty<Double> pesoCampione;
+    private final SimpleObjectProperty<Double> pesoCampione;
 
     // data
-    private SimpleObjectProperty<Double> pesoMDiff;
-    private SimpleObjectProperty<Double> pesoPercentualeMDiff;
-    private SimpleObjectProperty<Double> pesoFE;
-    private SimpleObjectProperty<Double> pesoPercentualeFE;
+    private final SimpleObjectProperty<Double> pesoMDiff;
+    private final SimpleObjectProperty<Double> pesoPercentualeMDiff;
+    private final SimpleObjectProperty<Double> pesoFE;
+    private final SimpleObjectProperty<Double> pesoPercentualeFE;
 
 
     public AnalisiResult(SimpleObjectProperty<Double> pesoCampione){
