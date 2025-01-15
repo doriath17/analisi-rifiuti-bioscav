@@ -175,7 +175,7 @@
                                              <children>
                                                 <Label alignment="CENTER" text="Kg" />
                                                 <Label alignment="CENTER" text="\%" GridPane.columnIndex="1" />
-                                                <Label fx:id="lblPesoMaterialeDifferenziato" alignment="CENTER" prefHeight="42.0" prefWidth="97.0" GridPane.rowIndex="1" />
+                                                <Label fx:id="lblPesoMDiff" alignment="CENTER" prefHeight="42.0" prefWidth="97.0" GridPane.rowIndex="1" />
                                                 <Label fx:id="lblPesoPercentualeMaterialeDifferenziato" alignment="CENTER" layoutX="24.0" layoutY="74.0" prefHeight="42.0" prefWidth="97.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                              </children>
                                           </GridPane>

@@ -1,9 +1,5 @@
 package myapps;
 
-import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -75,11 +71,12 @@ public class PrimaryController {
     @FXML private Label lblPesoNettoTessuti;
 
     // final results
-    @FXML private Label lblPesoMaterialeDifferenziato;
-    @FXML private Label lblPesoPercentualeMaterialeDifferenziato;
+    @FXML private Label lblPesoMDiff;
+    @FXML private Label lblPesoPercentualeMDiff;
 
-    @FXML private Label lblPesoFETotale;
-    @FXML private Label lblPesoPercentualeFETotale;
+    @FXML private Label lblPesoFE;
+    @FXML private Label lblPesoPercentualeFE;
+
 
 
     public PrimaryController(){
