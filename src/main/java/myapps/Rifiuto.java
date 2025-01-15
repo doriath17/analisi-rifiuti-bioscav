@@ -5,41 +5,45 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 public class Rifiuto {
+    private CategoriaRifiuto categoria;
+    private Analisi currentAnalisi;
+
+    // data
     private SimpleObjectProperty<Double> pesoLordo;
     private SimpleObjectProperty<Double> pesoTara;
-
-    // TODO: change the computation of pesoNetto (= pesoLordo - pesoTara)
-    // TODO: limit the value of pesoTara to be at least equal (but not greater than) to pesoLordo
     private SimpleObjectProperty<Double> pesoNetto;
-
-    private CategoriaRifiuto categoria;
-
-    private Analisi currentAnalisi;
+    double delta;
 
 
     public Rifiuto(Analisi currentAnalisi, CategoriaRifiuto categoria){
         pesoLordo = new SimpleObjectProperty<Double>(0.0);
         pesoTara = new SimpleObjectProperty<Double>(0.0);
         pesoNetto = new SimpleObjectProperty<Double>(0.0);
+        delta = 0;
 
         this.categoria = categoria;
         this.currentAnalisi = currentAnalisi;
     }
 
+    // getters
 
-    public SimpleObjectProperty<Double> pesoLordoProperty(){
+    public SimpleObjectProperty<Double> getPesoLordo(){
         return pesoLordo;
     }
 
-    public SimpleObjectProperty<Double> pesoTaraProperty() { return pesoTara; }
+    public SimpleObjectProperty<Double> getPesoTara() { return pesoTara; }
 
-    public SimpleObjectProperty<Double> pesoNettoProperty(){
+    public SimpleObjectProperty<Double> getPesoNetto(){
         return pesoNetto;
     }
 
 
     public void updatePesoNetto(){
-        pesoNetto.setValue(pesoLordo.getValue() + pesoTara.getValue());
+        double prev = pesoNetto.getValue();
+        pesoNetto.setValue(pesoLordo.getValue() - pesoTara.getValue());
+        delta = pesoNetto.getValue() - prev;
+        categoria.updatePesoTotale(delta);
+        currentAnalisi.updatePesoCampione(delta);
     }
 
 
@@ -47,13 +51,11 @@ public class Rifiuto {
         txtPesoLordo.setTextFormatter(PrimaryController.getTextFormatterInstance(pesoLordo));
         txtPesoLordo.setOnAction(event -> {
             updatePesoNetto();
-            currentAnalisi.updatePesoCampione();
         });
 
         txtPesoTara.setTextFormatter(PrimaryController.getTextFormatterInstance(pesoTara));
         txtPesoTara.setOnAction(event -> {
             updatePesoNetto();
-            currentAnalisi.updatePesoCampione();
         });
 
         lblPesoNetto.textProperty().bindBidirectional(pesoNetto, new PositiveDoubleStringConverter());

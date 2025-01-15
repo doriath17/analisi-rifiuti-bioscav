@@ -43,20 +43,27 @@ public class Analisi {
         tessuti = new Rifiuto(this, frazioniEstranee);
     }
 
-    public SimpleObjectProperty<Double> pesoCampioneProperty() {
+    // peso campione
+
+    public SimpleObjectProperty<Double> getPesoCampione() {
         return pesoCampione;
     }
 
-    public void updatePesoCampione(){
-        // TODO: add altreFE pesoTotale
-        pesoCampione.setValue(
-                monomateriale.pesoTotaleProperty().getValue()+traccianti.pesoTotaleProperty().getValue()+
-                frazioniEstranee.pesoTotaleProperty().getValue()
-        );
+    public void updatePesoCampione(double delta){
+        pesoCampione.setValue(pesoCampione.getValue() + delta);
     }
+
+
+    // getters categorie
 
     public CategoriaRifiuto getMonomateriale() { return monomateriale; }
 
+    public CategoriaRifiuto getTraccianti() { return traccianti; }
+
+    public CategoriaRifiuto getFrazioniEstranee() { return frazioniEstranee; }
+
+
+    // getters rifiuti
 
     public Rifiuto getImballaggi() {
         return imballaggi;

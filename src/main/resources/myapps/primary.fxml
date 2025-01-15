@@ -33,13 +33,13 @@
                               <HBox alignment="CENTER" prefHeight="69.0" prefWidth="190.0">
                                  <children>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="88.0" text="Kg" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
+                                    <Label fx:id="lblPesoTotaleMonomateriale" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="11.0" layoutY="54.0" prefHeight="69.0" prefWidth="190.0">
                                  <children>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="88.0" text="\%" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
+                                    <Label fx:id="lblPesoPercentualeMonomateriale" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
                                  </children>
                               </HBox>
                             </children>
@@ -51,13 +51,13 @@
                               <HBox alignment="CENTER" prefHeight="69.0" prefWidth="190.0">
                                  <children>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="88.0" text="Kg" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
+                                    <Label fx:id="lblPesoTotaleTraccianti" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="11.0" layoutY="54.0" prefHeight="69.0" prefWidth="190.0">
                                  <children>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="88.0" text="\%" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
+                                    <Label fx:id="lblPesoPercentualeTraccianti" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
                                  </children>
                               </HBox>
                             </children>
@@ -69,13 +69,13 @@
                               <HBox alignment="CENTER" prefHeight="69.0" prefWidth="190.0">
                                  <children>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="88.0" text="Kg" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
+                                    <Label fx:id="lblPesoTotaleFrazioniEstranee" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
                                  </children>
                               </HBox>
                               <HBox alignment="CENTER" layoutX="11.0" layoutY="54.0" prefHeight="69.0" prefWidth="190.0">
                                  <children>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="88.0" text="\%" />
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
+                                    <Label fx:id="lblPesoPercentualeFrazioniEstranee" alignment="CENTER" contentDisplay="CENTER" layoutX="61.0" layoutY="10.0" prefHeight="76.0" prefWidth="99.0" />
                                  </children>
                               </HBox>
                             </children>

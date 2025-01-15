@@ -15,6 +15,21 @@ public class PrimaryController {
 
     @FXML private Label lblPesoCampione;
 
+    // categorie
+
+    @FXML private Label lblPesoTotaleMonomateriale;
+    @FXML private Label lblPesoPercentualeMonomateriale;
+
+    @FXML private Label lblPesoTotaleTraccianti;
+    @FXML private Label lblPesoPercentualeTraccianti;
+
+    @FXML private Label lblPesoTotaleFrazioniEstranee;
+    @FXML private Label lblPesoPercentualeFrazioniEstranee;
+
+
+
+    // rifiuti
+
     @FXML private TextField txtPesoLordoImballaggi;
     @FXML private TextField txtPesoTaraImballaggi;
     @FXML private Label lblPesoNettoImballaggi;
@@ -67,7 +82,23 @@ public class PrimaryController {
 
     @FXML public void initialize() {
         lblPesoCampione.textProperty().bindBidirectional(
-                currentAnalisi.pesoCampioneProperty(), new PositiveDoubleStringConverter());
+                currentAnalisi.getPesoCampione(), new PositiveDoubleStringConverter());
+
+        // categorie
+
+        currentAnalisi.getMonomateriale().setupControls(
+                lblPesoTotaleMonomateriale, lblPesoPercentualeMonomateriale
+        );
+
+        currentAnalisi.getTraccianti().setupControls(
+                lblPesoTotaleTraccianti, lblPesoPercentualeTraccianti
+        );
+
+        currentAnalisi.getFrazioniEstranee().setupControls(
+                lblPesoTotaleFrazioniEstranee, lblPesoPercentualeFrazioniEstranee
+        );
+
+        // rifiuti
 
         currentAnalisi.getImballaggi().setupControls(
                 txtPesoLordoImballaggi, txtPesoTaraImballaggi, lblPesoNettoImballaggi
