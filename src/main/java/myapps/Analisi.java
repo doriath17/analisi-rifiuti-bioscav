@@ -22,6 +22,7 @@ public class Analisi {
     Rifiuto inerti;
     Rifiuto tessuti;
 
+    AnalisiResult result;
 
     public Analisi(){
         pesoCampione = new SimpleObjectProperty<>(0.0);
@@ -41,6 +42,8 @@ public class Analisi {
         legno = new Rifiuto(this, frazioniEstranee);
         inerti = new Rifiuto(this, frazioniEstranee);
         tessuti = new Rifiuto(this, frazioniEstranee);
+
+        result = new AnalisiResult(pesoCampione);
     }
 
     // peso campione
@@ -91,4 +94,9 @@ public class Analisi {
 
     public Rifiuto getTessuti() { return tessuti; }
 
+    // other getters
+
+    public AnalisiResult getResult() {
+        return result;
+    }
 }

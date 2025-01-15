@@ -147,6 +147,11 @@ public class PrimaryController {
         currentAnalisi.getTessuti().setupControls(
                 txtPesoLordoTessuti, txtPesoTaraTessuti, lblPesoNettoTessuti
         );
+
+        // result
+        currentAnalisi.getResult().setupControls(
+                lblPesoMDiff, lblPesoPercentualeMDiff, lblPesoFE, lblPesoPercentualeFE
+        );
     }
 
 

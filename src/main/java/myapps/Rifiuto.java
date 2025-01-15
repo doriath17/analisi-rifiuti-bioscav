@@ -37,6 +37,14 @@ public class Rifiuto {
         return pesoNetto;
     }
 
+    private void updateResult(double delta){
+        if (categoria.equals(currentAnalisi.getMonomateriale()) ||
+                categoria.equals(currentAnalisi.getTraccianti())){
+            currentAnalisi.getResult().updatePesoMDiff(delta);
+        } else {
+            currentAnalisi.getResult().updatePesoFE(delta);
+        }
+    }
 
     public void updatePesoNetto(){
         double prev = pesoNetto.getValue();
@@ -44,6 +52,7 @@ public class Rifiuto {
         delta = pesoNetto.getValue() - prev;
         categoria.updatePesoTotale(delta);
         currentAnalisi.updatePesoCampione(delta);
+        updateResult(delta);
     }
 
 

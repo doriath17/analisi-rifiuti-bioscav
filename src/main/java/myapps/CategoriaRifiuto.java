@@ -41,8 +41,8 @@ public class CategoriaRifiuto {
 
     public void updatePesoTotale(double delta){
         pesoTotale.setValue(pesoTotale.getValue() + delta);
-        if (pesoTotale.getValue() != 0.0){
-            pesoPercentuale.setValue(pesoTotale.getValue() / currentAnalisi.getPesoCampione().getValue());
+        if (currentAnalisi.getPesoCampione().getValue() != 0.0){
+            pesoPercentuale.setValue(pesoTotale.getValue() / currentAnalisi.getPesoCampione().getValue() * 100);
         }
     }
 

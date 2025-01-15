@@ -55,18 +55,24 @@ public class AnalisiResult {
         return pesoPercentualeFE;
     }
 
+    private void updatePercentuale(){
+        if (pesoCampione.getValue() != 0){
+            pesoPercentualeMDiff.setValue(pesoMDiff.getValue() / pesoCampione.getValue() * 100);
+            pesoPercentualeFE.setValue(pesoFE.getValue() / pesoCampione.getValue() * 100);
+        } else {
+            pesoPercentualeMDiff.setValue(0.0);
+            pesoPercentualeFE.setValue(0.0);
+        }
+    }
+
     public void updatePesoMDiff(double delta){
         pesoMDiff.setValue(pesoMDiff.getValue() + delta);
-        if (pesoCampione.getValue() != 0){
-            pesoPercentualeMDiff.setValue(pesoMDiff.getValue() / pesoCampione.getValue());
-        }
+        updatePercentuale();
     }
 
     public void updatePesoFE(double delta){
         pesoFE.setValue(pesoFE.getValue() + delta);
-        if (pesoCampione.getValue() != 0){
-            pesoPercentualeFE.setValue(pesoFE.getValue() / pesoCampione.getValue());
-        }
+        updatePercentuale();
     }
 
     public void setupControls(Label lblPesoMDiff, Label lblPesoPercentualeMDiff, Label lblPesoFE, Label lblPesoPercentualeFE){
