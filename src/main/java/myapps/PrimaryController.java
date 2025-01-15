@@ -74,6 +74,13 @@ public class PrimaryController {
     @FXML private TextField txtPesoTaraTessuti;
     @FXML private Label lblPesoNettoTessuti;
 
+    // final results
+    @FXML private Label lblPesoMaterialeDifferenziato;
+    @FXML private Label lblPesoPercentualeMaterialeDifferenziato;
+
+    @FXML private Label lblPesoFETotale;
+    @FXML private Label lblPesoPercentualeFETotale;
+
 
     public PrimaryController(){
         currentAnalisi = new Analisi();
