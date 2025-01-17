@@ -77,6 +77,17 @@ public class PrimaryController {
     @FXML private Label lblPesoFE;
     @FXML private Label lblPesoPercentualeFE;
 
+    // anagrafe
+    @FXML private TextField txtComune;
+    @FXML private TextField txtCerRifiuto;
+    @FXML private TextField txtNumeroFormulario;
+    @FXML private TextField txtNumeroControllo;
+    @FXML private TextField txtDataAnalisi;
+    @FXML private TextField txtDataFormulario;
+    @FXML private TextField txtOraInizio;
+    @FXML private TextField txtOraFine;
+    @FXML private TextField txtMaterialeConferito;
+
 
 
     public PrimaryController(){
