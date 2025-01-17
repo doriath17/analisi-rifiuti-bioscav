@@ -2,9 +2,18 @@ package myapps;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.layout.VBox;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+
+import java.io.File;
+import java.io.IOException;
 
 public class PrimaryController {
     Analisi currentAnalisi;
@@ -82,20 +91,39 @@ public class PrimaryController {
     @FXML private TextField txtCerRifiuto;
     @FXML private TextField txtNumeroFormulario;
     @FXML private TextField txtNumeroControllo;
-    @FXML private TextField txtDataAnalisi;
+//    @FXML private TextField txtDataAnalisi;
     @FXML private TextField txtDataFormulario;
     @FXML private TextField txtOraInizio;
     @FXML private TextField txtOraFine;
     @FXML private TextField txtMaterialeConferito;
 
+    // salataggio
+    Stage stage2;
 
 
-    public PrimaryController(){
+    public PrimaryController() throws IOException {
         currentAnalisi = new Analisi();
+        Parent root2 = new VBox(new Label("Hello, world!"));
+        Scene scene2 = null;
+        try {
+            scene2 = new Scene(App.loadFXML("SalvaPDF"));
+        } catch (Exception e) {}
+        stage2 = new Stage();
+        stage2.setScene(scene2);
+        stage2.setAlwaysOnTop(true);
+    }
+
+    @FXML private void openSalvaPDFStage(){
+        stage2.show();
     }
 
 
     @FXML public void initialize() {
+
+//        btnSalvaPDF.setOnAction(event -> {
+//            stage2.show();
+//        });
+
         lblPesoCampione.textProperty().bindBidirectional(
                 currentAnalisi.getPesoCampione(), new PositiveDoubleStringConverter());
 

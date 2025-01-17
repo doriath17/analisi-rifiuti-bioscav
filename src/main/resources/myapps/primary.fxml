@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -284,11 +286,16 @@
                      </padding>
                      <children>
                         <Label alignment="CENTER" prefHeight="192.0" prefWidth="158.0" text="NOTE: " />
-                        <TextArea prefHeight="121.0" prefWidth="741.0" promptText="Inserire nota">
+                        <TextArea prefHeight="94.0" prefWidth="541.0" promptText="Inserire nota">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </TextArea>
+                        <VBox alignment="CENTER" prefHeight="94.0" prefWidth="172.0">
+                           <children>
+                              <Button fx:id="btnSalvaPDF" mnemonicParsing="false" onAction="#openSalvaPDFStage" prefHeight="24.0" prefWidth="116.0" text="Salva PDF" />
+                           </children>
+                        </VBox>
                      </children>
                      <VBox.margin>
                         <Insets top="5.0" />
@@ -354,9 +361,9 @@
                                     </GridPane>
                                  </children>
                               </HBox>
-                              <TextField fx:id="txtDataAnalisi" maxWidth="-Infinity" prefHeight="40.0" prefWidth="114.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                               <TextField fx:id="txtDataFormulario" layoutX="677.0" layoutY="77.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="114.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                               <TextField fx:id="txtComune" layoutX="197.0" layoutY="77.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="201.0" GridPane.columnIndex="1" />
+                              <DatePicker prefHeight="33.0" prefWidth="198.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                            </children>
                         </GridPane>
                      </children>
