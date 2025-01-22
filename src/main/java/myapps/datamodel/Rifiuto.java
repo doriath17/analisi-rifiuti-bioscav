@@ -1,8 +1,10 @@
-package myapps;
+package myapps.datamodel;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import myapps.gui.PositiveDoubleStringConverter;
+import myapps.gui.PrimaryController;
 
 public class Rifiuto {
     private CategoriaRifiuto categoria;

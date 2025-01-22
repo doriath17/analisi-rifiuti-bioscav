@@ -1,4 +1,4 @@
-package myapps;
+package myapps.datamodel;
 
 import javafx.beans.property.SimpleObjectProperty;
 

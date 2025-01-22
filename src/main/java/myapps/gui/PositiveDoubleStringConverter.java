@@ -1,4 +1,4 @@
-package myapps;
+package myapps.gui;
 
 import javafx.util.converter.DoubleStringConverter;
 

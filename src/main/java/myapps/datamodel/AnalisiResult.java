@@ -1,7 +1,8 @@
-package myapps;
+package myapps.datamodel;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
+import myapps.gui.PositiveDoubleStringConverter;
 
 public class AnalisiResult {
     private final SimpleObjectProperty<Double> pesoCampione;

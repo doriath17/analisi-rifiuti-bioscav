@@ -1,7 +1,6 @@
-package myapps;
+package myapps.datamodel;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 public class AnagrafeAnalisi {
     private ArrayList<String> elements;
