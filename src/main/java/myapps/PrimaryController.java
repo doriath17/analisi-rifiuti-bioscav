@@ -2,6 +2,7 @@ package myapps;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -98,23 +99,29 @@ public class PrimaryController {
     @FXML private TextField txtMaterialeConferito;
 
     // salataggio
-    Stage stage2;
+    private final Stage savePDFStage;
+    private final SavePDFController savePDFController;
 
 
     public PrimaryController() throws IOException {
         currentAnalisi = new Analisi();
-        Parent root2 = new VBox(new Label("Hello, world!"));
-        Scene scene2 = null;
-        try {
-            scene2 = new Scene(App.loadFXML("SalvaPDF"));
-        } catch (Exception e) {}
-        stage2 = new Stage();
-        stage2.setScene(scene2);
-        stage2.setAlwaysOnTop(true);
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("SavePDF.fxml"));
+        Parent savePDFRoot = fxmlLoader.load();
+        savePDFController = fxmlLoader.getController();
+
+        if (savePDFController == null){
+            System.err.println("its null");
+        }
+
+        Scene savePDFScene = new Scene(savePDFRoot);
+
+        savePDFStage = new Stage();
+        savePDFStage.setScene(savePDFScene);
+        savePDFStage.setAlwaysOnTop(true);
     }
 
     @FXML private void openSalvaPDFStage(){
-        stage2.show();
+        savePDFStage.show();
     }
 
 
