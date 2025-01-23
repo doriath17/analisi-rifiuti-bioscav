@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class AnagrafeAnalisi {
     private ArrayList<String> elements;
 
+
+
 //    private String comune;
 //    private String cerRifiuto;
 //    private String numeroFormulario;

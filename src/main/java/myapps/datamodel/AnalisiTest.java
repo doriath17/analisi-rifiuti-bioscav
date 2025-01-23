@@ -1,7 +1,4 @@
-package myapps;
-
-import myapps.datamodel.Analisi;
-import myapps.datamodel.Rifiuto;
+package myapps.datamodel;
 
 import java.util.Iterator;
 

@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
-import myapps.AnalisiTest;
+import myapps.datamodel.AnalisiTest;
 import myapps.App;
 import myapps.datamodel.Analisi;
 
@@ -99,18 +99,12 @@ public class PrimaryController {
 
     // salataggio
     private final Stage savePDFStage;
-    private final SavePDFController savePDFController;
 
 
     public PrimaryController() throws IOException {
         currentAnalisi = new AnalisiTest();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("SavePDF.fxml"));
         Parent savePDFRoot = fxmlLoader.load();
-        savePDFController = fxmlLoader.getController();
-
-        if (savePDFController == null){
-            System.err.println("its null");
-        }
 
         Scene savePDFScene = new Scene(savePDFRoot);
 
@@ -125,10 +119,6 @@ public class PrimaryController {
 
 
     @FXML public void initialize() {
-
-//        btnSalvaPDF.setOnAction(event -> {
-//            stage2.show();
-//        });
 
         lblPesoCampione.textProperty().bindBidirectional(
                 currentAnalisi.getPesoCampione(), new PositiveDoubleStringConverter());
