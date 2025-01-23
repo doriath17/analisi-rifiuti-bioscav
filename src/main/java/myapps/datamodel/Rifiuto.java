@@ -39,6 +39,10 @@ public class Rifiuto {
 
     // getters
 
+    public String getName() {
+        return name;
+    }
+
     public SimpleObjectProperty<Double> getPesoLordo(){
         return pesoLordo;
     }

@@ -5,21 +5,22 @@ import javafx.beans.property.SimpleObjectProperty;
 import java.util.ArrayList;
 
 public class Analisi {
-    private final SimpleObjectProperty<Double> pesoCampione;
+    private final SimpleObjectProperty<Double> pesoCampione = new SimpleObjectProperty<>(0.0);
 
     public final int NUM_CATEGORIE = 3;
     public final int NUM_RIFIUTI = 11;
     protected final ArrayList<CategoriaRifiuto> categorieArray = new ArrayList<>(NUM_CATEGORIE);
     protected final ArrayList<Rifiuto> rifiutiArray = new ArrayList<>(NUM_RIFIUTI);
 
-    AnalisiResult result;
+    AnalisiResult result = new AnalisiResult(pesoCampione);
 
     public Analisi(){
-        pesoCampione = new SimpleObjectProperty<>(0.0);
-
         categorieArray.add(new CategoriaRifiuto("Monomateriale",this));
         categorieArray.add(new CategoriaRifiuto("Traccianti",this));
         categorieArray.add(new CategoriaRifiuto("Frazioni Estranee",this));
+        // todo:
+//        categorieArray.add(new CategoriaRifiuto("Materiale Differenziato", this));
+//        categorieArray.add(new CategoriaRifiuto("Frazione Esterna Totale", this));
 
         rifiutiArray.add(new Rifiuto("Imballaggi", this, getMonomateriale()));
         rifiutiArray.add(new Rifiuto("Industriali", this, getTraccianti()));
@@ -32,8 +33,6 @@ public class Analisi {
         rifiutiArray.add(new Rifiuto("Legno", this, getFrazioniEstranee()));
         rifiutiArray.add(new Rifiuto("Inerti", this, getFrazioniEstranee()));
         rifiutiArray.add(new Rifiuto("Tessuti", this, getFrazioniEstranee()));
-
-        result = new AnalisiResult(pesoCampione);
     }
 
     // peso campione
@@ -88,5 +87,13 @@ public class Analisi {
 
     public AnalisiResult getResult() {
         return result;
+    }
+
+    public ArrayList<Rifiuto> getRifiutiArray(){
+        return rifiutiArray;
+    }
+
+    public ArrayList<CategoriaRifiuto> getCategorieArray() {
+        return categorieArray;
     }
 }

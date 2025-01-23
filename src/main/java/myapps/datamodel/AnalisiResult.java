@@ -14,6 +14,7 @@ public class AnalisiResult {
     private final SimpleObjectProperty<Double> pesoPercentualeFE;
 
 
+
     public AnalisiResult(SimpleObjectProperty<Double> pesoCampione){
         this.pesoCampione = pesoCampione;
 

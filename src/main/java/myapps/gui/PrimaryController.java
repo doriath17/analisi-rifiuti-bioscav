@@ -15,6 +15,7 @@ import myapps.datamodel.Analisi;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class PrimaryController {
 
@@ -30,8 +31,6 @@ public class PrimaryController {
 
     @FXML private Label lblPesoTotaleFrazioniEstranee;
     @FXML private Label lblPesoPercentualeFrazioniEstranee;
-
-
 
     // rifiuti
 
@@ -110,35 +109,32 @@ public class PrimaryController {
     private final Stage savePDFStage;
     HashMap<String, String> anagrafe = new HashMap<>();
 
-    public final static String a1 = "Comune";
-    public final static String a2 = "Numero Controllo";
-    public final static String a3 = "CER rifiuto";
-    public final static String a4 = "Data Analisi";
-    public final static String a5 = "Numero Formulario";
-    public final static String a6 = "Data Formulario";
-    public final static String a7 = "Ora Inizio";
-    public final static String a8 = "Ora Fine";
-    public final static String a9 = "Sfuso/In Balle";
-    public final static String a10 = "Flusso";
-    public final static String a11 = "Materiale Conferito";
-    public final static String a12 = "Analizzatore";
-    public final static String a13 = "Supervisore";
-
-
+    public static final int NUM_ANAGRAFE_STRINGS = 13;
+    public static final ArrayList<String> anagrafeStrings = new ArrayList<>(List.of(
+            "Comune", "Numero Controllo", "Cer. rifiuto", "Data Analisi",
+            "Numero Formulario", "Data Formulario", "Ora Inizio", "Ora Fine",
+            "Sfuso/In Balle", "Flusso", "Materiale Conferito", "Analizzatore", "Supervisore"
+    ));
 
     private void initAnagrafe(){
-        anagrafe.put(a1, "");
-        anagrafe.put(a2, "");
-        anagrafe.put(a3, "");
-        anagrafe.put(a4, "");
-        anagrafe.put(a5, "");
-        anagrafe.put(a6, "");
-        anagrafe.put(a7, "");
-        anagrafe.put(a8, "");
-        anagrafe.put(a10, "");
-        anagrafe.put(a11, "");
-        anagrafe.put(a12, "");
-        anagrafe.put(a13, "");
+        for (String s : anagrafeStrings){
+            anagrafe.put(s, "");
+        }
+    }
+
+    public void updateAnagrafe(){
+        int i=0;
+        anagrafe.put(anagrafeStrings.get(i++), txtComune.getText());
+        anagrafe.put(anagrafeStrings.get(i++), txtNumeroControllo.getText());
+        anagrafe.put(anagrafeStrings.get(i++), txtCerRifiuto.getText());
+        anagrafe.put(anagrafeStrings.get(i++), dtDataAnalisi.getAccessibleText());
+        anagrafe.put(anagrafeStrings.get(i++), txtNumeroFormulario.getText());
+        anagrafe.put(anagrafeStrings.get(i++), dtDataFormulario.getAccessibleText());
+        anagrafe.put(anagrafeStrings.get(i++), txtOraInizio.getText());
+        anagrafe.put(anagrafeStrings.get(i++), txtOraFine.getText());
+        anagrafe.put(anagrafeStrings.get(i++), cboxSfusoInBalle.getAccessibleText());
+        anagrafe.put(anagrafeStrings.get(i++), cboxFlusso.getAccessibleText());
+        anagrafe.put(anagrafeStrings.get(i), txtMaterialeConferito.getText());
     }
 
     public PrimaryController() throws IOException {
@@ -243,19 +239,7 @@ public class PrimaryController {
         savePDFStage.show();
     }
 
-    public void updateAnagrafe(){
-        anagrafe.put(a1, txtComune.getText());
-        anagrafe.put(a2, txtNumeroControllo.getText());
-        anagrafe.put(a3, txtCerRifiuto.getText());
-        anagrafe.put(a4, dtDataAnalisi.getAccessibleText());
-        anagrafe.put(a5, txtNumeroFormulario.getText());
-        anagrafe.put(a6, dtDataFormulario.getAccessibleText());
-        anagrafe.put(a7, txtOraInizio.getText());
-        anagrafe.put(a8, txtOraFine.getText());
-        anagrafe.put(a9, cboxSfusoInBalle.getAccessibleText());
-        anagrafe.put(a10, cboxFlusso.getAccessibleText());
-        anagrafe.put(a11, txtMaterialeConferito.getText());
-    }
+
 
 
 }

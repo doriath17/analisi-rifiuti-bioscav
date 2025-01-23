@@ -5,6 +5,10 @@ import com.lowagie.text.alignment.HorizontalAlignment;
 import com.lowagie.text.alignment.VerticalAlignment;
 import com.lowagie.text.pdf.PdfWriter;
 import myapps.datamodel.Analisi;
+import myapps.datamodel.CategoriaRifiuto;
+import myapps.datamodel.Rifiuto;
+import myapps.gui.PositiveDoubleStringConverter;
+import myapps.gui.PrimaryController;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -17,13 +21,14 @@ import static java.io.File.*;
 public class PdfGenerator {
 
     static final int ANAGRAFE_COLSPAN = 4;
+    static final PositiveDoubleStringConverter converter = new PositiveDoubleStringConverter();
 
-    static void setTableHeader(Table table, String title){
+    static void setTableHeader(Table table, String title, int colspan){
         Cell cell = new Cell(title);
         cell.setHorizontalAlignment(HorizontalAlignment.CENTER);
         cell.setVerticalAlignment(VerticalAlignment.CENTER);
         cell.setHeader(true);
-        cell.setColspan(ANAGRAFE_COLSPAN);
+        cell.setColspan(colspan);
         table.addCell(cell);
         table.endHeaders();
     }
@@ -36,13 +41,49 @@ public class PdfGenerator {
     }
 
     static void prepareAnagrafeTable(Table table, HashMap<String, String> anagrafe, Font font){
-        for (Iterator<String> keyI = anagrafe.keySet().iterator(), valueI = anagrafe.values().iterator(); keyI.hasNext();){
+        for (Iterator<String> keyI = PrimaryController.anagrafeStrings.iterator(), valueI = anagrafe.values().iterator(); keyI.hasNext();){
             table.addCell(getNewCell(keyI.next(), font));
             table.addCell(getNewCell(valueI.next(), font));
         }
     }
 
-    public static void generatePdf(File selectedDirectory, String filename, Analisi analisi, HashMap<String, String> anagrafe){
+    static void prepareAnalisiDataTable(Table table, Analisi currentAnalisi, Font font){
+        table.addCell(getNewCell("Tipo Rifiuto", font));
+        table.addCell(getNewCell("Peso Lordo (kg)", font));
+        table.addCell(getNewCell("Peso Tara (kg)", font));
+        table.addCell(getNewCell("Peso Netto (kg)", font));
+
+        for (Iterator<Rifiuto> i = currentAnalisi.getRifiutiArray().iterator(); i.hasNext();){
+            Rifiuto rifiuto = i.next();
+            table.addCell(getNewCell(rifiuto.getName(), font));
+            table.addCell(getNewCell(converter.toString(rifiuto.getPesoLordo().getValue()), font));
+            table.addCell(getNewCell(converter.toString(rifiuto.getPesoTara().getValue()), font));
+            table.addCell(getNewCell(converter.toString(rifiuto.getPesoNetto().getValue()), font));
+        }
+    }
+
+    static void prepareCategories(Table table, Analisi currentAnalisi, Font font) {
+        table.addCell(getNewCell("Categoria", font));
+        table.addCell(getNewCell("kg", font));
+        table.addCell(getNewCell("%", font));
+
+        for (Iterator<CategoriaRifiuto> i = currentAnalisi.getCategorieArray().iterator(); i.hasNext(); ) {
+            CategoriaRifiuto categoria = i.next();
+            table.addCell(getNewCell(categoria.getName(), font));
+            table.addCell(getNewCell(converter.toString(categoria.getPesoTotale().getValue()), font));
+            table.addCell(getNewCell(converter.toString(categoria.getPesoPercentuale().getValue()), font));
+        }
+
+        table.addCell(getNewCell("Materiale Differenziato", font));
+        table.addCell(getNewCell(converter.toString(currentAnalisi.getResult().getPesoMDiff()), font));
+        table.addCell(getNewCell(converter.toString(currentAnalisi.getResult().getPesoPercentualeMDiff()), font));
+        table.addCell(getNewCell("Frazione Estranea Totale", font));
+        table.addCell(getNewCell(converter.toString(currentAnalisi.getResult().getPesoFE()), font));
+        table.addCell(getNewCell(converter.toString(currentAnalisi.getResult().getPesoPercentualeFE()), font));
+    }
+
+
+    public static void generatePdf(File selectedDirectory, String filename, Analisi currentAnalisi, HashMap<String, String> anagrafe){
 
         Document document = new Document(PageSize.A4);
 
@@ -51,16 +92,30 @@ public class PdfGenerator {
                     selectedDirectory.getAbsolutePath() + separator + filename));
             document.open();
 
-            Font font = FontFactory.getFont(FontFactory.HELVETICA, 12);
+            Font font = FontFactory.getFont(FontFactory.HELVETICA, 10);
 
             Table table = new Table(ANAGRAFE_COLSPAN);
             table.setBorderWidth(1);
             table.setPadding(2);
 
-            setTableHeader(table, "ANAGRAFE");
-
+            setTableHeader(table, "ANAGRAFE", 4);
             prepareAnagrafeTable(table, anagrafe, font);
+            document.add(table);
 
+            table = new Table(4);
+            table.setBorderWidth(1);
+            table.setPadding(2);
+
+            setTableHeader(table, "DATI ANALIZZATI", 4);
+            prepareAnalisiDataTable(table, currentAnalisi, font);
+            document.add(table);
+
+            table = new Table(3);
+            table.setBorderWidth(1);
+            table.setPadding(2);
+
+            setTableHeader(table, "RISULTATI ANALISI", 3);
+            prepareCategories(table, currentAnalisi, font);
             document.add(table);
         } catch (DocumentException | IOException de){
             System.err.println(de.getMessage());

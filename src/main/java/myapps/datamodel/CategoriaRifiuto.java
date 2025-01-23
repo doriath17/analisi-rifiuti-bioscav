@@ -27,6 +27,10 @@ public class CategoriaRifiuto {
 
     }
 
+    public String getName() {
+        return name;
+    }
+
     public SimpleObjectProperty<Double> getPesoTotale() {
         return pesoTotale;
     }
@@ -34,6 +38,7 @@ public class CategoriaRifiuto {
     public SimpleObjectProperty<Double> getPesoPercentuale() {
         return pesoPercentuale;
     }
+
     public void register(Rifiuto rifiuto){
         rifiuti.add(rifiuto);
     }

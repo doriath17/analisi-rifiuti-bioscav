@@ -63,7 +63,7 @@
       <Separator prefWidth="200.0" />
       <HBox alignment="CENTER" prefHeight="75.0" prefWidth="525.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="43.0" prefWidth="115.0" text="Annulla">
+            <Button mnemonicParsing="false" onAction="#closeSaveDialog" prefHeight="43.0" prefWidth="115.0" text="Chiudi">
                <HBox.margin>
                   <Insets right="50.0" />
                </HBox.margin>

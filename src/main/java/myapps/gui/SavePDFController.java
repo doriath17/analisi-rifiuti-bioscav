@@ -38,15 +38,15 @@ public class SavePDFController {
     }
 
     public void updateAnagrafe(){
-        anagrafe.put(PrimaryController.a12, txtAnalizzatore.getText());
-        anagrafe.put(PrimaryController.a13, txtSupervisore.getText());
+        anagrafe.put(PrimaryController.anagrafeStrings.get(12), txtAnalizzatore.getText());
+        anagrafe.put(PrimaryController.anagrafeStrings.get(11), txtSupervisore.getText());
     }
 
     @FXML public void saveToPDF(){
         String filename = txtFilename.getText();
         updateAnagrafe();
         if (filename.isEmpty()){
-            String date = anagrafe.get(PrimaryController.a4);
+            String date = anagrafe.get(PrimaryController.anagrafeStrings.get(3));
             if (date == null || date.isEmpty()){
                 date = "";
             }
@@ -59,5 +59,9 @@ public class SavePDFController {
         File selectedDirectory = directoryChooser.showDialog(stage);
 
         PdfGenerator.generatePdf(selectedDirectory, filename, currentAnalisi, anagrafe);
+    }
+
+    @FXML public void closeSaveDialog(){
+        stage.close();
     }
 }
