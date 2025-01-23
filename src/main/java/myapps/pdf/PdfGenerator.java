@@ -6,8 +6,13 @@ import com.lowagie.text.alignment.VerticalAlignment;
 import com.lowagie.text.pdf.PdfWriter;
 import myapps.datamodel.Analisi;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import static java.io.File.*;
 
 public class PdfGenerator {
 
@@ -30,11 +35,20 @@ public class PdfGenerator {
         return cell;
     }
 
-    public static void generatePdf(String filename, Analisi analisi){
+    static void prepareAnagrafeTable(Table table, HashMap<String, String> anagrafe, Font font){
+        for (Iterator<String> keyI = anagrafe.keySet().iterator(), valueI = anagrafe.values().iterator(); keyI.hasNext();){
+            table.addCell(getNewCell(keyI.next(), font));
+            table.addCell(getNewCell(valueI.next(), font));
+        }
+    }
+
+    public static void generatePdf(File selectedDirectory, String filename, Analisi analisi, HashMap<String, String> anagrafe){
+
         Document document = new Document(PageSize.A4);
 
         try {
-            PdfWriter write = PdfWriter.getInstance(document, new FileOutputStream("files/app-template.pdf"));
+            PdfWriter write = PdfWriter.getInstance(document, new FileOutputStream(
+                    selectedDirectory.getAbsolutePath() + separator + filename));
             document.open();
 
             Font font = FontFactory.getFont(FontFactory.HELVETICA, 12);
@@ -45,24 +59,9 @@ public class PdfGenerator {
 
             setTableHeader(table, "ANAGRAFE");
 
-            table.addCell(getNewCell("Comune", font));
-            table.addCell(getNewCell("Mondragone", font));
-            table.addCell(getNewCell("", font));
-            table.addCell(getNewCell("Data Formulario", font));
-            table.addCell(getNewCell("Numero CER", font));
+            prepareAnagrafeTable(table, anagrafe, font);
 
             document.add(table);
-
-            table = new Table(4);
-            setTableHeader(table, "DATI ANALIZZATI");
-
-            table.addCell(getNewCell("Comune", font));
-            table.addCell(getNewCell("Mondragone", font));
-            table.addCell(getNewCell("Formulario", font));
-            table.addCell(getNewCell("Data Formulario", font));
-            table.addCell(getNewCell("Numero CER", font));
-
-            document.open();
         } catch (DocumentException | IOException de){
             System.err.println(de.getMessage());
         }

@@ -3,7 +3,9 @@ package myapps.datamodel;
 import java.util.ArrayList;
 
 public class AnagrafeAnalisi {
-    private ArrayList<String> elements;
+    public final int NUM_STRING = 14;
+    private ArrayList<String> keys = new ArrayList<>(NUM_STRING);
+    private ArrayList<String> values = new ArrayList<>(NUM_STRING);
 
 
 
@@ -23,14 +25,32 @@ public class AnagrafeAnalisi {
 //    private String supervisore;
 
     public AnagrafeAnalisi(){
-        elements = new ArrayList<>(10);
+        keys.add("Comune");
+        keys.add("Numero Controllo");
+
+        keys.add("Cer. Rifiuto");
+        keys.add("Data Analisi");
+
+        keys.add("Formulario N°");
+        keys.add("Data Formulario");
+
+        keys.add("Sfuso/In Balle");
+        keys.add("Flusso");
+
+        keys.add("Ora Inizio");
+        keys.add("Ora Fine");
+
+        keys.add("Analizzatore");
+        keys.add("Supervisore");
+
+        keys.add("Materiale Conferito (kg)");
     }
 
-    public void setComune(String comune){
-        elements.set(0, comune);
+    public ArrayList<String> getKeys(){
+        return keys;
     }
 
-    public String getComune(){
-        return elements.get(0);
+    public ArrayList<String> getValues(){
+        return values;
     }
 }

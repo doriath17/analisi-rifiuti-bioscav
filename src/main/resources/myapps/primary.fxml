@@ -293,7 +293,7 @@
                         </TextArea>
                         <VBox alignment="CENTER" prefHeight="94.0" prefWidth="172.0">
                            <children>
-                              <Button fx:id="btnSalvaPDF" mnemonicParsing="false" onAction="#openSalvaPDFStage" prefHeight="24.0" prefWidth="116.0" text="Salva PDF" />
+                              <Button fx:id="btnSalvaPDF" mnemonicParsing="false" onAction="#openSavePDFStage" prefHeight="24.0" prefWidth="116.0" text="Salva PDF" />
                            </children>
                         </VBox>
                      </children>
@@ -330,15 +330,14 @@
                               <Label alignment="CENTER" prefHeight="55.0" prefWidth="299.0" text="FORMULARIO N°" GridPane.rowIndex="2" />
                               <Label alignment="CENTER" prefHeight="55.0" prefWidth="299.0" text="SFUSO / IN BALLE" GridPane.rowIndex="3" />
                               <Label alignment="CENTER" prefHeight="55.0" prefWidth="299.0" text="FLUSSO" GridPane.rowIndex="4" />
-                              <ChoiceBox prefHeight="24.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <ChoiceBox layoutX="241.0" layoutY="210.0" prefHeight="24.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <ChoiceBox fx:id="cboxSfusoInBalle" prefHeight="24.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <ChoiceBox fx:id="cboxFlusso" layoutX="241.0" layoutY="210.0" prefHeight="24.0" prefWidth="163.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                               <TextField fx:id="txtCerRifiuto" maxWidth="-Infinity" prefHeight="40.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <Label alignment="CENTER" prefHeight="55.0" prefWidth="299.0" text="N° CONTROLLO " GridPane.columnIndex="2" />
                               <Label alignment="CENTER" prefHeight="55.0" prefWidth="299.0" text="DATA ANALISI" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                               <Label alignment="CENTER" prefHeight="55.0" prefWidth="299.0" text="DATA FORMULARIO" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                               <Label alignment="CENTER" prefHeight="55.0" prefWidth="299.0" text="ORARIO" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                               <Label alignment="CENTER" prefHeight="55.0" prefWidth="299.0" text="MATERIALE CONFERITO Kg" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                              <TextField fx:id="txtNumeroFormulario" layoutX="197.0" layoutY="82.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                               <TextField fx:id="txtMaterialeConferito" layoutX="197.0" layoutY="82.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="201.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
                               <TextField fx:id="txtNumeroControllo" layoutX="10.0" layoutY="21.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="201.0" GridPane.columnIndex="3" />
                               <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
@@ -361,9 +360,10 @@
                                     </GridPane>
                                  </children>
                               </HBox>
-                              <TextField fx:id="txtDataFormulario" layoutX="677.0" layoutY="77.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="114.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                               <TextField fx:id="txtComune" layoutX="197.0" layoutY="77.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="201.0" GridPane.columnIndex="1" />
-                              <DatePicker prefHeight="33.0" prefWidth="198.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <DatePicker fx:id="dtDataAnalisi" prefHeight="33.0" prefWidth="198.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                              <DatePicker fx:id="dtDataFormulario" prefHeight="33.0" prefWidth="198.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtNumeroFormulario" layoutX="197.0" layoutY="77.0" maxWidth="-Infinity" prefHeight="40.0" prefWidth="201.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                            </children>
                         </GridPane>
                      </children>

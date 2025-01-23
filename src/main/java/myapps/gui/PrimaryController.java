@@ -5,18 +5,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
+import myapps.datamodel.AnagrafeAnalisi;
 import myapps.datamodel.AnalisiTest;
 import myapps.App;
 import myapps.datamodel.Analisi;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 public class PrimaryController {
-    Analisi currentAnalisi;
 
     @FXML private Label lblPesoCampione;
 
@@ -91,30 +91,72 @@ public class PrimaryController {
     @FXML private TextField txtCerRifiuto;
     @FXML private TextField txtNumeroFormulario;
     @FXML private TextField txtNumeroControllo;
-//    @FXML private TextField txtDataAnalisi;
-    @FXML private TextField txtDataFormulario;
+    @FXML private DatePicker dtDataAnalisi;
+    @FXML private DatePicker dtDataFormulario;
     @FXML private TextField txtOraInizio;
     @FXML private TextField txtOraFine;
+    @FXML private ChoiceBox<String> cboxSfusoInBalle;
+    @FXML private ChoiceBox<String> cboxFlusso;
     @FXML private TextField txtMaterialeConferito;
 
-    // salataggio
-    private final Stage savePDFStage;
 
+
+
+
+    Analisi currentAnalisi;
+
+    // saving
+    SavePDFController savePDFController;
+    private final Stage savePDFStage;
+    HashMap<String, String> anagrafe = new HashMap<>();
+
+    public final static String a1 = "Comune";
+    public final static String a2 = "Numero Controllo";
+    public final static String a3 = "CER rifiuto";
+    public final static String a4 = "Data Analisi";
+    public final static String a5 = "Numero Formulario";
+    public final static String a6 = "Data Formulario";
+    public final static String a7 = "Ora Inizio";
+    public final static String a8 = "Ora Fine";
+    public final static String a9 = "Sfuso/In Balle";
+    public final static String a10 = "Flusso";
+    public final static String a11 = "Materiale Conferito";
+    public final static String a12 = "Analizzatore";
+    public final static String a13 = "Supervisore";
+
+
+
+    private void initAnagrafe(){
+        anagrafe.put(a1, "");
+        anagrafe.put(a2, "");
+        anagrafe.put(a3, "");
+        anagrafe.put(a4, "");
+        anagrafe.put(a5, "");
+        anagrafe.put(a6, "");
+        anagrafe.put(a7, "");
+        anagrafe.put(a8, "");
+        anagrafe.put(a10, "");
+        anagrafe.put(a11, "");
+        anagrafe.put(a12, "");
+        anagrafe.put(a13, "");
+    }
 
     public PrimaryController() throws IOException {
         currentAnalisi = new AnalisiTest();
+
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("SavePDF.fxml"));
         Parent savePDFRoot = fxmlLoader.load();
+        savePDFController = fxmlLoader.getController();
 
         Scene savePDFScene = new Scene(savePDFRoot);
-
         savePDFStage = new Stage();
         savePDFStage.setScene(savePDFScene);
         savePDFStage.setAlwaysOnTop(true);
-    }
 
-    @FXML private void openSalvaPDFStage(){
-        savePDFStage.show();
+        initAnagrafe();
+        savePDFController.setAnagrafe(anagrafe);
+        savePDFController.setStage(savePDFStage);
+        savePDFController.setCurrentAnalisi(currentAnalisi);
     }
 
 
@@ -195,4 +237,25 @@ public class PrimaryController {
         textformatter.valueProperty().bindBidirectional(toBind);
         return textformatter;
     }
+
+    @FXML private void openSavePDFStage(){
+        updateAnagrafe();
+        savePDFStage.show();
+    }
+
+    public void updateAnagrafe(){
+        anagrafe.put(a1, txtComune.getText());
+        anagrafe.put(a2, txtNumeroControllo.getText());
+        anagrafe.put(a3, txtCerRifiuto.getText());
+        anagrafe.put(a4, dtDataAnalisi.getAccessibleText());
+        anagrafe.put(a5, txtNumeroFormulario.getText());
+        anagrafe.put(a6, dtDataFormulario.getAccessibleText());
+        anagrafe.put(a7, txtOraInizio.getText());
+        anagrafe.put(a8, txtOraFine.getText());
+        anagrafe.put(a9, cboxSfusoInBalle.getAccessibleText());
+        anagrafe.put(a10, cboxFlusso.getAccessibleText());
+        anagrafe.put(a11, txtMaterialeConferito.getText());
+    }
+
+
 }

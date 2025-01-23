@@ -1,5 +1,6 @@
 package myapps.datamodel;
 
+import java.util.HashMap;
 import java.util.Iterator;
 
 public class AnalisiTest extends Analisi{
@@ -15,4 +16,5 @@ public class AnalisiTest extends Analisi{
     public AnalisiTest(){
         randomInput();
     }
+
 }
