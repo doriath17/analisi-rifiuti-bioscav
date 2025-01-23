@@ -5,12 +5,12 @@ import javafx.beans.property.SimpleObjectProperty;
 import java.util.ArrayList;
 
 public class Analisi {
-    final SimpleObjectProperty<Double> pesoCampione;
+    private final SimpleObjectProperty<Double> pesoCampione;
 
-    final int NUM_CATEGORIE = 3;
-    final int NUM_RIFIUTI = 11;
-    final ArrayList<CategoriaRifiuto> categorieArray = new ArrayList<>(NUM_CATEGORIE);
-    final ArrayList<Rifiuto> rifiutiArray = new ArrayList<>(NUM_RIFIUTI);
+    public final int NUM_CATEGORIE = 3;
+    public final int NUM_RIFIUTI = 11;
+    protected final ArrayList<CategoriaRifiuto> categorieArray = new ArrayList<>(NUM_CATEGORIE);
+    protected final ArrayList<Rifiuto> rifiutiArray = new ArrayList<>(NUM_RIFIUTI);
 
     AnalisiResult result;
 

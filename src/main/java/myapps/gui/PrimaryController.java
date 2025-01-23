@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
+import myapps.AnalisiTest;
 import myapps.App;
 import myapps.datamodel.Analisi;
 
@@ -102,7 +103,7 @@ public class PrimaryController {
 
 
     public PrimaryController() throws IOException {
-        currentAnalisi = new Analisi();
+        currentAnalisi = new AnalisiTest();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("SavePDF.fxml"));
         Parent savePDFRoot = fxmlLoader.load();
         savePDFController = fxmlLoader.getController();

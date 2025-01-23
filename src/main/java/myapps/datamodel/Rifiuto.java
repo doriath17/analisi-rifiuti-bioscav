@@ -5,6 +5,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import myapps.gui.PositiveDoubleStringConverter;
 import myapps.gui.PrimaryController;
+import java.util.Random;
 
 public class Rifiuto {
     private CategoriaRifiuto categoria;
@@ -27,6 +28,13 @@ public class Rifiuto {
         pesoTara = new SimpleObjectProperty<Double>(0.0);
         pesoNetto = new SimpleObjectProperty<Double>(0.0);
         delta = 0;
+    }
+
+    public void randomSetup(){
+        Random rand = new Random();
+        pesoTara.setValue(rand.nextInt(50) + 1 + rand.nextDouble());
+        pesoLordo.setValue(pesoTara.getValue() + rand.nextInt(50) + 1 + rand.nextDouble());
+        updatePesoNetto();
     }
 
     // getters
@@ -54,8 +62,8 @@ public class Rifiuto {
         double prev = pesoNetto.getValue();
         pesoNetto.setValue(pesoLordo.getValue() - pesoTara.getValue());
         delta = pesoNetto.getValue() - prev;
-        categoria.updatePesoTotale(delta);
         currentAnalisi.updatePesoCampione(delta);
+        categoria.updatePesoTotale(delta);
         updateResult(delta);
     }
 
