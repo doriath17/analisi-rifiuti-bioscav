@@ -12,11 +12,13 @@ public class CategoriaRifiuto {
     private List<Rifiuto> rifiuti;
 
     // data
+    private final String name;
     private SimpleObjectProperty<Double> pesoTotale;
     private SimpleObjectProperty<Double> pesoPercentuale;
 
 
-    public CategoriaRifiuto(Analisi currentAnalisi){
+    public CategoriaRifiuto(String name, Analisi currentAnalisi){
+        this.name = name;
         this.currentAnalisi = currentAnalisi;
         rifiuti = new ArrayList<>();
 

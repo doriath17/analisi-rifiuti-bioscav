@@ -11,20 +11,22 @@ public class Rifiuto {
     private Analisi currentAnalisi;
 
     // data
-    private SimpleObjectProperty<Double> pesoLordo;
-    private SimpleObjectProperty<Double> pesoTara;
-    private SimpleObjectProperty<Double> pesoNetto;
-    double delta;
+    private final String name;
+    private final SimpleObjectProperty<Double> pesoLordo;
+    private final SimpleObjectProperty<Double> pesoTara;
+    private final SimpleObjectProperty<Double> pesoNetto;
+    private double delta;
 
 
-    public Rifiuto(Analisi currentAnalisi, CategoriaRifiuto categoria){
+    public Rifiuto(String name, Analisi currentAnalisi, CategoriaRifiuto categoria){
+        this.name = name;
+        this.categoria = categoria;
+        this.currentAnalisi = currentAnalisi;
+
         pesoLordo = new SimpleObjectProperty<Double>(0.0);
         pesoTara = new SimpleObjectProperty<Double>(0.0);
         pesoNetto = new SimpleObjectProperty<Double>(0.0);
         delta = 0;
-
-        this.categoria = categoria;
-        this.currentAnalisi = currentAnalisi;
     }
 
     // getters
