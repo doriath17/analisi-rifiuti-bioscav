@@ -1,6 +1,8 @@
 package myapps.datamodel;
 
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.control.Label;
+import myapps.gui.PositiveDoubleStringConverter;
 
 public class PesoCampione {
 
@@ -17,5 +19,9 @@ public class PesoCampione {
 
     public Double getPercentage(double value){
         return (value / pesoCampione.getValue()) * 100;
+    }
+
+    public void setupControls(Label lblPesoCampione){
+        lblPesoCampione.textProperty().bindBidirectional(pesoCampione, new PositiveDoubleStringConverter());
     }
 }

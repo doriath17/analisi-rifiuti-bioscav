@@ -157,9 +157,7 @@ public class PrimaryController {
 
 
     @FXML public void initialize() {
-
-        lblPesoCampione.textProperty().bindBidirectional(
-                currentAnalisi.getPesoCampione(), new PositiveDoubleStringConverter());
+        currentAnalisi.getPesoCampione().setupControls(lblPesoCampione);
 
         // categorie
 

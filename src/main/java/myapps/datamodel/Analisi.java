@@ -5,7 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import java.util.ArrayList;
 
 public class Analisi {
-    private final SimpleObjectProperty<Double> pesoCampione = new SimpleObjectProperty<>(0.0);
+    private final PesoCampione pesoCampione = new PesoCampione();
 
     public final int NUM_CATEGORIE = 3;
     public final int NUM_RIFIUTI = 11;
@@ -37,14 +37,13 @@ public class Analisi {
 
     // peso campione
 
-    public SimpleObjectProperty<Double> getPesoCampione() {
+    public PesoCampione getPesoCampione() {
         return pesoCampione;
     }
 
     public void updatePesoCampione(double delta){
-        pesoCampione.setValue(pesoCampione.getValue() + delta);
+        pesoCampione.updatePesoCampione(delta);
     }
-
 
     // getters categorie
 
