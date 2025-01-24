@@ -9,6 +9,7 @@ public class AnalisiTest extends Analisi{
         for (Iterator<Rifiuto> i = rifiutiArray.iterator(); i.hasNext();){
             Rifiuto rif = i.next();
             rif.randomSetup();
+            rif.updatePesoNetto();
         }
     }
 

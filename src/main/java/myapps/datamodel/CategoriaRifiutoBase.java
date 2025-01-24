@@ -36,6 +36,12 @@ public class CategoriaRifiutoBase {
         pesoTotale.setValue(pesoTotale.getValue() + delta);
     }
 
+    public void updatePesoPercentuale(){
+        pesoPercentuale.setValue(
+                currentAnalisi.getPesoCampione().getPercentage(pesoTotale.getValue())
+        );
+    }
+
     public void setupControls(Label lblPesoTotale, Label lblPesoPercentuale){
         lblPesoTotale.textProperty().bindBidirectional(pesoTotale, new PositiveDoubleStringConverter());
         lblPesoPercentuale.textProperty().bindBidirectional(pesoPercentuale, new PositiveDoubleStringConverter());

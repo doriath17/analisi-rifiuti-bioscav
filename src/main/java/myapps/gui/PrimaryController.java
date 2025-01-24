@@ -138,7 +138,7 @@ public class PrimaryController {
     }
 
     public PrimaryController() throws IOException {
-        currentAnalisi = new AnalisiTest();
+        currentAnalisi = new Analisi();
 
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("SavePDF.fxml"));
         Parent savePDFRoot = fxmlLoader.load();
@@ -155,23 +155,20 @@ public class PrimaryController {
         savePDFController.setCurrentAnalisi(currentAnalisi);
     }
 
-
     @FXML public void initialize() {
         currentAnalisi.getPesoCampione().setupControls(lblPesoCampione);
 
         // categorie
 
-        currentAnalisi.getMonomateriale().setupControls(
-                lblPesoTotaleMonomateriale, lblPesoPercentualeMonomateriale
-        );
+        currentAnalisi.getMaterialeDiff().setupControls(lblPesoMDiff, lblPesoPercentualeMDiff);
 
-        currentAnalisi.getTraccianti().setupControls(
-                lblPesoTotaleTraccianti, lblPesoPercentualeTraccianti
-        );
+        currentAnalisi.getFrazioneEstraneaTot().setupControls(lblPesoFE, lblPesoPercentualeFE);
 
-        currentAnalisi.getFrazioniEstranee().setupControls(
-                lblPesoTotaleFrazioniEstranee, lblPesoPercentualeFrazioniEstranee
-        );
+        currentAnalisi.getMonomateriale().setupControls(lblPesoTotaleMonomateriale, lblPesoPercentualeMonomateriale);
+
+        currentAnalisi.getTraccianti().setupControls(lblPesoTotaleTraccianti, lblPesoPercentualeTraccianti);
+
+        currentAnalisi.getFrazioniEstranee().setupControls(lblPesoTotaleFrazioniEstranee, lblPesoPercentualeFrazioniEstranee);
 
         // rifiuti
 
@@ -217,11 +214,6 @@ public class PrimaryController {
 
         currentAnalisi.getTessuti().setupControls(
                 txtPesoLordoTessuti, txtPesoTaraTessuti, lblPesoNettoTessuti
-        );
-
-        // result
-        currentAnalisi.getResult().setupControls(
-                lblPesoMDiff, lblPesoPercentualeMDiff, lblPesoFE, lblPesoPercentualeFE
         );
     }
 

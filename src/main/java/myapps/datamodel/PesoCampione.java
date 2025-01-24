@@ -18,7 +18,11 @@ public class PesoCampione {
     }
 
     public Double getPercentage(double value){
-        return (value / pesoCampione.getValue()) * 100;
+        if (pesoCampione.getValue() == 0.0){
+            return 0.0;
+        } else {
+            return (value / pesoCampione.getValue()) * 100;
+        }
     }
 
     public void setupControls(Label lblPesoCampione){

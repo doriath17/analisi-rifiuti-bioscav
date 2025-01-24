@@ -75,11 +75,11 @@ public class PdfGenerator {
         }
 
         table.addCell(getNewCell("Materiale Differenziato", font));
-        table.addCell(getNewCell(converter.toString(currentAnalisi.getResult().getPesoMDiff()), font));
-        table.addCell(getNewCell(converter.toString(currentAnalisi.getResult().getPesoPercentualeMDiff()), font));
+        table.addCell(getNewCell(converter.toString(currentAnalisi.getMaterialeDiff().getPesoTotale().getValue()), font));
+        table.addCell(getNewCell(converter.toString(currentAnalisi.getMaterialeDiff().getPesoPercentuale().getValue()), font));
         table.addCell(getNewCell("Frazione Estranea Totale", font));
-        table.addCell(getNewCell(converter.toString(currentAnalisi.getResult().getPesoFE()), font));
-        table.addCell(getNewCell(converter.toString(currentAnalisi.getResult().getPesoPercentualeFE()), font));
+        table.addCell(getNewCell(converter.toString(currentAnalisi.getFrazioneEstraneaTot().getPesoTotale().getValue()), font));
+        table.addCell(getNewCell(converter.toString(currentAnalisi.getFrazioneEstraneaTot().getPesoPercentuale().getValue()), font));
     }
 
 
