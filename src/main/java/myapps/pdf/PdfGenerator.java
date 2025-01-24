@@ -5,7 +5,7 @@ import com.lowagie.text.alignment.HorizontalAlignment;
 import com.lowagie.text.alignment.VerticalAlignment;
 import com.lowagie.text.pdf.PdfWriter;
 import myapps.datamodel.Analisi;
-import myapps.datamodel.CategoriaRifiuto;
+import myapps.datamodel.CategoriaRifiutoBase;
 import myapps.datamodel.Rifiuto;
 import myapps.gui.PositiveDoubleStringConverter;
 import myapps.gui.PrimaryController;
@@ -67,8 +67,8 @@ public class PdfGenerator {
         table.addCell(getNewCell("kg", font));
         table.addCell(getNewCell("%", font));
 
-        for (Iterator<CategoriaRifiuto> i = currentAnalisi.getCategorieArray().iterator(); i.hasNext(); ) {
-            CategoriaRifiuto categoria = i.next();
+        for (Iterator<CategoriaRifiutoBase> i = currentAnalisi.getCategorieArray().iterator(); i.hasNext(); ) {
+            CategoriaRifiutoBase categoria = i.next();
             table.addCell(getNewCell(categoria.getName(), font));
             table.addCell(getNewCell(converter.toString(categoria.getPesoTotale().getValue()), font));
             table.addCell(getNewCell(converter.toString(categoria.getPesoPercentuale().getValue()), font));

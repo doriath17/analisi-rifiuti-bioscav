@@ -8,7 +8,7 @@ import myapps.gui.PrimaryController;
 import java.util.Random;
 
 public class Rifiuto {
-    private CategoriaRifiuto categoria;
+    private CategoriaRifiutoBase categoria;
     private Analisi currentAnalisi;
 
     // data
@@ -19,7 +19,7 @@ public class Rifiuto {
     private double delta;
 
 
-    public Rifiuto(String name, Analisi currentAnalisi, CategoriaRifiuto categoria){
+    public Rifiuto(String name, Analisi currentAnalisi, CategoriaRifiutoBase categoria){
         this.name = name;
         this.categoria = categoria;
         this.currentAnalisi = currentAnalisi;

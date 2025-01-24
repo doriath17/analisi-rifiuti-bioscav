@@ -9,15 +9,15 @@ public class Analisi {
 
     public final int NUM_CATEGORIE = 3;
     public final int NUM_RIFIUTI = 11;
-    protected final ArrayList<CategoriaRifiuto> categorieArray = new ArrayList<>(NUM_CATEGORIE);
+    protected final ArrayList<CategoriaRifiutoBase> categorieArray = new ArrayList<>(NUM_CATEGORIE);
     protected final ArrayList<Rifiuto> rifiutiArray = new ArrayList<>(NUM_RIFIUTI);
 
     AnalisiResult result = new AnalisiResult(pesoCampione);
 
     public Analisi(){
-        categorieArray.add(new CategoriaRifiuto("Monomateriale",this));
-        categorieArray.add(new CategoriaRifiuto("Traccianti",this));
-        categorieArray.add(new CategoriaRifiuto("Frazioni Estranee",this));
+        categorieArray.add(new CategoriaRifiutoBase("Monomateriale",this));
+        categorieArray.add(new CategoriaRifiutoBase("Traccianti",this));
+        categorieArray.add(new CategoriaRifiutoBase("Frazioni Estranee",this));
         // todo:
 //        categorieArray.add(new CategoriaRifiuto("Materiale Differenziato", this));
 //        categorieArray.add(new CategoriaRifiuto("Frazione Esterna Totale", this));
@@ -48,11 +48,11 @@ public class Analisi {
 
     // getters categorie
 
-    public CategoriaRifiuto getMonomateriale() { return categorieArray.get(0); }
+    public CategoriaRifiutoBase getMonomateriale() { return categorieArray.get(0); }
 
-    public CategoriaRifiuto getTraccianti() { return categorieArray.get(1); }
+    public CategoriaRifiutoBase getTraccianti() { return categorieArray.get(1); }
 
-    public CategoriaRifiuto getFrazioniEstranee() { return categorieArray.get(2); }
+    public CategoriaRifiutoBase getFrazioniEstranee() { return categorieArray.get(2); }
 
 
     // getters rifiuti
@@ -93,7 +93,7 @@ public class Analisi {
         return rifiutiArray;
     }
 
-    public ArrayList<CategoriaRifiuto> getCategorieArray() {
+    public ArrayList<CategoriaRifiutoBase> getCategorieArray() {
         return categorieArray;
     }
 }

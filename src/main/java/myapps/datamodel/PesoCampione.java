@@ -15,7 +15,6 @@ public class PesoCampione {
         pesoCampione.setValue(pesoCampione.getValue() + delta);
     }
 
-
     public Double getPercentage(double value){
         return (value / pesoCampione.getValue()) * 100;
     }
