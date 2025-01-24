@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1073.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="809.0" prefWidth="1347.0">
+               <children>
+                  <Label alignment="CENTER" text="REPORT PESI ">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Separator prefWidth="200.0" />
+                  <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="718.0" prefWidth="858.0">
+                     <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Imballagi" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoImballaggi" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraImballaggi" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoImballaggi" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="3">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Vetro" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoVetro" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraVetro" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoVetro" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Frazioni Fine 2x2" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoFrazioniFini2x2" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraFrazioniFini2x2" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoFrazioniFini2x2" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Inerti" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoInerti" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraInerti" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoInerti" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="1">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Industriali" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoIndustriali" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraIndustriali" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoIndustriali" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="2">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Umido" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoUmido" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraUmido" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoUmido" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.rowIndex="1">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Medicinali" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoMedicinali" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraMedicinali" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoMedicinali" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Alluminio Acciaio" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoAlluminioAcciaio" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraAlluminioAcciaio" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoAlluminioAcciaio" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Raee" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoRaee" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraRaee" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoRaee" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.rowIndex="2">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Legno" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoLegno" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraLegno" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoLegno" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Tessuti" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoTessuti" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraTessuti" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoTessuti" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Altre FE" />
+                              <Separator prefWidth="200.0" />
+                              <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
+                                    <TextField fx:id="txtPesoLordoTessuti1" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
+                                    <TextField fx:id="txtPesoTaraTessuti1" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
+                                 <children>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
+                                    <Label fx:id="lblPesoNettoTessuti1" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </GridPane>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>
