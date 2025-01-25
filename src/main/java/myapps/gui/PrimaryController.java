@@ -40,7 +40,7 @@ public class PrimaryController {
     }
 
     public void setContentToShow(VBox content){
-        this.content.getChildren().removeAll();
+        this.content.getChildren().clear();
         this.content.getChildren().add(content);
     }
 
