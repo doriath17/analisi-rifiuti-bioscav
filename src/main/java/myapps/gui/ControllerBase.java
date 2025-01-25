@@ -3,18 +3,22 @@ package myapps.gui;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Parent;
 import javafx.scene.control.TextFormatter;
-import myapps.datamodel.ResultContainer;
 
 public class ControllerBase {
-    protected ResultContainer currentAnalisi;
-    protected Parent content;
 
-    public void setCurrentAnalisi(ResultContainer currentResultContainer){
-        this.currentAnalisi = currentResultContainer;
-    }
+    protected Parent content;
+    protected PrimaryController primaryController;
 
     public void setContent(Parent content){
         this.content = content;
+    }
+
+    public Parent getContent() {
+        return content;
+    }
+
+    public void setPrimaryController(PrimaryController primaryController){
+        this.primaryController = primaryController;
     }
 
     public static TextFormatter<Double> getTextFormatterInstance(SimpleObjectProperty<Double> toBind){
@@ -22,4 +26,5 @@ public class ControllerBase {
         textformatter.valueProperty().bindBidirectional(toBind);
         return textformatter;
     }
+
 }

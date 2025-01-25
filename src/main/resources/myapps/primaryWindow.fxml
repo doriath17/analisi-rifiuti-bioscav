@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myapps.gui.PrimaryWindowController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myapps.gui.PrimaryController">
    <children>
       <MenuBar>
         <menus>
@@ -34,17 +34,17 @@
          <children>
             <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="224.0" prefWidth="69.0" text="&lt;">
+                  <Button fx:id="btnSx" mnemonicParsing="false" onAction="#switchToLeft" prefHeight="224.0" prefWidth="69.0" text="&lt;">
                      <font>
                         <Font size="36.0" />
                      </font>
                   </Button>
                </children>
             </VBox>
-            <VBox prefHeight="753.0" prefWidth="1171.0" />
+            <VBox fx:id="content" alignment="CENTER" prefHeight="753.0" prefWidth="1171.0" />
             <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="224.0" prefWidth="69.0" text="&gt;">
+                  <Button fx:id="btnDx" mnemonicParsing="false" onAction="#switchToRight" prefHeight="224.0" prefWidth="69.0" text="&gt;">
                      <font>
                         <Font size="36.0" />
                      </font>

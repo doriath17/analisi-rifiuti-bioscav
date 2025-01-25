@@ -1,29 +1,29 @@
-//package myapps.gui;
+package myapps.gui;
 //
-//import javafx.fxml.FXML;
-//import javafx.scene.control.ChoiceBox;
-//import javafx.scene.control.DatePicker;
-//import javafx.stage.Stage;
-//import javafx.scene.control.TextField;
-//
-//import java.util.ArrayList;
-//import java.util.HashMap;
-//import java.util.List;
-//
+
+import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
+
+public class AnagrafeController extends ControllerBase {
+    // anagrafe
+    @FXML private TextField txtComune;
+    @FXML private TextField txtCerRifiuto;
+    @FXML private TextField txtNumeroFormulario;
+    @FXML private TextField txtNumeroControllo;
+    @FXML private DatePicker dtDataAnalisi;
+    @FXML private DatePicker dtDataFormulario;
+    @FXML private TextField txtOraInizio;
+    @FXML private TextField txtOraFine;
+    @FXML private ChoiceBox<String> cboxSfusoInBalle;
+    @FXML private ChoiceBox<String> cboxFlusso;
+    @FXML private TextField txtMaterialeConferito;
+}
+
 //public class AnagrafeController {
 //
-//    // anagrafe
-//    @FXML private TextField txtComune;
-//    @FXML private TextField txtCerRifiuto;
-//    @FXML private TextField txtNumeroFormulario;
-//    @FXML private TextField txtNumeroControllo;
-//    @FXML private DatePicker dtDataAnalisi;
-//    @FXML private DatePicker dtDataFormulario;
-//    @FXML private TextField txtOraInizio;
-//    @FXML private TextField txtOraFine;
-//    @FXML private ChoiceBox<String> cboxSfusoInBalle;
-//    @FXML private ChoiceBox<String> cboxFlusso;
-//    @FXML private TextField txtMaterialeConferito;
+
 //
 //    HashMap<String, String> anagrafe = new HashMap<>();
 //

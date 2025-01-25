@@ -16,7 +16,7 @@ public class InputContainer {
             "Inerti", "Tessuti", "Altre FE"
     ));
 
-    public InputContainer(ResultContainer resultContainer){
+    public InputContainer(){
         for (String name : names){
             rifiuti.put(name, new Rifiuto(name));
         }
@@ -32,7 +32,7 @@ public class InputContainer {
         }
     }
 
-    public HashMap<String, Rifiuto> getRifiutiArray(){
+    public HashMap<String, Rifiuto> getRifiuti(){
         return rifiuti;
     }
 }
