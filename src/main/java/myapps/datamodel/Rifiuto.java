@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import myapps.gui.PositiveDoubleStringConverter;
-import myapps.gui.PrimaryController;
+import myapps.gui.PrimaryWindowController;
 import java.util.Random;
 
 public class Rifiuto {
@@ -57,12 +57,12 @@ public class Rifiuto {
     }
 
     public void setupControls(TextField txtPesoLordo, TextField txtPesoTara, Label lblPesoNetto){
-        txtPesoLordo.setTextFormatter(PrimaryController.getTextFormatterInstance(pesoLordo));
+        txtPesoLordo.setTextFormatter(PrimaryWindowController.getTextFormatterInstance(pesoLordo));
         txtPesoLordo.setOnAction(event -> {
             updatePesoNetto();
         });
 
-        txtPesoTara.setTextFormatter(PrimaryController.getTextFormatterInstance(pesoTara));
+        txtPesoTara.setTextFormatter(PrimaryWindowController.getTextFormatterInstance(pesoTara));
         txtPesoTara.setOnAction(event -> {
             updatePesoNetto();
         });
