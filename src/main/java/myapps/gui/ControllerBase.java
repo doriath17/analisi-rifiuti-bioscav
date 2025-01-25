@@ -3,14 +3,14 @@ package myapps.gui;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Parent;
 import javafx.scene.control.TextFormatter;
-import myapps.datamodel.Analisi;
+import myapps.datamodel.ResultContainer;
 
 public class ControllerBase {
-    protected Analisi currentAnalisi;
+    protected ResultContainer currentAnalisi;
     protected Parent content;
 
-    public void setCurrentAnalisi(Analisi currentAnalisi){
-        this.currentAnalisi = currentAnalisi;
+    public void setCurrentAnalisi(ResultContainer currentResultContainer){
+        this.currentAnalisi = currentResultContainer;
     }
 
     public void setContent(Parent content){

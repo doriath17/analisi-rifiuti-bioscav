@@ -1,25 +1,17 @@
 package myapps.gui;
 
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.*;
-import javafx.stage.Stage;
 import myapps.App;
-import myapps.datamodel.Analisi;
+import myapps.datamodel.ResultContainer;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class PrimaryWindowController extends ControllerBase {
     private InputWindowController inputWindowController;
 
     public PrimaryWindowController() throws IOException {
-        currentAnalisi = new Analisi();
+        currentAnalisi = new ResultContainer();
 
         // load controllers
         FXMLLoader fxmlLoader = null;

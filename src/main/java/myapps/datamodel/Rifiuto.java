@@ -9,7 +9,7 @@ import java.util.Random;
 
 public class Rifiuto {
     private CategoriaRifiuto categoria;
-    private Analisi currentAnalisi;
+    private ResultContainer resultContainer;
 
     // data
     private final String name;
@@ -18,11 +18,13 @@ public class Rifiuto {
     private final SimpleObjectProperty<Double> pesoNetto = new SimpleObjectProperty<Double>(0.0);
     private double delta = 0;
 
-
-    public Rifiuto(String name, Analisi currentAnalisi, CategoriaRifiuto categoria){
+    public Rifiuto(String name){
         this.name = name;
+    }
+
+    public void setResultContainer(ResultContainer resultContainer, CategoriaRifiuto categoria){
+        this.resultContainer = resultContainer;
         this.categoria = categoria;
-        this.currentAnalisi = currentAnalisi;
     }
 
     public void randomSetup(){
@@ -51,9 +53,9 @@ public class Rifiuto {
         double prev = pesoNetto.getValue();
         pesoNetto.setValue(pesoLordo.getValue() - pesoTara.getValue());
         delta = pesoNetto.getValue() - prev;
-        currentAnalisi.getPesoCampione().updatePesoCampione(delta);
+        resultContainer.getPesoCampione().updatePesoCampione(delta);
         categoria.updatePesoTotale(delta);
-        currentAnalisi.updatePercentualiCategorie();
+        resultContainer.updatePercentualiCategorie();
     }
 
     public void setupControls(TextField txtPesoLordo, TextField txtPesoTara, Label lblPesoNetto){

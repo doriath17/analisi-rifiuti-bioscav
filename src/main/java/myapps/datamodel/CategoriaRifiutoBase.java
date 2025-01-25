@@ -4,20 +4,17 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
 import myapps.gui.PositiveDoubleStringConverter;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class CategoriaRifiutoBase {
-    protected Analisi currentAnalisi;
+    protected ResultContainer resultContainer;
 
     // data
     protected final String name;
     protected SimpleObjectProperty<Double> pesoTotale = new SimpleObjectProperty<>(0.0);
     protected SimpleObjectProperty<Double> pesoPercentuale = new SimpleObjectProperty<>(0.0);
 
-    public CategoriaRifiutoBase(String name, Analisi currentAnalisi){
+    public CategoriaRifiutoBase(String name, ResultContainer resultContainer){
         this.name = name;
-        this.currentAnalisi = currentAnalisi;
+        this.resultContainer = resultContainer;
     }
 
     public String getName() {
@@ -38,7 +35,7 @@ public class CategoriaRifiutoBase {
 
     public void updatePesoPercentuale(){
         pesoPercentuale.setValue(
-                currentAnalisi.getPesoCampione().getPercentage(pesoTotale.getValue())
+                resultContainer.getPesoCampione().getPercentage(pesoTotale.getValue())
         );
     }
 

@@ -1,10 +1,8 @@
 package myapps.gui;
 
 import javafx.fxml.FXML;
-import javafx.scene.Parent;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import myapps.datamodel.Analisi;
 
 public class InputWindowController extends ControllerBase {
         // rifiuti
@@ -64,49 +62,49 @@ public class InputWindowController extends ControllerBase {
         this.primaryWindowController = primaryWindowController;
     }
 
-    @FXML public void initialize() {
-        currentAnalisi.getImballaggi().setupControls(
-                txtPesoLordoImballaggi, txtPesoTaraImballaggi, lblPesoNettoImballaggi
-        );
-
-        currentAnalisi.getIndustriali().setupControls(
-                txtPesoLordoIndustriali, txtPesoTaraIndustriali, lblPesoNettoIndustriali
-        );
-
-        currentAnalisi.getUmido().setupControls(
-                txtPesoLordoUmido, txtPesoTaraUmido, lblPesoNettoUmido
-        );
-
-        currentAnalisi.getVetro().setupControls(
-                txtPesoLordoVetro, txtPesoTaraVetro, lblPesoNettoVetro
-        );
-
-        currentAnalisi.getMedicinali().setupControls(
-                txtPesoLordoMedicinali, txtPesoTaraMedicinali, lblPesoNettoMedicinali
-        );
-
-        currentAnalisi.getAlluminioAcciaio().setupControls(
-                txtPesoLordoAlluminioAcciaio, txtPesoTaraAlluminioAcciaio, lblPesoNettoAlluminioAcciaio
-        );
-
-        currentAnalisi.getFrazioniFini2x2().setupControls(
-                txtPesoLordoFrazioniFini2x2, txtPesoTaraFrazioniFini2x2, lblPesoNettoFrazioniFini2x2
-        );
-
-        currentAnalisi.getRaee().setupControls(
-                txtPesoLordoRaee, txtPesoTaraRaee, lblPesoNettoRaee
-        );
-
-        currentAnalisi.getLegno().setupControls(
-                txtPesoLordoLegno, txtPesoTaraLegno, lblPesoNettoLegno
-        );
-
-        currentAnalisi.getInerti().setupControls(
-                txtPesoLordoInerti, txtPesoTaraInerti, lblPesoNettoInerti
-        );
-
-        currentAnalisi.getTessuti().setupControls(
-                txtPesoLordoTessuti, txtPesoTaraTessuti, lblPesoNettoTessuti
-        );
-    }
+//    @FXML public void initialize() {
+//        currentAnalisi.getImballaggi().setupControls(
+//                txtPesoLordoImballaggi, txtPesoTaraImballaggi, lblPesoNettoImballaggi
+//        );
+//
+//        currentAnalisi.getIndustriali().setupControls(
+//                txtPesoLordoIndustriali, txtPesoTaraIndustriali, lblPesoNettoIndustriali
+//        );
+//
+//        currentAnalisi.getUmido().setupControls(
+//                txtPesoLordoUmido, txtPesoTaraUmido, lblPesoNettoUmido
+//        );
+//
+//        currentAnalisi.getVetro().setupControls(
+//                txtPesoLordoVetro, txtPesoTaraVetro, lblPesoNettoVetro
+//        );
+//
+//        currentAnalisi.getMedicinali().setupControls(
+//                txtPesoLordoMedicinali, txtPesoTaraMedicinali, lblPesoNettoMedicinali
+//        );
+//
+//        currentAnalisi.getAlluminioAcciaio().setupControls(
+//                txtPesoLordoAlluminioAcciaio, txtPesoTaraAlluminioAcciaio, lblPesoNettoAlluminioAcciaio
+//        );
+//
+//        currentAnalisi.getFrazioniFini2x2().setupControls(
+//                txtPesoLordoFrazioniFini2x2, txtPesoTaraFrazioniFini2x2, lblPesoNettoFrazioniFini2x2
+//        );
+//
+//        currentAnalisi.getRaee().setupControls(
+//                txtPesoLordoRaee, txtPesoTaraRaee, lblPesoNettoRaee
+//        );
+//
+//        currentAnalisi.getLegno().setupControls(
+//                txtPesoLordoLegno, txtPesoTaraLegno, lblPesoNettoLegno
+//        );
+//
+//        currentAnalisi.getInerti().setupControls(
+//                txtPesoLordoInerti, txtPesoTaraInerti, lblPesoNettoInerti
+//        );
+//
+//        currentAnalisi.getTessuti().setupControls(
+//                txtPesoLordoTessuti, txtPesoTaraTessuti, lblPesoNettoTessuti
+//        );
+//    }
 }
