@@ -45,7 +45,7 @@ public class ResultContainer {
         pesoCampione.updatePesoCampione(delta);
     }
 
-    public HashMap<String, CategoriaRifiutoBase> getCategorie(){
+    public HashMap<String, CategoriaRifiutoBase> getMap(){
         return categorie;
     }
 

@@ -43,7 +43,7 @@ public class ResultController extends ControllerBase {
     @FXML public void initialize(){
         resultContainer.getPesoCampione().setupControls(lblPesoCampione);
 
-        var map = resultContainer.getCategorie();
+        var map = resultContainer.getMap();
         map.get("Materiale Differenziato Totale").setupControls(lblMDiffKg, lblMDiffPer);
         map.get("Frazione Estranea Totale").setupControls(lblFEKg, lblFEPer);
         map.get("Monomateriale").setupControls(lblMonomaterialeKg, lblMonomaterialePer);

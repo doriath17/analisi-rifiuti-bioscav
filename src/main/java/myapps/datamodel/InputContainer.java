@@ -23,7 +23,7 @@ public class InputContainer {
     }
 
     public void setResultContainer(ResultContainer resultContainer){
-        var map = resultContainer.getCategorie();
+        var map = resultContainer.getMap();
         Iterator<String> i = names.iterator();
         rifiuti.get(i.next()).setResultContainer(resultContainer, (CategoriaRifiuto) map.get("Monomateriale"));
         rifiuti.get(i.next()).setResultContainer(resultContainer, (CategoriaRifiuto) map.get("Traccianti"));
@@ -32,7 +32,7 @@ public class InputContainer {
         }
     }
 
-    public HashMap<String, Rifiuto> getRifiuti(){
+    public HashMap<String, Rifiuto> getMap(){
         return rifiuti;
     }
 }

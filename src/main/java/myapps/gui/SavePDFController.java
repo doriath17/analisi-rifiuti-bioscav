@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import myapps.datamodel.AnagrafeAnalisi;
+import myapps.pdf.PdfGenerator;
 
 import java.io.File;
 
@@ -22,6 +23,7 @@ public class SavePDFController extends ControllerBase {
 
     // UI
     private Stage stage;
+    private PdfGenerator pdfGenerator;
 
     @Override
     public void init(ControllerLoader loader, PrimaryController primaryController){
@@ -29,6 +31,11 @@ public class SavePDFController extends ControllerBase {
         stage = new Stage();
         stage.setScene(new Scene(content));
         stage.setAlwaysOnTop(true);
+        pdfGenerator = new PdfGenerator(
+                loader.getInputController().getInputContainer(),
+                loader.getResultController().getResultContainer(),
+                loader.getAnagrafeController().getAnagrafe()
+        );
     }
 
     public void updateAnagrafe(){
@@ -57,7 +64,7 @@ public class SavePDFController extends ControllerBase {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         File selectedDirectory = directoryChooser.showDialog(stage);
 
-//        PdfGenerator.generatePdf(selectedDirectory, filename, currentAnalisi, anagrafe);
+        pdfGenerator.generatePdf(selectedDirectory, filename);
     }
 
     @FXML public void closeSaveDialog(){

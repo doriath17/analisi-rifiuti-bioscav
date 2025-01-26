@@ -60,7 +60,7 @@ public class InputController extends ControllerBase {
 
 
     @FXML public void initialize() {
-        var map = inputContainer.getRifiuti();
+        var map = inputContainer.getMap();
 
         map.get("Imballaggi COREPLA").setupControls(
                 txtPesoLordoImballaggi, txtPesoTaraImballaggi, lblPesoNettoImballaggi
@@ -111,6 +111,10 @@ public class InputController extends ControllerBase {
     public void init(ControllerLoader loader, PrimaryController primaryController){
         super.init(loader, primaryController);
         inputContainer.setResultContainer(loader.getResultController().getResultContainer());
+    }
+
+    public InputContainer getInputContainer(){
+        return this.inputContainer;
     }
 
     public void setPrimaryWindow(PrimaryController primaryController){
