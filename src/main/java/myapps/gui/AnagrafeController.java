@@ -7,7 +7,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 public class AnagrafeController extends ControllerBase {
-    // anagrafe
+
+    // UI bindings
     @FXML private TextField txtComune;
     @FXML private TextField txtCerRifiuto;
     @FXML private TextField txtNumeroFormulario;
@@ -19,6 +20,9 @@ public class AnagrafeController extends ControllerBase {
     @FXML private ChoiceBox<String> cboxSfusoInBalle;
     @FXML private ChoiceBox<String> cboxFlusso;
     @FXML private TextField txtMaterialeConferito;
+
+    // data model
+
 }
 
 //public class AnagrafeController {

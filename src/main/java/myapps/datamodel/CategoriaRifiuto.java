@@ -3,8 +3,8 @@ package myapps.datamodel;
 public class CategoriaRifiuto extends CategoriaRifiutoBase {
     private final CategoriaRifiutoBase base;
 
-    public CategoriaRifiuto(String name, ResultContainer currentAnalisi, CategoriaRifiutoBase base){
-        super(name, currentAnalisi);
+    public CategoriaRifiuto(String name, ResultContainer resultContainer, CategoriaRifiutoBase base){
+        super(name, resultContainer);
         this.base = base;
     }
 

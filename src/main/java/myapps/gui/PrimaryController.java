@@ -29,7 +29,7 @@ public class PrimaryController {
     private State s3;
     private State currentState;
 
-    public void initCotroller(ControllerLoader loader){
+    public void initController(ControllerLoader loader){
         this.loader = loader;
         s1 = new State(null, loader.getInputController(), loader.getResultController());
         s2 = new State(loader.getInputController(), loader.getResultController(), loader.getAnagrafeController());

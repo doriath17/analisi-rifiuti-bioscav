@@ -11,21 +11,32 @@ public class ControllerLoader {
     private PrimaryController primaryController;
     private Parent root;
 
-    private InputController inputController;
-    private ResultController resultController;
-    private AnagrafeController anagrafeController;
+    private ControllerBase inputController;
+    private ControllerBase resultController;
+    private ControllerBase anagrafeController;
+    private ControllerBase savePDFController;
 
     public static final String loc1 = "primaryWindow.fxml";
     public static final String loc2 = "inputWindow.fxml";
     public static final String loc3 = "resultWindow.fxml";
     public static final String loc4 = "anagrafeWindow.fxml";
+    public static final String loc5 = "savePDF.fxml";
 
     public ControllerLoader(){
         loadPrimaryController();
         loadInputController();
         loadResultController();
         loadAnagrafeController();
-        primaryController.initCotroller(this);
+        loadSavePDFController();
+        initControllers();
+    }
+
+    private void initControllers(){
+        primaryController.initController(this);
+        resultController.init(this, primaryController);
+        inputController.init(this, primaryController);
+        anagrafeController.init(this, primaryController);
+        savePDFController.init(this, primaryController);
     }
 
     public PrimaryController getPrimaryController() {
@@ -37,15 +48,19 @@ public class ControllerLoader {
     }
 
     public InputController getInputController() {
-        return inputController;
+        return (InputController) inputController;
     }
 
     public ResultController getResultController() {
-        return resultController;
+        return (ResultController) resultController;
     }
 
     public AnagrafeController getAnagrafeController() {
-        return anagrafeController;
+        return (AnagrafeController) anagrafeController;
+    }
+
+    public SavePDFController getSavePDFController() {
+        return (SavePDFController) savePDFController;
     }
 
     private void loadPrimaryController(){
@@ -64,7 +79,6 @@ public class ControllerLoader {
             Parent content = fxmlLoader.load();
             inputController = fxmlLoader.getController();
             inputController.setContent(content);
-            inputController.setPrimaryController(primaryController);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
@@ -76,7 +90,6 @@ public class ControllerLoader {
             Parent content = fxmlLoader.load();
             resultController = fxmlLoader.getController();
             resultController.setContent(content);
-            resultController.setPrimaryController(primaryController);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }
@@ -88,7 +101,17 @@ public class ControllerLoader {
             Parent content = fxmlLoader.load();
             anagrafeController = fxmlLoader.getController();
             anagrafeController.setContent(content);
-            anagrafeController.setPrimaryController(primaryController);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
+    }
+
+    public void loadSavePDFController(){
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(loc5));
+            Parent content = fxmlLoader.load();
+            savePDFController = fxmlLoader.getController();
+            savePDFController.setContent(content);
         } catch (IOException e) {
             System.err.println(e.getMessage());
         }

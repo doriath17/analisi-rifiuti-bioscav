@@ -7,8 +7,6 @@ public class AnagrafeAnalisi {
     private ArrayList<String> keys = new ArrayList<>(NUM_STRING);
     private ArrayList<String> values = new ArrayList<>(NUM_STRING);
 
-
-
 //    private String comune;
 //    private String cerRifiuto;
 //    private String numeroFormulario;

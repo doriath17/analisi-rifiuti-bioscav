@@ -2,6 +2,7 @@ package myapps.datamodel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 
 public class ResultContainer {
@@ -16,9 +17,22 @@ public class ResultContainer {
     ));
 
     public ResultContainer() {
-        for (String name : names){
-            categorie.put(name, new CategoriaRifiutoBase(name, this));
-        }
+        categorie.put("Materiale Differenziato Totale",
+                new CategoriaRifiutoBase("Materiale Differenziato Totale", this));
+        categorie.put("Frazione Estranea Totale",
+                new CategoriaRifiutoBase("Frazione Estranea Totale", this));
+        categorie.put("Monomateriale",
+                (CategoriaRifiutoBase) new CategoriaRifiuto(
+                        "Monomateriale", this,  categorie.get("Materiale Differenziato Totale")
+                ));
+        categorie.put("Traccianti",
+                (CategoriaRifiutoBase) new CategoriaRifiuto(
+                        "Traccianti", this,  categorie.get("Materiale Differenziato Totale")
+                ));
+        categorie.put("Frazioni Estranee",
+                (CategoriaRifiutoBase) new CategoriaRifiuto(
+                        "Frazioni Estranee", this,  categorie.get("Frazione Estranea Totale")
+                ));
     }
 
     // peso campione

@@ -9,8 +9,8 @@ import myapps.datamodel.Rifiuto;
 import java.util.HashMap;
 
 public class InputController extends ControllerBase {
-        // rifiuti
 
+    // UI controls
     @FXML private TextField txtPesoLordoImballaggi;
     @FXML private TextField txtPesoTaraImballaggi;
     @FXML private Label lblPesoNettoImballaggi;
@@ -55,15 +55,13 @@ public class InputController extends ControllerBase {
     @FXML private TextField txtPesoTaraTessuti;
     @FXML private Label lblPesoNettoTessuti;
 
-    private PrimaryController primaryController;
+    // data model
     private InputContainer inputContainer = new InputContainer();
-    private HashMap<String, Rifiuto> map = inputContainer.getRifiuti();
 
-    public InputController(){
-
-    }
 
     @FXML public void initialize() {
+        var map = inputContainer.getRifiuti();
+
         map.get("Imballaggi COREPLA").setupControls(
                 txtPesoLordoImballaggi, txtPesoTaraImballaggi, lblPesoNettoImballaggi
         );
@@ -107,6 +105,12 @@ public class InputController extends ControllerBase {
         map.get("Tessuti").setupControls(
                 txtPesoLordoTessuti, txtPesoTaraTessuti, lblPesoNettoTessuti
         );
+    }
+
+    @Override
+    public void init(ControllerLoader loader, PrimaryController primaryController){
+        super.init(loader, primaryController);
+        inputContainer.setResultContainer(loader.getResultController().getResultContainer());
     }
 
     public void setPrimaryWindow(PrimaryController primaryController){
