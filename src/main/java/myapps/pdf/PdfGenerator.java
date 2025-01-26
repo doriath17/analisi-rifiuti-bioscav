@@ -25,7 +25,6 @@ public class PdfGenerator {
     private AnagrafeAnalisi anagrafe;
     private Font font = FontFactory.getFont(FontFactory.HELVETICA, 10);
 
-
     public PdfGenerator(InputContainer inputContainer, ResultContainer resultContainer, AnagrafeAnalisi anagrafe) {
         this.inputContainer = inputContainer;
         this.resultContainer = resultContainer;
@@ -91,7 +90,6 @@ public class PdfGenerator {
             table.addCell(getNewCell(converter.toString(categoria.getPesoPercentuale().getValue())));
         }
     }
-
 
     public void generatePdf(File selectedDirectory, String filename){
 

@@ -17,7 +17,7 @@
          <children>
             <Label alignment="CENTER" text="REPORT PESI ">
                <font>
-                  <Font size="18.0" />
+                  <Font size="24.0" />
                </font>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -42,7 +42,10 @@
                <children>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Imballagi" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Imballaggi COREPLA">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -66,7 +69,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="3">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Vetro" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Vetro">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -90,7 +96,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Frazioni Fine 2x2" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Frazioni Fine 2x2">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -114,7 +123,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Inerti" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Inerti">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -138,7 +150,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="1">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Industriali" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Industriali">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -162,7 +177,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="2">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Umido" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Umido">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -186,7 +204,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Medicinali" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Medicinali">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -210,7 +231,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Alluminio Acciaio" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Alluminio Acciaio">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -234,7 +258,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Raee" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Raee">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -258,7 +285,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.rowIndex="2">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Legno" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Legno">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -282,7 +312,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Tessuti" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Tessuti">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
@@ -306,7 +339,10 @@
                   </VBox>
                   <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="184.0" prefWidth="185.0" style="-fx-border-color: black; -fx-border-style: solid; -fx-border-width: 1;" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Altre FE" />
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="212.0" text="Altre FE">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
                         <Separator prefWidth="200.0" />
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>

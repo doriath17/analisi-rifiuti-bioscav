@@ -17,8 +17,8 @@ public class AnagrafeAnalisi {
         "Formulario N°", "Data Formulario",
         "Sfuso/In Balle", "Flusso",
         "Ora Inizio", "Ora Fine",
-        "Materiale Conferito (Kg)",
-        "Analizzatore", "Supervisore"
+        "Analizzatore", "In presenza di: ",
+        "Materiale Conferito (Kg)"
     ));
 
     public AnagrafeAnalisi(){

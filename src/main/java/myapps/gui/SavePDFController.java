@@ -41,7 +41,7 @@ public class SavePDFController extends ControllerBase {
     public void updateAnagrafe(){
         var map = loader.getAnagrafeController().getAnagrafe().getMap();
         map.put("Analizzatore", txtAnalizzatore.getText());
-        map.put("Supervisore", txtSupervisore.getText());
+        map.put("In presenza di: ", txtSupervisore.getText());
     }
 
     public Stage getStage() {
@@ -51,6 +51,10 @@ public class SavePDFController extends ControllerBase {
     @FXML public void saveToPDF(){
         String filename = txtFilename.getText();
         AnagrafeAnalisi anagrafe = loader.getAnagrafeController().getAnagrafe();
+
+        loader.getAnagrafeController().updateAnagrafe();
+        updateAnagrafe();
+
         if (filename.isEmpty()){
             String date = anagrafe.getMap().get("Data Analisi");
             if (date == null || date.isEmpty()){

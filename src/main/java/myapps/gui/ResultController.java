@@ -56,7 +56,6 @@ public class ResultController extends ControllerBase {
     }
 
     @FXML private void openSavePDFStage(){
-//        updateAnagrafe();
         loader.getSavePDFController().getStage().show();
     }
 }
