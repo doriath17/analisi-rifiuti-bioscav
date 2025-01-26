@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
+import myapps.datamodel.AnagrafeAnalisi;
 
 import java.io.File;
 
@@ -22,22 +23,6 @@ public class SavePDFController extends ControllerBase {
     // UI
     private Stage stage;
 
-    // data model
-//    HashMap<String, String> anagrafe;
-//
-//    public void setAnagrafe(HashMap<String, String> anagrafe){
-//        this.anagrafe = anagrafe;
-//    }
-//
-//    public void setStage(Stage stage){
-//        this.stage = stage;
-//    }
-//
-//    public void updateAnagrafe(){
-//        anagrafe.put(PrimaryWindowController.anagrafeStrings.get(12), txtAnalizzatore.getText());
-//        anagrafe.put(PrimaryWindowController.anagrafeStrings.get(11), txtSupervisore.getText());
-//    }
-
     @Override
     public void init(ControllerLoader loader, PrimaryController primaryController){
         super.init(loader, primaryController);
@@ -46,26 +31,32 @@ public class SavePDFController extends ControllerBase {
         stage.setAlwaysOnTop(true);
     }
 
+    public void updateAnagrafe(){
+        var map = loader.getAnagrafeController().getAnagrafe().getMap();
+        map.put("Analizzatore", txtAnalizzatore.getText());
+        map.put("Supervisore", txtSupervisore.getText());
+    }
+
     public Stage getStage() {
         return stage;
     }
 
     @FXML public void saveToPDF(){
-//        String filename = txtFilename.getText();
-//        updateAnagrafe();
-//        if (filename.isEmpty()){
-//            String date = anagrafe.get(PrimaryWindowController.anagrafeStrings.get(3));
-//            if (date == null || date.isEmpty()){
-//                date = "";
-//            }
-//            filename = "Analisi" + date + ".pdf";
-//        } else {
-//            filename = txtFilename.getText() + ".pdf";
-//        }
-//
-//        DirectoryChooser directoryChooser = new DirectoryChooser();
-//        File selectedDirectory = directoryChooser.showDialog(stage);
-//
+        String filename = txtFilename.getText();
+        AnagrafeAnalisi anagrafe = loader.getAnagrafeController().getAnagrafe();
+        if (filename.isEmpty()){
+            String date = anagrafe.getMap().get("Data Analisi");
+            if (date == null || date.isEmpty()){
+                date = "";
+            }
+            filename = "Analisi" + date + ".pdf";
+        } else {
+            filename = txtFilename.getText() + ".pdf";
+        }
+
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        File selectedDirectory = directoryChooser.showDialog(stage);
+
 //        PdfGenerator.generatePdf(selectedDirectory, filename, currentAnalisi, anagrafe);
     }
 

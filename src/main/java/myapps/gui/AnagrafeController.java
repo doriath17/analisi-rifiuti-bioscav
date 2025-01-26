@@ -5,6 +5,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import myapps.datamodel.AnagrafeAnalisi;
+
+import java.util.HashMap;
+import java.util.Iterator;
 
 public class AnagrafeController extends ControllerBase {
 
@@ -22,44 +26,25 @@ public class AnagrafeController extends ControllerBase {
     @FXML private TextField txtMaterialeConferito;
 
     // data model
+    private AnagrafeAnalisi anagrafe = new AnagrafeAnalisi();
 
+    public AnagrafeAnalisi getAnagrafe() {
+        return anagrafe;
+    }
+
+    public void updateAnagrafe(){
+        var map = anagrafe.getMap();
+        Iterator<String> i = AnagrafeAnalisi.names.iterator();
+        map.put("Comune",  txtComune.getText());
+        map.put("Numero Controllo", txtNumeroControllo.getText());
+        map.put("CER Rifiuto", txtCerRifiuto.getText());
+        map.put("Data Analisi", dtDataAnalisi.getAccessibleText());
+        map.put("Formulario N°", txtNumeroFormulario.getText());
+        map.put("Data Formulario", dtDataFormulario.getAccessibleText());
+        map.put("Ora Inizio", txtOraInizio.getText());
+        map.put("Ora Fine", txtOraFine.getText());
+        map.put("Sfuso/In Balle", cboxSfusoInBalle.getAccessibleText());
+        map.put("Flusso", cboxFlusso.getAccessibleText());
+        map.put("Materiale Conferito", txtMaterialeConferito.getText());
+    }
 }
-
-//public class AnagrafeController {
-//
-
-//
-//    HashMap<String, String> anagrafe = new HashMap<>();
-//
-//    public static final int NUM_ANAGRAFE_STRINGS = 13;
-//    public static final ArrayList<String> anagrafeStrings = new ArrayList<>(List.of(
-//            "Comune", "Numero Controllo", "Cer. rifiuto", "Data Analisi",
-//            "Numero Formulario", "Data Formulario", "Ora Inizio", "Ora Fine",
-//            "Sfuso/In Balle", "Flusso", "Materiale Conferito", "Analizzatore", "Supervisore"
-//    ));
-//
-//    public AnagrafeController(){
-//        initAnagrafe();
-//    }
-//
-//    private void initAnagrafe(){
-//        for (String s : anagrafeStrings){
-//            anagrafe.put(s, "");
-//        }
-//    }
-//
-//    public void updateAnagrafe(){
-//        int i=0;
-//        anagrafe.put(anagrafeStrings.get(i++), txtComune.getText());
-//        anagrafe.put(anagrafeStrings.get(i++), txtNumeroControllo.getText());
-//        anagrafe.put(anagrafeStrings.get(i++), txtCerRifiuto.getText());
-//        anagrafe.put(anagrafeStrings.get(i++), dtDataAnalisi.getAccessibleText());
-//        anagrafe.put(anagrafeStrings.get(i++), txtNumeroFormulario.getText());
-//        anagrafe.put(anagrafeStrings.get(i++), dtDataFormulario.getAccessibleText());
-//        anagrafe.put(anagrafeStrings.get(i++), txtOraInizio.getText());
-//        anagrafe.put(anagrafeStrings.get(i++), txtOraFine.getText());
-//        anagrafe.put(anagrafeStrings.get(i++), cboxSfusoInBalle.getAccessibleText());
-//        anagrafe.put(anagrafeStrings.get(i++), cboxFlusso.getAccessibleText());
-//        anagrafe.put(anagrafeStrings.get(i), txtMaterialeConferito.getText());
-//    }
-//}
