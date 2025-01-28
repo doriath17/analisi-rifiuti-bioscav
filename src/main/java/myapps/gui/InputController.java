@@ -55,6 +55,10 @@ public class InputController extends ControllerBase {
     @FXML private TextField txtPesoTaraTessuti;
     @FXML private Label lblPesoNettoTessuti;
 
+    @FXML private TextField txtPesoLordoAltreFE;
+    @FXML private TextField txtPesoTaraAltreFE;
+    @FXML private Label lblPesoNettoAltreFE;
+
     // data model
     private InputContainer inputContainer = new InputContainer();
 
@@ -105,6 +109,8 @@ public class InputController extends ControllerBase {
         map.get("Tessuti").setupControls(
                 txtPesoLordoTessuti, txtPesoTaraTessuti, lblPesoNettoTessuti
         );
+
+        map.get("Altre FE").setupControls(txtPesoLordoAltreFE, txtPesoTaraAltreFE, lblPesoNettoAltreFE);
     }
 
     @Override
@@ -115,9 +121,5 @@ public class InputController extends ControllerBase {
 
     public InputContainer getInputContainer(){
         return this.inputContainer;
-    }
-
-    public void setPrimaryWindow(PrimaryController primaryController){
-        this.primaryController = primaryController;
     }
 }

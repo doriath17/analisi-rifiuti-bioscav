@@ -13,6 +13,7 @@ public class ResultController extends ControllerBase {
 
     // UI bindings
     @FXML private Label lblPesoCampione;
+    @FXML private Label lblRangeQ;
 
     @FXML private Label lblMonomaterialeKg;
     @FXML private Label lblMonomaterialePer;
@@ -33,12 +34,6 @@ public class ResultController extends ControllerBase {
 
     // data model
     private ResultContainer resultContainer = new ResultContainer();
-
-    public ResultController() throws IOException {
-//        savePDFController.setAnagrafe(anagrafe);
-//        savePDFController.setStage(savePDFStage);
-//        savePDFController.setCurrentAnalisi(currentAnalisi);
-    }
 
     @FXML public void initialize(){
         resultContainer.getPesoCampione().setupControls(lblPesoCampione);

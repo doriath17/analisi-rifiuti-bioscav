@@ -149,7 +149,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="264.0" layoutY="10.0" prefHeight="74.0" prefWidth="272.0" GridPane.columnIndex="3">
+            <Label fx:id="lblRangeQ" alignment="CENTER" layoutX="264.0" layoutY="10.0" prefHeight="74.0" prefWidth="272.0" GridPane.columnIndex="3">
                <font>
                   <Font size="18.0" />
                </font>

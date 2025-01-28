@@ -347,19 +347,19 @@
                         <HBox alignment="CENTER" prefHeight="43.0" prefWidth="262.0">
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Lordo" />
-                              <TextField fx:id="txtPesoLordoTessuti1" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
+                              <TextField fx:id="txtPesoLordoAltreFE" alignment="CENTER" prefHeight="25.0" prefWidth="80.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="43.0" prefWidth="262.0">
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Tara" />
-                              <TextField fx:id="txtPesoTaraTessuti1" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
+                              <TextField fx:id="txtPesoTaraAltreFE" alignment="CENTER" prefHeight="24.0" prefWidth="80.0" />
                            </children>
                         </HBox>
                         <HBox alignment="CENTER" layoutX="10.0" layoutY="96.0" prefHeight="43.0" prefWidth="262.0">
                            <children>
                               <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="69.0" text="Netto" />
-                              <Label fx:id="lblPesoNettoTessuti1" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
+                              <Label fx:id="lblPesoNettoAltreFE" alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="10.0" prefHeight="43.0" prefWidth="69.0" />
                            </children>
                         </HBox>
                      </children>

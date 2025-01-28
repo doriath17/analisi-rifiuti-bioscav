@@ -1,5 +1,7 @@
 package myapps.datamodel;
 
+import javafx.beans.property.SimpleObjectProperty;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -7,6 +9,7 @@ import java.util.List;
 
 public class ResultContainer {
     private final PesoCampione pesoCampione = new PesoCampione();
+    private final SimpleObjectProperty<Double> rangeQ= new SimpleObjectProperty<>(0.0);
 
     public static final int NUM_CATEGORIE = 5;
     protected final HashMap<String, CategoriaRifiutoBase> categorie = new HashMap<>();
@@ -41,8 +44,8 @@ public class ResultContainer {
         return pesoCampione;
     }
 
-    public void updatePesoCampione(double delta){
-        pesoCampione.updatePesoCampione(delta);
+    public SimpleObjectProperty<Double> rangeQProperty() {
+        return rangeQ;
     }
 
     public HashMap<String, CategoriaRifiutoBase> getMap(){

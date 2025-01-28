@@ -24,6 +24,7 @@ public class PdfGenerator {
     private InputContainer inputContainer;
     private AnagrafeAnalisi anagrafe;
     private Font font = FontFactory.getFont(FontFactory.HELVETICA, 10);
+    private Font headerFont = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD);
 
     public PdfGenerator(InputContainer inputContainer, ResultContainer resultContainer, AnagrafeAnalisi anagrafe) {
         this.inputContainer = inputContainer;
@@ -48,6 +49,14 @@ public class PdfGenerator {
         return cell;
     }
 
+    private Cell getNewHeaderCell(String s){
+        Phrase phrase = new Phrase(s, headerFont);
+        Cell cell = new Cell(phrase);
+        cell.setVerticalAlignment(VerticalAlignment.CENTER);
+        cell.setHorizontalAlignment(HorizontalAlignment.CENTER);
+        return cell;
+    }
+
     private void prepareAnagrafeTable(Table table){
         var map = anagrafe.getMap();
         for (Iterator<String> i = AnagrafeAnalisi.names.iterator(); i.hasNext();){
@@ -58,10 +67,10 @@ public class PdfGenerator {
     }
 
     private void prepareAnalisiDataTable(Table table){
-        table.addCell(getNewCell("Tipo Rifiuto"));
-        table.addCell(getNewCell("Peso Lordo (kg)"));
-        table.addCell(getNewCell("Peso Tara (kg)"));
-        table.addCell(getNewCell("Peso Netto (kg)"));
+        table.addCell(getNewHeaderCell("Tipo Rifiuto"));
+        table.addCell(getNewHeaderCell("Peso Lordo (kg)"));
+        table.addCell(getNewHeaderCell("Peso Tara (kg)"));
+        table.addCell(getNewHeaderCell("Peso Netto (kg)"));
 
         var map = inputContainer.getMap();
         for (Iterator<String> i = InputContainer.names.iterator(); i.hasNext(); ){
@@ -75,9 +84,9 @@ public class PdfGenerator {
     }
 
     private void prepareCategories(Table table) {
-        table.addCell(getNewCell("Categoria"));
-        table.addCell(getNewCell("kg"));
-        table.addCell(getNewCell("%"));
+        table.addCell(getNewHeaderCell("Categoria"));
+        table.addCell(getNewHeaderCell("kg"));
+        table.addCell(getNewHeaderCell("%"));
 
         var map = resultContainer.getMap();
 
