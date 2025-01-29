@@ -2,6 +2,7 @@ package myapps.analisibioscav.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.VBox;
 
 public class PrimaryController {
@@ -76,6 +77,12 @@ public class PrimaryController {
             currentState = s1;
             mustDisable(btnSx);
         }
+    }
+
+    // menu items
+
+    @FXML public void closeApp(){
+
     }
 
 }

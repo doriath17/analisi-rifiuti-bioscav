@@ -14,24 +14,24 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
     private ControllerLoader controllerLoader;
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void init(){
         controllerLoader = new ControllerLoader();
+    }
 
-        scene = new Scene(controllerLoader.getRoot());
-
-        stage.setScene(scene);
+    @Override
+    public void start(Stage stage) throws IOException {
+        stage.setScene(new Scene(controllerLoader.getRoot()));
         stage.setResizable(false);
         stage.sizeToScene();
         stage.show();
     }
 
-    public static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml));
-        return fxmlLoader.load();
+    @Override
+    public void stop(){
+
     }
 
     public static void main(String[] args) {

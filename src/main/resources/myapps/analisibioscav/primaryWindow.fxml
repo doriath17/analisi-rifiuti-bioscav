@@ -15,10 +15,11 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem fx:id="mItemCloseApp" mnemonicParsing="false" onAction="#closeApp" text="Chiudi App" />
+                  <MenuItem mnemonicParsing="false" text="Reset" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Edit">
+          <Menu mnemonicParsing="false" text="Window">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
