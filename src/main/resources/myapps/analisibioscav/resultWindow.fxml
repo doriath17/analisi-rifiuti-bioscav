@@ -12,115 +12,122 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="531.0" prefWidth="1023.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myapps.analisibioscav.gui.ResultController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myapps.analisibioscav.gui.ResultController">
    <children>
       <Label alignment="CENTER" prefHeight="79.0" prefWidth="1154.0" text="RISULTATI ANALISI ">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Separator prefWidth="200.0" />
-      <GridPane prefHeight="194.0" prefWidth="897.0">
+      <GridPane gridLinesVisible="true" prefHeight="269.0" prefWidth="712.0">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="10.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="80.0" prefWidth="80.0" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="50.0" prefWidth="50.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="206.0" minWidth="100.0" prefWidth="100.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="264.0" minWidth="10.0" prefWidth="140.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="149.0" minWidth="250.0" prefWidth="160.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="346.4000244140625" minWidth="10.0" prefWidth="346.4000244140625" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="246.39996337890625" minWidth="10.0" prefWidth="206.20003662109372" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="201.39996337890625" minWidth="10.0" prefWidth="201.39996337890625" />
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="45.4" minHeight="10.0" prefHeight="45.4" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="43.19999389648438" minHeight="10.0" prefHeight="43.19999389648438" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="40.59998168945313" minHeight="10.0" prefHeight="35.00000610351563" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="79.0" prefWidth="220.0" text="Monomateriali" GridPane.columnIndex="1">
+            <Label alignment="CENTER" prefHeight="58.0" prefWidth="329.0" text="Monomateriali" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="79.0" prefWidth="220.0" text="Traccianti" GridPane.columnIndex="2">
+            <Label alignment="CENTER" prefHeight="46.0" prefWidth="393.0" text="Traccianti" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="368.0" layoutY="10.0" prefHeight="65.0" prefWidth="267.0" text="Materiale Differenziato" GridPane.columnIndex="4">
+            <Label alignment="CENTER" prefHeight="79.0" prefWidth="220.0" text="Frazioni Estranee" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="368.0" layoutY="10.0" prefHeight="79.0" prefWidth="220.0" text="Frazioni Estranee" GridPane.columnIndex="3">
+            <Label alignment="CENTER" prefHeight="65.0" prefWidth="267.0" text="Materiale Differenziato" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="189.0" layoutY="10.0" prefHeight="65.0" prefWidth="276.0" text="Frazione Estranea Totale" GridPane.columnIndex="5">
+            <Label alignment="CENTER" prefHeight="88.0" prefWidth="262.0" text="Frazione Estranea Totale" GridPane.rowIndex="5">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="79.0" prefWidth="220.0" text="Kg" GridPane.rowIndex="1">
+            <Label alignment="CENTER" layoutX="10.0" layoutY="48.0" prefHeight="62.0" prefWidth="330.0" style="-fx-font-weight: bold;" text="Categoria">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="74.0" prefWidth="394.0" style="-fx-font-weight: bold;" text="Kg" GridPane.columnIndex="1">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="74.0" prefWidth="394.0" style="-fx-font-weight: bold;" text="\%" GridPane.columnIndex="2">
+               <font>
+                  <Font size="22.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMonomaterialeKg" alignment="CENTER" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblTracciantiKg" alignment="CENTER" layoutX="10.0" layoutY="75.0" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label fx:id="lblMonomaterialePer" alignment="CENTER" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblMonomaterialeKg" alignment="CENTER" layoutX="10.0" layoutY="75.0" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label fx:id="lblTracciantiKg" alignment="CENTER" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblFrazioniEstraneeKg" alignment="CENTER" layoutX="189.0" layoutY="75.0" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            <Label fx:id="lblTracciantiPer" alignment="CENTER" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblMDiffKg" alignment="CENTER" layoutX="189.0" layoutY="75.0" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            <Label fx:id="lblFrazioniEstraneeKg" alignment="CENTER" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblFEKg" alignment="CENTER" layoutX="726.0" layoutY="75.0" prefHeight="65.0" prefWidth="260.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            <Label fx:id="lblMDiffKg" alignment="CENTER" prefHeight="80.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblMonomaterialePer" alignment="CENTER" layoutX="10.0" layoutY="140.0" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Label fx:id="lblFEKg" alignment="CENTER" prefHeight="80.0" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="10.0" layoutY="140.0" prefHeight="79.0" prefWidth="220.0" text="\%" GridPane.rowIndex="2">
+            <Label fx:id="lblFrazioniEstraneePer" alignment="CENTER" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblTracciantiPer" alignment="CENTER" layoutX="189.0" layoutY="140.0" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <Label fx:id="lblMDiffPer" alignment="CENTER" prefHeight="80.0" prefWidth="220.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblFrazioniEstraneePer" alignment="CENTER" layoutX="368.0" layoutY="140.0" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblMDiffPer" alignment="CENTER" layoutX="547.0" layoutY="140.0" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="lblFEPer" alignment="CENTER" layoutX="726.0" layoutY="140.0" prefHeight="64.0" prefWidth="263.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+            <Label fx:id="lblFEPer" alignment="CENTER" prefHeight="80.0" prefWidth="263.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
          </children>
+         <VBox.margin>
+            <Insets bottom="10.0" top="10.0" />
+         </VBox.margin>
       </GridPane>
       <Separator prefWidth="200.0" />
       <GridPane prefHeight="74.0" prefWidth="1016.0">
@@ -162,15 +169,18 @@
             <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
          </padding>
          <children>
-            <Label alignment="CENTER" prefHeight="192.0" prefWidth="158.0" text="NOTE: " />
+            <Label alignment="CENTER" prefHeight="122.0" prefWidth="76.0" text="NOTE: " />
             <TextArea prefHeight="94.0" prefWidth="541.0" promptText="Inserire nota">
                <font>
                   <Font size="15.0" />
                </font>
+               <HBox.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </HBox.margin>
             </TextArea>
-            <VBox alignment="CENTER" prefHeight="94.0" prefWidth="172.0">
+            <VBox alignment="CENTER" prefHeight="122.0" prefWidth="99.0">
                <children>
-                  <Button fx:id="btnSavePDF" mnemonicParsing="false" onAction="#openSavePDFStage" prefHeight="24.0" prefWidth="116.0" text="Salva PDF" />
+                  <Button fx:id="btnSavePDF" mnemonicParsing="false" onAction="#openSavePDFStage" prefHeight="52.0" prefWidth="79.0" text="Salva PDF" />
                </children>
             </VBox>
          </children>
