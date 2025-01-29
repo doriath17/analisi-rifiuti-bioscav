@@ -1,8 +1,8 @@
-package myapps.gui;
+package myapps.analisibioscav.gui;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import myapps.App;
+import myapps.analisibioscav.App;
 
 import java.io.IOException;
 

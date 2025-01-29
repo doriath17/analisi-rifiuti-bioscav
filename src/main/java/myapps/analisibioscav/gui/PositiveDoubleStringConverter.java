@@ -1,4 +1,4 @@
-package myapps.gui;
+package myapps.analisibioscav.gui;
 
 import javafx.util.converter.DoubleStringConverter;
 

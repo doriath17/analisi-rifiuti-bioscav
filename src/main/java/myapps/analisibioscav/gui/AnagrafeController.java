@@ -1,13 +1,12 @@
-package myapps.gui;
+package myapps.analisibioscav.gui;
 //
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import myapps.datamodel.AnagrafeAnalisi;
+import myapps.analisibioscav.datamodel.AnagrafeAnalisi;
 
-import java.util.HashMap;
 import java.util.Iterator;
 
 public class AnagrafeController extends ControllerBase {

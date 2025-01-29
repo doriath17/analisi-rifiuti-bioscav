@@ -1,4 +1,4 @@
-package myapps.datamodel;
+package myapps.analisibioscav.datamodel;
 
 public class CategoriaRifiuto extends CategoriaRifiutoBase {
     private final CategoriaRifiutoBase base;

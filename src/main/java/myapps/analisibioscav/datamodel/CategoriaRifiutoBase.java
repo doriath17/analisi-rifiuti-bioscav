@@ -1,8 +1,8 @@
-package myapps.datamodel;
+package myapps.analisibioscav.datamodel;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
-import myapps.gui.PositiveDoubleStringConverter;
+import myapps.analisibioscav.gui.PositiveDoubleStringConverter;
 
 public class CategoriaRifiutoBase {
     protected ResultContainer resultContainer;

@@ -1,4 +1,4 @@
-package myapps.gui;
+package myapps.analisibioscav.gui;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Parent;

@@ -1,4 +1,4 @@
-package myapps.datamodel;
+package myapps.analisibioscav.datamodel;
 
 import java.util.ArrayList;
 import java.util.HashMap;

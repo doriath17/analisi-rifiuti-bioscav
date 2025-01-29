@@ -1,16 +1,15 @@
-package myapps.pdf;
+package myapps.analisibioscav.pdf;
 
 import com.lowagie.text.*;
 import com.lowagie.text.alignment.HorizontalAlignment;
 import com.lowagie.text.alignment.VerticalAlignment;
 import com.lowagie.text.pdf.PdfWriter;
-import myapps.datamodel.*;
-import myapps.gui.PositiveDoubleStringConverter;
+import myapps.analisibioscav.datamodel.*;
+import myapps.analisibioscav.gui.PositiveDoubleStringConverter;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Iterator;
 
 import static java.io.File.separator;

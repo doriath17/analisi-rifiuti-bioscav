@@ -1,10 +1,10 @@
-package myapps.datamodel;
+package myapps.analisibioscav.datamodel;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import myapps.gui.ControllerBase;
-import myapps.gui.PositiveDoubleStringConverter;
+import myapps.analisibioscav.gui.ControllerBase;
+import myapps.analisibioscav.gui.PositiveDoubleStringConverter;
 
 import java.util.Random;
 

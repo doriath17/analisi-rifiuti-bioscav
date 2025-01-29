@@ -1,10 +1,9 @@
-package myapps.datamodel;
+package myapps.analisibioscav.datamodel;
 
 import javafx.beans.property.SimpleObjectProperty;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 public class ResultContainer {

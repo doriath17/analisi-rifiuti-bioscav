@@ -1,12 +1,9 @@
-package myapps.gui;
+package myapps.analisibioscav.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
-import myapps.datamodel.InputContainer;
-import myapps.datamodel.Rifiuto;
-
-import java.util.HashMap;
+import myapps.analisibioscav.datamodel.InputContainer;
 
 public class InputController extends ControllerBase {
 

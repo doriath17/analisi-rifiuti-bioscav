@@ -1,4 +1,4 @@
-package myapps.gui;
+package myapps.analisibioscav.gui;
 
 
 import javafx.fxml.FXML;
@@ -7,8 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
-import myapps.datamodel.AnagrafeAnalisi;
-import myapps.pdf.PdfGenerator;
+import myapps.analisibioscav.datamodel.AnagrafeAnalisi;
+import myapps.analisibioscav.pdf.PdfGenerator;
 
 import java.io.File;
 

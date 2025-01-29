@@ -1,13 +1,9 @@
-package myapps.gui;
+package myapps.analisibioscav.gui;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.stage.Stage;
-import myapps.datamodel.ResultContainer;
-
-import java.io.IOException;
-import java.util.HashMap;
+import myapps.analisibioscav.datamodel.ResultContainer;
 
 public class ResultController extends ControllerBase {
 
