@@ -99,7 +99,7 @@ public class PdfGenerator {
         }
     }
 
-    public boolean generatePdf(File selectedDirectory, String filename)
+    public void generatePdf(File selectedDirectory, String filename)
             throws NoDirectorySelectedExeption, FilenameException {
 
         if (selectedDirectory == null){
@@ -140,7 +140,6 @@ public class PdfGenerator {
             throw new FilenameException("Errore: nome del file invalido");
         }
         document.close();
-        return true;
     }
 
 }

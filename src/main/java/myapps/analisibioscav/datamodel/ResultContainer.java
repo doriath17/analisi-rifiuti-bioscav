@@ -1,14 +1,12 @@
 package myapps.analisibioscav.datamodel;
 
-import javafx.beans.property.SimpleObjectProperty;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class ResultContainer {
     private final PesoCampione pesoCampione = new PesoCampione();
-    private final SimpleObjectProperty<Double> rangeQ= new SimpleObjectProperty<>(0.0);
+    private final QualityRange qualityRange;
 
     public static final int NUM_CATEGORIE = 5;
     protected final HashMap<String, CategoriaRifiutoBase> categorie = new HashMap<>();
@@ -35,6 +33,8 @@ public class ResultContainer {
                 (CategoriaRifiutoBase) new CategoriaRifiuto(
                         "Frazioni Estranee", this,  categorie.get("Frazione Estranea Totale")
                 ));
+
+        qualityRange = new QualityRange(categorie.get("Materiale Differenziato Totale"));
     }
 
     // peso campione
@@ -43,8 +43,8 @@ public class ResultContainer {
         return pesoCampione;
     }
 
-    public SimpleObjectProperty<Double> rangeQProperty() {
-        return rangeQ;
+    public QualityRange getQualityRange() {
+        return qualityRange;
     }
 
     public HashMap<String, CategoriaRifiutoBase> getMap(){
@@ -55,10 +55,12 @@ public class ResultContainer {
         for (CategoriaRifiutoBase categoria : categorie.values()){
             categoria.updatePesoPercentuale();
         }
+        qualityRange.update();
     }
 
     public void reset(){
         pesoCampione.getPesoCampione().setValue(0.0);
+        qualityRange.reset();
         for (var i : categorie.values()){
             i.reset();
         }

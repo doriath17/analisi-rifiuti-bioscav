@@ -9,7 +9,7 @@ public class ResultController extends ControllerBase {
 
     // UI bindings
     @FXML private Label lblPesoCampione;
-    @FXML private Label lblRangeQ;
+    @FXML private Label lblQualityRange;
 
     @FXML private Label lblMonomaterialeKg;
     @FXML private Label lblMonomaterialePer;
@@ -36,6 +36,7 @@ public class ResultController extends ControllerBase {
 
     private void setupControls(ResultContainer resultContainer){
         resultContainer.getPesoCampione().setupControls(lblPesoCampione);
+        resultContainer.getQualityRange().setupControls(lblQualityRange);
 
         var map = resultContainer.getMap();
         map.get("Materiale Differenziato Totale").setupControls(lblMDiffKg, lblMDiffPer);
