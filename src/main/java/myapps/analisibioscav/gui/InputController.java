@@ -115,4 +115,8 @@ public class InputController extends ControllerBase {
 
         map.get("Altre FE").setupControls(txtPesoLordoAltreFE, txtPesoTaraAltreFE, lblPesoNettoAltreFE);
     }
+
+    @FXML private void refreshInput(){
+        inputContainer.refresh();
+    }
 }

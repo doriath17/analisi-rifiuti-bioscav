@@ -41,4 +41,10 @@ public class InputContainer {
             i.reset();
         }
     }
+
+    public void refresh(){
+        for (var i : rifiuti.values()){
+            i.updatePesoNetto();
+        }
+    }
 }
