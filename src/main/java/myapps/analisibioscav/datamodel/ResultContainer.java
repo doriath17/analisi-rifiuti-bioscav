@@ -7,6 +7,7 @@ import java.util.List;
 public class ResultContainer {
     private final PesoCampione pesoCampione = new PesoCampione();
     private final QualityRange qualityRange;
+    private String note = "";
 
     public static final int NUM_CATEGORIE = 5;
     protected final HashMap<String, CategoriaRifiutoBase> categorie = new HashMap<>();
@@ -45,6 +46,14 @@ public class ResultContainer {
 
     public QualityRange getQualityRange() {
         return qualityRange;
+    }
+    
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public HashMap<String, CategoriaRifiutoBase> getMap(){

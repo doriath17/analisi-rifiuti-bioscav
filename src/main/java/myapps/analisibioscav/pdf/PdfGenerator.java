@@ -136,6 +136,19 @@ public class PdfGenerator {
             setTableHeader(table, "RISULTATI ANALISI", 3);
             prepareCategories(table);
             document.add(table);
+
+            table = new Table(2);
+            table.setBorderWidth(1);
+            table.setPadding(2);
+            table.addCell(getNewCell("Peso Campione (Kg)"));
+            table.addCell(getNewCell(converter.toString(resultContainer.getPesoCampione().getPesoCampione().getValue())));
+            table.addCell(getNewCell("Range Qualità"));
+            table.addCell(getNewCell(converter.toString(resultContainer.getQualityRange().getValue())));
+            document.add(table);
+
+            Paragraph note = new Paragraph("Nota: ", font);
+            note.add(resultContainer.getNote());
+            document.add(note);
         } catch (DocumentException | IOException de){
             throw new FilenameException("Errore: nome del file invalido");
         }

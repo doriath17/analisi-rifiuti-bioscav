@@ -170,7 +170,7 @@
          </padding>
          <children>
             <Label alignment="CENTER" prefHeight="122.0" prefWidth="76.0" text="NOTE: " />
-            <TextArea prefHeight="94.0" prefWidth="541.0" promptText="Inserire nota">
+            <TextArea fx:id="txtNote" prefHeight="94.0" prefWidth="541.0" promptText="Inserire nota">
                <font>
                   <Font size="15.0" />
                </font>

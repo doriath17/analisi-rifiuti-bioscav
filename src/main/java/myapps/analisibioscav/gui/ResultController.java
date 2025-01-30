@@ -3,6 +3,7 @@ package myapps.analisibioscav.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import myapps.analisibioscav.datamodel.ResultContainer;
 
 public class ResultController extends ControllerBase {
@@ -26,7 +27,12 @@ public class ResultController extends ControllerBase {
     @FXML private Label lblFEKg;
     @FXML private Label lblFEPer;
 
-    @FXML private Button btnSavePDF;
+    @FXML private TextArea txtNote;
+
+    @FXML public void initialize(){
+        txtNote.setPrefColumnCount(100);
+        txtNote.setPrefRowCount(3);
+    }
 
     @Override
     public void init(ControllerLoader loader, PrimaryController primaryController){
@@ -47,6 +53,7 @@ public class ResultController extends ControllerBase {
     }
 
     @FXML private void openSavePDFStage(){
+        loader.getAnalisiDAO().getResultContainer().setNote(txtNote.getText());
         loader.getSavePDFController().onShowing();
         loader.getSavePDFController().getStage().show();
     }
