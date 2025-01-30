@@ -41,7 +41,7 @@ public class SavePDFController extends ControllerBase {
 
     private void setFilename(){
         if (txtFilename.getText().isEmpty()) {
-            StringBuilder builder = new StringBuilder("Analisi");
+            StringBuilder builder = new StringBuilder("analisi");
 
             String comune = anagrafe.getMap().get("Comune");
             if (!comune.isEmpty()){
@@ -61,6 +61,7 @@ public class SavePDFController extends ControllerBase {
 
     public void onShowing(){
         anagrafe.update();
+        txtFilename.setText("");
         setFilename();
     }
 

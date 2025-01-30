@@ -1,6 +1,7 @@
 package myapps.analisibioscav.gui;
 //
 
+import javafx.collections.ObservableArray;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -32,7 +33,7 @@ public class AnagrafeController extends ControllerBase {
 
     private static StringConverter<LocalDate> getLocalDateConverter(){
         return new StringConverter<LocalDate>() {
-            String pattern = "yyyy-MM-dd";
+            String pattern = "dd-MM-yyyy";
             DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
 
             @Override public String toString(LocalDate date) {
@@ -53,8 +54,11 @@ public class AnagrafeController extends ControllerBase {
         };
     }
 
-
     @FXML public void initialize() {
+        cboxFlusso.getItems().addAll("FLUSSO A", "FLUSSO B");
+        cboxFlusso.setValue("FLUSSO A");
+        cboxSfusoInBalle.getItems().addAll("SFUSO", "IN BALLE");
+        cboxSfusoInBalle.setValue("SFUSO");
         dateAnalisi.setConverter(getLocalDateConverter());
         dateFormulario.setConverter(getLocalDateConverter());
     }
@@ -77,8 +81,8 @@ public class AnagrafeController extends ControllerBase {
                 map.put("Data Formulario", dateFormulario.getConverter().toString(dateFormulario.getValue()));
                 map.put("Ora Inizio", txtOraInizio.getText());
                 map.put("Ora Fine", txtOraFine.getText());
-                map.put("Sfuso/In Balle", cboxSfusoInBalle.getAccessibleText());
-                map.put("Flusso", cboxFlusso.getAccessibleText());
+                map.put("Sfuso/In Balle", cboxSfusoInBalle.getValue());
+                map.put("Flusso", cboxFlusso.getValue());
                 map.put("Materiale Conferito", txtMaterialeConferito.getText());
                 map.put("Analizzatore", txtAnalizzatore.getText());
                 map.put("In presenza di: ", txtSupervisore.getText());
