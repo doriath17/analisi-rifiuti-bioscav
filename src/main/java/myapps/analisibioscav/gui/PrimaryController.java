@@ -3,7 +3,9 @@ package myapps.analisibioscav.gui;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.RadioMenuItem;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 
 public class PrimaryController {
 
@@ -23,6 +25,8 @@ public class PrimaryController {
     @FXML private Button btnDx;
     @FXML private Button btnSx;
 
+    @FXML private RadioMenuItem mItemFullscreen;
+
     private ControllerLoader loader;
 
     private State s1;
@@ -30,7 +34,7 @@ public class PrimaryController {
     private State s3;
     private State currentState;
 
-    public void initController(ControllerLoader loader){
+    public void init(ControllerLoader loader){
         this.loader = loader;
         s1 = new State(null, loader.getInputController(), loader.getResultController());
         s2 = new State(loader.getInputController(), loader.getResultController(), loader.getAnagrafeController());
@@ -82,7 +86,30 @@ public class PrimaryController {
     // menu items
 
     @FXML public void closeApp(){
-
+        ((Stage) content.getScene().getWindow()).close();
     }
 
+    @FXML public void setFullscreen(){
+        if (mItemFullscreen.isSelected()){
+            mItemFullscreen.setText("Fullscreen Attivo");
+            ((Stage) content.getScene().getWindow()).setFullScreen(true);
+        } else {
+            mItemFullscreen.setText("Attiva Fullscreen");
+            ((Stage) content.getScene().getWindow()).setFullScreen(false);
+        }
+    }
+
+    @FXML private void resetInput(){
+        loader.getAnalisiDAO().getInputContainer().reset();
+        loader.getAnalisiDAO().getResultContainer().reset();
+    }
+
+    @FXML private void resetAnagrafe(){
+        loader.getAnalisiDAO().getAnagrafeAnalisi().reset();
+    }
+
+    @FXML private void resetAllData(){
+        resetInput();
+        resetAnagrafe();
+    }
 }

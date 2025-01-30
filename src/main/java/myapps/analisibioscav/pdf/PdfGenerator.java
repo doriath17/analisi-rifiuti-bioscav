@@ -25,10 +25,10 @@ public class PdfGenerator {
     private Font font = FontFactory.getFont(FontFactory.HELVETICA, 10);
     private Font headerFont = FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD);
 
-    public PdfGenerator(InputContainer inputContainer, ResultContainer resultContainer, AnagrafeAnalisi anagrafe) {
-        this.inputContainer = inputContainer;
-        this.resultContainer = resultContainer;
-        this.anagrafe = anagrafe;
+    public PdfGenerator(AnalisiDAO analisiDAO) {
+        this.inputContainer = analisiDAO.getInputContainer();
+        this.resultContainer = analisiDAO.getResultContainer();
+        this.anagrafe = analisiDAO.getAnagrafeAnalisi();
     }
 
     void setTableHeader(Table table, String title, int colspan){

@@ -17,10 +17,6 @@ public class CategoriaRifiutoBase {
         this.resultContainer = resultContainer;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public SimpleObjectProperty<Double> getPesoTotale() {
         return pesoTotale;
     }
@@ -42,5 +38,10 @@ public class CategoriaRifiutoBase {
     public void setupControls(Label lblPesoTotale, Label lblPesoPercentuale){
         lblPesoTotale.textProperty().bindBidirectional(pesoTotale, new PositiveDoubleStringConverter());
         lblPesoPercentuale.textProperty().bindBidirectional(pesoPercentuale, new PositiveDoubleStringConverter());
+    }
+
+    public void reset(){
+        pesoTotale.setValue(0.0);
+        pesoPercentuale.setValue(0.0);
     }
 }

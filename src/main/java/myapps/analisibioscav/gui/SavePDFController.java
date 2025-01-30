@@ -21,27 +21,17 @@ public class SavePDFController extends ControllerBase {
 
     @FXML private Button btnSaveToPDF;
 
-    // UI
-    private Stage stage;
+    private Stage stage = new Stage();
     private PdfGenerator pdfGenerator;
+    private AnagrafeAnalisi anagrafe;
 
     @Override
     public void init(ControllerLoader loader, PrimaryController primaryController){
         super.init(loader, primaryController);
-        stage = new Stage();
         stage.setScene(new Scene(content));
         stage.setAlwaysOnTop(true);
-        pdfGenerator = new PdfGenerator(
-                loader.getInputController().getInputContainer(),
-                loader.getResultController().getResultContainer(),
-                loader.getAnagrafeController().getAnagrafe()
-        );
-    }
-
-    public void updateAnagrafe(){
-        var map = loader.getAnagrafeController().getAnagrafe().getMap();
-        map.put("Analizzatore", txtAnalizzatore.getText());
-        map.put("In presenza di: ", txtSupervisore.getText());
+        pdfGenerator = new PdfGenerator(loader.getAnalisiDAO());
+        anagrafe = loader.getAnalisiDAO().getAnagrafeAnalisi();
     }
 
     public Stage getStage() {
@@ -50,10 +40,8 @@ public class SavePDFController extends ControllerBase {
 
     @FXML public void saveToPDF(){
         String filename = txtFilename.getText();
-        AnagrafeAnalisi anagrafe = loader.getAnagrafeController().getAnagrafe();
 
-        loader.getAnagrafeController().updateAnagrafe();
-        updateAnagrafe();
+        anagrafe.update();
 
         if (filename.isEmpty()){
             String date = anagrafe.getMap().get("Data Analisi");

@@ -28,10 +28,13 @@ public class ResultController extends ControllerBase {
 
     @FXML private Button btnSavePDF;
 
-    // data model
-    private ResultContainer resultContainer = new ResultContainer();
+    @Override
+    public void init(ControllerLoader loader, PrimaryController primaryController){
+        super.init(loader, primaryController);
+        setupControls(loader.getAnalisiDAO().getResultContainer());
+    }
 
-    @FXML public void initialize(){
+    private void setupControls(ResultContainer resultContainer){
         resultContainer.getPesoCampione().setupControls(lblPesoCampione);
 
         var map = resultContainer.getMap();
@@ -40,10 +43,6 @@ public class ResultController extends ControllerBase {
         map.get("Monomateriale").setupControls(lblMonomaterialeKg, lblMonomaterialePer);
         map.get("Traccianti").setupControls(lblTracciantiKg, lblTracciantiPer);
         map.get("Frazioni Estranee").setupControls(lblFrazioniEstraneeKg, lblFrazioniEstraneePer);
-    }
-
-    public ResultContainer getResultContainer() {
-        return resultContainer;
     }
 
     @FXML private void openSavePDFStage(){

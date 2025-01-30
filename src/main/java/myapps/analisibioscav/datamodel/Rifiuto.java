@@ -73,4 +73,10 @@ public class Rifiuto {
         lblPesoNetto.textProperty().bindBidirectional(pesoNetto, new PositiveDoubleStringConverter());
     }
 
+    public void reset(){
+        pesoLordo.setValue(0.0);
+        pesoTara.setValue(0.0);
+        pesoNetto.setValue(0.0);
+    }
+
 }

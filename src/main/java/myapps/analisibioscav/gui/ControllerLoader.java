@@ -3,10 +3,13 @@ package myapps.analisibioscav.gui;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import myapps.analisibioscav.App;
+import myapps.analisibioscav.datamodel.AnalisiDAO;
 
 import java.io.IOException;
 
 public class ControllerLoader {
+
+    private AnalisiDAO analisiDAO;
 
     private PrimaryController primaryController;
     private Parent root;
@@ -22,7 +25,9 @@ public class ControllerLoader {
     public static final String loc4 = "anagrafeWindow.fxml";
     public static final String loc5 = "savePDF.fxml";
 
-    public ControllerLoader(){
+    public ControllerLoader(AnalisiDAO analisiDAO){
+        this.analisiDAO = analisiDAO;
+
         loadPrimaryController();
         loadInputController();
         loadResultController();
@@ -32,13 +37,17 @@ public class ControllerLoader {
     }
 
     private void initControllers(){
-        primaryController.initController(this);
+        primaryController.init(this);
         resultController.init(this, primaryController);
         inputController.init(this, primaryController);
         anagrafeController.init(this, primaryController);
         savePDFController.init(this, primaryController);
     }
 
+    public AnalisiDAO getAnalisiDAO() {
+        return analisiDAO;
+    }
+    
     public PrimaryController getPrimaryController() {
         return primaryController;
     }

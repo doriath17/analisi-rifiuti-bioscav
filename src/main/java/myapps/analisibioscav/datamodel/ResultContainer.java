@@ -56,4 +56,11 @@ public class ResultContainer {
             categoria.updatePesoPercentuale();
         }
     }
+
+    public void reset(){
+        pesoCampione.getPesoCampione().setValue(0.0);
+        for (var i : categorie.values()){
+            i.reset();
+        }
+    }
 }

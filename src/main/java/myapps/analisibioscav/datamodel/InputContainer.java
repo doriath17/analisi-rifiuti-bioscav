@@ -22,6 +22,10 @@ public class InputContainer {
         }
     }
 
+    public HashMap<String, Rifiuto> getMap(){
+        return rifiuti;
+    }
+
     public void setResultContainer(ResultContainer resultContainer){
         var map = resultContainer.getMap();
         Iterator<String> i = names.iterator();
@@ -32,7 +36,9 @@ public class InputContainer {
         }
     }
 
-    public HashMap<String, Rifiuto> getMap(){
-        return rifiuti;
+    public void reset(){
+        for (var i : rifiuti.values()){
+            i.reset();
+        }
     }
 }

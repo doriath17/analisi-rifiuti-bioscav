@@ -57,10 +57,16 @@ public class InputController extends ControllerBase {
     @FXML private Label lblPesoNettoAltreFE;
 
     // data model
-    private InputContainer inputContainer = new InputContainer();
+    private InputContainer inputContainer;
 
+    @Override
+    public void init(ControllerLoader loader, PrimaryController primaryController){
+        super.init(loader, primaryController);
+        inputContainer = loader.getAnalisiDAO().getInputContainer();
+        setupControls();
+    }
 
-    @FXML public void initialize() {
+    private void setupControls() {
         var map = inputContainer.getMap();
 
         map.get("Imballaggi COREPLA").setupControls(
@@ -108,15 +114,5 @@ public class InputController extends ControllerBase {
         );
 
         map.get("Altre FE").setupControls(txtPesoLordoAltreFE, txtPesoTaraAltreFE, lblPesoNettoAltreFE);
-    }
-
-    @Override
-    public void init(ControllerLoader loader, PrimaryController primaryController){
-        super.init(loader, primaryController);
-        inputContainer.setResultContainer(loader.getResultController().getResultContainer());
-    }
-
-    public InputContainer getInputContainer(){
-        return this.inputContainer;
     }
 }
