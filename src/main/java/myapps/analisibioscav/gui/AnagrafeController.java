@@ -5,9 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.util.StringConverter;
 import myapps.analisibioscav.datamodel.AnagrafeAnalisi;
 import myapps.analisibioscav.datamodel.Updater;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Iterator;
 
 public class AnagrafeController extends ControllerBase {
@@ -27,6 +30,35 @@ public class AnagrafeController extends ControllerBase {
     @FXML private TextField txtAnalizzatore;
     @FXML private TextField txtSupervisore;
 
+    private static StringConverter<LocalDate> getLocalDateConverter(){
+        return new StringConverter<LocalDate>() {
+            String pattern = "yyyy-MM-dd";
+            DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern(pattern);
+
+            @Override public String toString(LocalDate date) {
+                if (date != null) {
+                    return dateFormatter.format(date);
+                } else {
+                    return "";
+                }
+            }
+
+            @Override public LocalDate fromString(String string) {
+                if (string != null && !string.isEmpty()) {
+                    return LocalDate.parse(string, dateFormatter);
+                } else {
+                    return null;
+                }
+            }
+        };
+    }
+
+
+    @FXML public void initialize() {
+        dateAnalisi.setConverter(getLocalDateConverter());
+        dateFormulario.setConverter(getLocalDateConverter());
+    }
+
     @Override
     public void init(ControllerLoader loader, PrimaryController primaryController){
         super.init(loader, primaryController);
@@ -40,9 +72,9 @@ public class AnagrafeController extends ControllerBase {
                 map.put("Comune",  txtComune.getText());
                 map.put("Numero Controllo", txtNumeroControllo.getText());
                 map.put("CER Rifiuto", txtCerRifiuto.getText());
-                map.put("Data Analisi", dateAnalisi.getAccessibleText());
+                map.put("Data Analisi", dateAnalisi.getConverter().toString(dateAnalisi.getValue()));
                 map.put("Formulario N°", txtNumeroFormulario.getText());
-                map.put("Data Formulario", dateFormulario.getAccessibleText());
+                map.put("Data Formulario", dateFormulario.getConverter().toString(dateFormulario.getValue()));
                 map.put("Ora Inizio", txtOraInizio.getText());
                 map.put("Ora Fine", txtOraFine.getText());
                 map.put("Sfuso/In Balle", cboxSfusoInBalle.getAccessibleText());

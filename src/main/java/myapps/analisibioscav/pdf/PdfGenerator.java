@@ -99,7 +99,12 @@ public class PdfGenerator {
         }
     }
 
-    public void generatePdf(File selectedDirectory, String filename){
+    public boolean generatePdf(File selectedDirectory, String filename)
+            throws NoDirectorySelectedExeption, FilenameException {
+
+        if (selectedDirectory == null){
+            throw new NoDirectorySelectedExeption("Errore: nessuna cartella selezionata");
+        }
 
         Document document = new Document(PageSize.A4);
 
@@ -132,9 +137,10 @@ public class PdfGenerator {
             prepareCategories(table);
             document.add(table);
         } catch (DocumentException | IOException de){
-            System.err.println(de.getMessage());
+            throw new FilenameException("Errore: nome del file invalido");
         }
         document.close();
+        return true;
     }
 
 }

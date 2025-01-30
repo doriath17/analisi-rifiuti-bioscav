@@ -46,6 +46,7 @@ public class ResultController extends ControllerBase {
     }
 
     @FXML private void openSavePDFStage(){
+        loader.getSavePDFController().onShowing();
         loader.getSavePDFController().getStage().show();
     }
 }

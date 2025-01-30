@@ -1,13 +1,15 @@
 package myapps.analisibioscav.gui;
 
-
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import myapps.analisibioscav.datamodel.AnagrafeAnalisi;
+import myapps.analisibioscav.pdf.FilenameException;
+import myapps.analisibioscav.pdf.NoDirectorySelectedExeption;
 import myapps.analisibioscav.pdf.PdfGenerator;
 
 import java.io.File;
@@ -15,11 +17,10 @@ import java.io.File;
 public class SavePDFController extends ControllerBase {
 
     // UI bindings
-    @FXML private TextField txtAnalizzatore;
-    @FXML private TextField txtSupervisore;
     @FXML private TextField txtFilename;
-
-    @FXML private Button btnSaveToPDF;
+    @FXML private TextField txtPath;
+    @FXML private Label lblSaveStatus;
+    private File selectedDirectory;
 
     private Stage stage = new Stage();
     private PdfGenerator pdfGenerator;
@@ -38,28 +39,54 @@ public class SavePDFController extends ControllerBase {
         return stage;
     }
 
-    @FXML public void saveToPDF(){
-        String filename = txtFilename.getText();
+    private void setFilename(){
+        if (txtFilename.getText().isEmpty()) {
+            StringBuilder builder = new StringBuilder("Analisi");
 
-        anagrafe.update();
-
-        if (filename.isEmpty()){
-            String date = anagrafe.getMap().get("Data Analisi");
-            if (date == null || date.isEmpty()){
-                date = "";
+            String comune = anagrafe.getMap().get("Comune");
+            if (!comune.isEmpty()){
+                builder.append("-");
+                builder.append(comune);
             }
-            filename = "Analisi" + date + ".pdf";
-        } else {
-            filename = txtFilename.getText() + ".pdf";
+
+            String date = anagrafe.getMap().get("Data Analisi");
+            if (!date.isEmpty()){
+                builder.append("-");
+                builder.append(date.replaceAll("/", "-"));
+            }
+
+            txtFilename.setText(builder.toString());
         }
+    }
 
+    public void onShowing(){
+        anagrafe.update();
+        setFilename();
+    }
+
+    public void onClosing(){
+        lblSaveStatus.setText("");
+    }
+
+    @FXML private void selectDirectory(){
         DirectoryChooser directoryChooser = new DirectoryChooser();
-        File selectedDirectory = directoryChooser.showDialog(stage);
+        selectedDirectory = directoryChooser.showDialog(stage);
+        txtPath.setText(selectedDirectory.getAbsolutePath());
+    }
 
-        pdfGenerator.generatePdf(selectedDirectory, filename);
+    @FXML public void saveToPDF() {
+        setFilename();
+        // todo: path not selected handler
+        try {
+            pdfGenerator.generatePdf(selectedDirectory, txtFilename.getText() + ".pdf");
+            lblSaveStatus.setText("Salvataggio completato correttamente");
+        } catch (NoDirectorySelectedExeption | FilenameException e) {
+            lblSaveStatus.setText(e.getMessage());
+        }
     }
 
     @FXML public void closeSaveDialog(){
+        onClosing();
         stage.close();
     }
 }
