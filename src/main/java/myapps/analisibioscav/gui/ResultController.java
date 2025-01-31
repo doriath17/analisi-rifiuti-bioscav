@@ -4,6 +4,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import myapps.analisibioscav.datamodel.CategoriaRifiuto;
+import myapps.analisibioscav.datamodel.CategoriaRifiutoBase;
 import myapps.analisibioscav.datamodel.ResultContainer;
 
 public class ResultController extends ControllerBase {
@@ -45,11 +47,11 @@ public class ResultController extends ControllerBase {
         resultContainer.getQualityRange().setupControls(lblQualityRange);
 
         var map = resultContainer.getMap();
-        map.get("Materiale Differenziato Totale").setupControls(lblMDiffKg, lblMDiffPer);
-        map.get("Frazione Estranea Totale").setupControls(lblFEKg, lblFEPer);
-        map.get("Monomateriale").setupControls(lblMonomaterialeKg, lblMonomaterialePer);
-        map.get("Traccianti").setupControls(lblTracciantiKg, lblTracciantiPer);
-        map.get("Frazioni Estranee").setupControls(lblFrazioniEstraneeKg, lblFrazioniEstraneePer);
+        map.get(CategoriaRifiuto.MDIFF_TOTALE).setupControls(lblMDiffKg, lblMDiffPer);
+        map.get(CategoriaRifiuto.FE_TOTALE).setupControls(lblFEKg, lblFEPer);
+        map.get(CategoriaRifiuto.MONOMATERIALE).setupControls(lblMonomaterialeKg, lblMonomaterialePer);
+        map.get(CategoriaRifiuto.TRACCIANTI).setupControls(lblTracciantiKg, lblTracciantiPer);
+        map.get(CategoriaRifiuto.FE_TOTALE).setupControls(lblFrazioniEstraneeKg, lblFrazioniEstraneePer);
     }
 
     @FXML private void openSavePDFStage(){

@@ -48,6 +48,14 @@ public class PdfGenerator {
         return cell;
     }
 
+    Cell getNewCell(Double val){
+        String s = converter.toString(val);
+        Phrase phrase = new Phrase(s, font);
+        Cell cell = new Cell(phrase);
+        cell.setVerticalAlignment(VerticalAlignment.CENTER);
+        return cell;
+    }
+
     private Cell getNewHeaderCell(String s){
         Phrase phrase = new Phrase(s, headerFont);
         Cell cell = new Cell(phrase);
@@ -72,13 +80,13 @@ public class PdfGenerator {
         table.addCell(getNewHeaderCell("Peso Netto (kg)"));
 
         var map = inputContainer.getMap();
-        for (Iterator<String> i = InputContainer.names.iterator(); i.hasNext(); ){
-            String name = i.next();
-            Rifiuto rifiuto = map.get(name);
-            table.addCell(getNewCell(name));
-            table.addCell(getNewCell(converter.toString(rifiuto.getPesoLordo().getValue())));
-            table.addCell(getNewCell(converter.toString(rifiuto.getPesoTara().getValue())));
-            table.addCell(getNewCell(converter.toString(rifiuto.getPesoNetto().getValue())));
+
+        for (var rifiuto : Rifiuto.values()){
+            InputRifiuto input = map.get(rifiuto);
+            table.addCell(getNewCell(rifiuto.getText()));
+            table.addCell(getNewCell(input.getPesoLordo()));
+            table.addCell(getNewCell(input.getPesoTara()));
+            table.addCell(getNewCell(input.getPesoNetto()));
         }
     }
 
@@ -89,13 +97,11 @@ public class PdfGenerator {
 
         var map = resultContainer.getMap();
 
-        for (Iterator<String> i = ResultContainer.names.iterator(); i.hasNext();){
-            String name = i.next();
-            CategoriaRifiutoBase categoria = map.get(name);
-
-            table.addCell(getNewCell(name));
-            table.addCell(getNewCell(converter.toString(categoria.getPesoTotale().getValue())));
-            table.addCell(getNewCell(converter.toString(categoria.getPesoPercentuale().getValue())));
+        for (var category : CategoriaRifiuto.values()){
+            var result = map.get(category);
+            table.addCell(getNewCell(category.getText()));
+            table.addCell(getNewCell(result.getPesoTotale()));
+            table.addCell(getNewCell(result.getPesoPercentuale()));
         }
     }
 

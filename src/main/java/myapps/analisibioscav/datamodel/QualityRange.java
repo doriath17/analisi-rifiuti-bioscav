@@ -13,7 +13,7 @@ public class QualityRange extends SimpleObjectProperty<Double> {
     }
 
     public void update(){
-        setValue(mdiff.getPesoPercentuale().getValue());
+//        setValue(mdiff.getPesoPercentuale().getValue());
     }
 
     public void reset(){

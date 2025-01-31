@@ -1,41 +1,23 @@
 package myapps.analisibioscav.datamodel;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
 public class ResultContainer {
     private final PesoCampione pesoCampione = new PesoCampione();
     private final QualityRange qualityRange;
     private String note = "";
 
-    public static final int NUM_CATEGORIE = 5;
-    protected final HashMap<String, CategoriaRifiutoBase> categorie = new HashMap<>();
-
-    public static final List<String> names = new ArrayList<>(List.of(
-            "Materiale Differenziato Totale", "Frazione Estranea Totale", "Monomateriale",
-            "Traccianti", "Frazioni Estranee"
-    ));
+    private final HashMap<CategoriaRifiuto, CategoriaRifiutoBase> map = new HashMap<>();
 
     public ResultContainer() {
-        categorie.put("Materiale Differenziato Totale",
-                new CategoriaRifiutoBase("Materiale Differenziato Totale", this));
-        categorie.put("Frazione Estranea Totale",
-                new CategoriaRifiutoBase("Frazione Estranea Totale", this));
-        categorie.put("Monomateriale",
-                (CategoriaRifiutoBase) new CategoriaRifiuto(
-                        "Monomateriale", this,  categorie.get("Materiale Differenziato Totale")
-                ));
-        categorie.put("Traccianti",
-                (CategoriaRifiutoBase) new CategoriaRifiuto(
-                        "Traccianti", this,  categorie.get("Materiale Differenziato Totale")
-                ));
-        categorie.put("Frazioni Estranee",
-                (CategoriaRifiutoBase) new CategoriaRifiuto(
-                        "Frazioni Estranee", this,  categorie.get("Frazione Estranea Totale")
-                ));
+        map.put(CategoriaRifiuto.MDIFF_TOTALE,             new CategoriaRifiutoBase(pesoCampione));
+        map.put(CategoriaRifiuto.MDIFF_COREPLA,            new CategoriaRifiutoBase(pesoCampione, map.get(CategoriaRifiuto.MDIFF_TOTALE)));
+        map.put(CategoriaRifiuto.MDIFF_ALLUMINIO_ACCIAIO,  new CategoriaRifiutoBase(pesoCampione, map.get(CategoriaRifiuto.MDIFF_TOTALE)));
+        map.put(CategoriaRifiuto.FE_TOTALE,                new CategoriaRifiutoBase(pesoCampione));
+        map.put(CategoriaRifiuto.MONOMATERIALE,            new CategoriaRifiutoBase(pesoCampione, map.get(CategoriaRifiuto.MDIFF_COREPLA)));
+        map.put(CategoriaRifiuto.TRACCIANTI,               new CategoriaRifiutoBase(pesoCampione, map.get(CategoriaRifiuto.MDIFF_COREPLA)));
 
-        qualityRange = new QualityRange(categorie.get("Materiale Differenziato Totale"));
+        qualityRange = new QualityRange(map.get(CategoriaRifiuto.MDIFF_TOTALE));
     }
 
     // peso campione
@@ -56,12 +38,12 @@ public class ResultContainer {
         this.note = note;
     }
 
-    public HashMap<String, CategoriaRifiutoBase> getMap(){
-        return categorie;
+    public HashMap<CategoriaRifiuto, CategoriaRifiutoBase> getMap(){
+        return map;
     }
 
     public void updatePercentualiCategorie(){
-        for (CategoriaRifiutoBase categoria : categorie.values()){
+        for (CategoriaRifiutoBase categoria : map.values()){
             categoria.updatePesoPercentuale();
         }
         qualityRange.update();
@@ -70,7 +52,7 @@ public class ResultContainer {
     public void reset(){
         pesoCampione.getPesoCampione().setValue(0.0);
         qualityRange.reset();
-        for (var i : categorie.values()){
+        for (var i : map.values()){
             i.reset();
         }
     }

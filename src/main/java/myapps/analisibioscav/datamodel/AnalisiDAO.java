@@ -2,8 +2,8 @@ package myapps.analisibioscav.datamodel;
 
 public class AnalisiDAO {
 
-    private InputContainer inputContainer = new InputContainer();
     private ResultContainer resultContainer = new ResultContainer();
+    private InputContainer inputContainer = new InputContainer(resultContainer);
     private AnagrafeAnalisi anagrafeAnalisi = new AnagrafeAnalisi();
     
     public AnalisiDAO(){

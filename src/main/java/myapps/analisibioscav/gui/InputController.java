@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import myapps.analisibioscav.datamodel.InputContainer;
+import myapps.analisibioscav.datamodel.Rifiuto;
 
 public class InputController extends ControllerBase {
 
@@ -44,9 +45,9 @@ public class InputController extends ControllerBase {
     @FXML private TextField txtPesoTaraLegno;
     @FXML private Label lblPesoNettoLegno;
 
-    @FXML private TextField txtPesoLordoInerti;
-    @FXML private TextField txtPesoTaraInerti;
-    @FXML private Label lblPesoNettoInerti;
+    @FXML private TextField txtPesoLordoCarta;
+    @FXML private TextField txtPesoTaraCarta;
+    @FXML private Label lblPesoNettoCarta;
 
     @FXML private TextField txtPesoLordoTessuti;
     @FXML private TextField txtPesoTaraTessuti;
@@ -69,51 +70,52 @@ public class InputController extends ControllerBase {
     private void setupControls() {
         var map = inputContainer.getMap();
 
-        map.get("Imballaggi COREPLA").setupControls(
+        map.get(Rifiuto.IMBALLAGGI_COREPLA).setupControls(
                 txtPesoLordoImballaggi, txtPesoTaraImballaggi, lblPesoNettoImballaggi
         );
 
-        map.get("Industriali").setupControls(
+        map.get(Rifiuto.INDUSTRIALI).setupControls(
                 txtPesoLordoIndustriali, txtPesoTaraIndustriali, lblPesoNettoIndustriali
         );
 
-        map.get("Umido").setupControls(
-                txtPesoLordoUmido, txtPesoTaraUmido, lblPesoNettoUmido
-        );
-
-        map.get("Vetro").setupControls(
-                txtPesoLordoVetro, txtPesoTaraVetro, lblPesoNettoVetro
-        );
-
-        map.get("Medicinali").setupControls(
-                txtPesoLordoMedicinali, txtPesoTaraMedicinali, lblPesoNettoMedicinali
-        );
-
-        map.get("Alluminio/Acciaio").setupControls(
+        map.get(Rifiuto.ALLUMINIO_ACCIAIO).setupControls(
                 txtPesoLordoAlluminioAcciaio, txtPesoTaraAlluminioAcciaio, lblPesoNettoAlluminioAcciaio
         );
 
-        map.get("Frazioni Fini 2x2").setupControls(
+        map.get(Rifiuto.UMIDO).setupControls(
+                txtPesoLordoUmido, txtPesoTaraUmido, lblPesoNettoUmido
+        );
+
+        map.get(Rifiuto.VETRO).setupControls(
+                txtPesoLordoVetro, txtPesoTaraVetro, lblPesoNettoVetro
+        );
+
+        map.get(Rifiuto.MEDICINALI).setupControls(
+                txtPesoLordoMedicinali, txtPesoTaraMedicinali, lblPesoNettoMedicinali
+        );
+
+        map.get(Rifiuto.FRAZIONI_FINI_2X2).setupControls(
                 txtPesoLordoFrazioniFini2x2, txtPesoTaraFrazioniFini2x2, lblPesoNettoFrazioniFini2x2
         );
 
-        map.get("RAEE").setupControls(
+        map.get(Rifiuto.RAEE).setupControls(
                 txtPesoLordoRaee, txtPesoTaraRaee, lblPesoNettoRaee
         );
 
-        map.get("Legno").setupControls(
+        map.get(Rifiuto.LEGNO).setupControls(
                 txtPesoLordoLegno, txtPesoTaraLegno, lblPesoNettoLegno
         );
 
-        map.get("Inerti").setupControls(
-                txtPesoLordoInerti, txtPesoTaraInerti, lblPesoNettoInerti
+        map.get(Rifiuto.CARTA_TETRA_PAK).setupControls(
+                txtPesoLordoCarta, txtPesoTaraCarta, lblPesoNettoCarta
         );
 
-        map.get("Tessuti").setupControls(
+        map.get(Rifiuto.TESSUTI).setupControls(
                 txtPesoLordoTessuti, txtPesoTaraTessuti, lblPesoNettoTessuti
         );
 
-        map.get("Altre FE").setupControls(txtPesoLordoAltreFE, txtPesoTaraAltreFE, lblPesoNettoAltreFE);
+        map.get(Rifiuto.ALTRE_FE).setupControls(
+                txtPesoLordoAltreFE, txtPesoTaraAltreFE, lblPesoNettoAltreFE);
     }
 
     @FXML private void refreshInput(){

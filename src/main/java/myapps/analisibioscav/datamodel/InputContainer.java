@@ -1,49 +1,46 @@
 package myapps.analisibioscav.datamodel;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.List;
 
 public class InputContainer {
-    public static final int NUM_RIFIUTI = 11;
-    private final HashMap<String, Rifiuto> rifiuti = new HashMap<>();
+    private final HashMap<Rifiuto, InputRifiuto> map = new HashMap<>();
 
-    public static final List<String> names = new ArrayList<>(List.of(
-            "Imballaggi COREPLA", "Industriali", "Umido",
-            "Vetro", "Medicinali", "Alluminio/Acciaio",
-            "Frazioni Fini 2x2", "RAEE", "Legno",
-            "Inerti", "Tessuti", "Altre FE"
-    ));
-
-    public InputContainer(){
-        for (String name : names){
-            rifiuti.put(name, new Rifiuto(name));
+    public InputContainer(ResultContainer resultContainer){
+        for (var typeRifiuto : Rifiuto.values()){
+            map.put(typeRifiuto, new InputRifiuto());
         }
+        setResultContainer(resultContainer);
     }
 
-    public HashMap<String, Rifiuto> getMap(){
-        return rifiuti;
+    public HashMap<Rifiuto, InputRifiuto> getMap(){
+        return map;
     }
 
     public void setResultContainer(ResultContainer resultContainer){
-        var map = resultContainer.getMap();
-        Iterator<String> i = names.iterator();
-        rifiuti.get(i.next()).setResultContainer(resultContainer, (CategoriaRifiuto) map.get("Monomateriale"));
-        rifiuti.get(i.next()).setResultContainer(resultContainer, (CategoriaRifiuto) map.get("Traccianti"));
-        for (; i.hasNext();){
-            rifiuti.get(i.next()).setResultContainer(resultContainer, (CategoriaRifiuto) map.get("Frazioni Estranee"));
-        }
+        var resultMap = resultContainer.getMap();
+        map.get(Rifiuto.IMBALLAGGI_COREPLA).setResults(resultContainer, resultMap.get(CategoriaRifiuto.MONOMATERIALE));
+        map.get(Rifiuto.INDUSTRIALI).setResults(resultContainer,        resultMap.get(CategoriaRifiuto.TRACCIANTI));
+        map.get(Rifiuto.ALLUMINIO_ACCIAIO).setResults(resultContainer,  resultMap.get(CategoriaRifiuto.MDIFF_ALLUMINIO_ACCIAIO));
+        map.get(Rifiuto.UMIDO).setResults(resultContainer,              resultMap.get(CategoriaRifiuto.FE_TOTALE));
+        map.get(Rifiuto.VETRO).setResults(resultContainer,              resultMap.get(CategoriaRifiuto.FE_TOTALE));
+        map.get(Rifiuto.CARTA_TETRA_PAK).setResults(resultContainer,    resultMap.get(CategoriaRifiuto.FE_TOTALE));
+        map.get(Rifiuto.MEDICINALI).setResults(resultContainer,         resultMap.get(CategoriaRifiuto.FE_TOTALE));
+        map.get(Rifiuto.FRAZIONI_FINI_2X2).setResults(resultContainer,  resultMap.get(CategoriaRifiuto.FE_TOTALE));
+        map.get(Rifiuto.RAEE).setResults(resultContainer,               resultMap.get(CategoriaRifiuto.FE_TOTALE));
+        map.get(Rifiuto.LEGNO).setResults(resultContainer,              resultMap.get(CategoriaRifiuto.FE_TOTALE));
+        map.get(Rifiuto.TESSUTI).setResults(resultContainer,            resultMap.get(CategoriaRifiuto.FE_TOTALE));
+        map.get(Rifiuto.ALTRE_FE).setResults(resultContainer,           resultMap.get(CategoriaRifiuto.FE_TOTALE));
     }
 
     public void reset(){
-        for (var i : rifiuti.values()){
+        for (var i : map.values()){
             i.reset();
         }
     }
 
     public void refresh(){
-        for (var i : rifiuti.values()){
+        for (var i : map.values()){
             i.updatePesoNetto();
         }
     }

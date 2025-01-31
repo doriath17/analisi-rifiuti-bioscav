@@ -4,34 +4,42 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
 import myapps.analisibioscav.gui.PositiveDoubleStringConverter;
 
+import java.util.List;
+
 public class CategoriaRifiutoBase {
-    protected ResultContainer resultContainer;
+    private final PesoCampione pesoCampione;
+    private final SimpleObjectProperty<Double> pesoTotale = new SimpleObjectProperty<>(0.0);
+    private final SimpleObjectProperty<Double> pesoPercentuale = new SimpleObjectProperty<>(0.0);
+    private final CategoriaRifiutoBase base;
 
-    // data
-    protected final String name;
-    protected SimpleObjectProperty<Double> pesoTotale = new SimpleObjectProperty<>(0.0);
-    protected SimpleObjectProperty<Double> pesoPercentuale = new SimpleObjectProperty<>(0.0);
-
-    public CategoriaRifiutoBase(String name, ResultContainer resultContainer){
-        this.name = name;
-        this.resultContainer = resultContainer;
+    public CategoriaRifiutoBase(PesoCampione pesoCampione){
+        this.pesoCampione = pesoCampione;
+        base = null;
     }
 
-    public SimpleObjectProperty<Double> getPesoTotale() {
-        return pesoTotale;
+    public CategoriaRifiutoBase(PesoCampione pesoCampione, CategoriaRifiutoBase base){
+        this.pesoCampione = pesoCampione;
+        this.base = base;
     }
 
-    public SimpleObjectProperty<Double> getPesoPercentuale() {
-        return pesoPercentuale;
+    public Double getPesoTotale() {
+        return pesoTotale.getValue();
+    }
+
+    public Double getPesoPercentuale() {
+        return pesoPercentuale.getValue();
     }
 
     public void updatePesoTotale(double delta){
         pesoTotale.setValue(pesoTotale.getValue() + delta);
+        if (base != null){
+            base.updatePesoTotale(delta);
+        }
     }
 
     public void updatePesoPercentuale(){
         pesoPercentuale.setValue(
-                resultContainer.getPesoCampione().getPercentage(pesoTotale.getValue())
+                pesoCampione.getPercentage(pesoTotale.getValue())
         );
     }
 

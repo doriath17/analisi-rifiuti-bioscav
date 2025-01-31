@@ -1,16 +1,20 @@
 package myapps.analisibioscav.datamodel;
 
-public class CategoriaRifiuto extends CategoriaRifiutoBase {
-    private final CategoriaRifiutoBase base;
+public enum CategoriaRifiuto {
+    MDIFF_COREPLA("Materiale Differenziato COREPLA"),
+    MDIFF_ALLUMINIO_ACCIAIO("Materiale Differenziato Alluminio/Acciaio"),
+    MDIFF_TOTALE("Materiale Differenziato Totale"),
+    FE_TOTALE("Frazione Estranea Totale"),
+    MONOMATERIALE("Monomateriale"),
+    TRACCIANTI("Traccianti");
 
-    public CategoriaRifiuto(String name, ResultContainer resultContainer, CategoriaRifiutoBase base){
-        super(name, resultContainer);
-        this.base = base;
+    private final String text;
+
+    CategoriaRifiuto(String text){
+        this.text = text;
     }
 
-    @Override
-    public void updatePesoTotale(double delta){
-        super.updatePesoTotale(delta);
-        base.updatePesoTotale(delta);
+    public String getText() {
+        return text;
     }
 }
