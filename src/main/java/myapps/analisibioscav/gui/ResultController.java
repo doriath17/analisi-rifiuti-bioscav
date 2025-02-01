@@ -20,14 +20,17 @@ public class ResultController extends ControllerBase {
     @FXML private Label lblTracciantiKg;
     @FXML private Label lblTracciantiPer;
 
-    @FXML private Label lblFrazioniEstraneeKg;
-    @FXML private Label lblFrazioniEstraneePer;
-
     @FXML private Label lblMDiffKg;
     @FXML private Label lblMDiffPer;
 
-    @FXML private Label lblFEKg;
-    @FXML private Label lblFEPer;
+    @FXML private Label lblMDiffAllAccKg;
+    @FXML private Label lblMDiffAllAccPer;
+
+    @FXML private Label lblMDiffTotKg;
+    @FXML private Label lblMDiffTotPer;
+
+    @FXML private Label lblFETotKg;
+    @FXML private Label lblFETotPer;
 
     @FXML private TextArea txtNote;
 
@@ -47,11 +50,12 @@ public class ResultController extends ControllerBase {
         resultContainer.getQualityRange().setupControls(lblQualityRange);
 
         var map = resultContainer.getMap();
-        map.get(CategoriaRifiuto.MDIFF_TOTALE).setupControls(lblMDiffKg, lblMDiffPer);
-        map.get(CategoriaRifiuto.FE_TOTALE).setupControls(lblFEKg, lblFEPer);
         map.get(CategoriaRifiuto.MONOMATERIALE).setupControls(lblMonomaterialeKg, lblMonomaterialePer);
         map.get(CategoriaRifiuto.TRACCIANTI).setupControls(lblTracciantiKg, lblTracciantiPer);
-        map.get(CategoriaRifiuto.FE_TOTALE).setupControls(lblFrazioniEstraneeKg, lblFrazioniEstraneePer);
+        map.get(CategoriaRifiuto.MDIFF_COREPLA).setupControls(lblMDiffKg, lblMDiffPer);
+        map.get(CategoriaRifiuto.MDIFF_ALLUMINIO_ACCIAIO).setupControls(lblMDiffAllAccKg, lblMDiffAllAccPer);
+        map.get(CategoriaRifiuto.MDIFF_TOTALE).setupControls(lblMDiffTotKg, lblMDiffTotPer);
+        map.get(CategoriaRifiuto.FE_TOTALE).setupControls(lblFETotKg, lblFETotPer);
     }
 
     @FXML private void openSavePDFStage(){

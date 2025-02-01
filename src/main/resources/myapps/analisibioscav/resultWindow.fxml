@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myapps.analisibioscav.gui.ResultController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="565.0" prefWidth="753.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="myapps.analisibioscav.gui.ResultController">
    <children>
       <Label alignment="CENTER" prefHeight="79.0" prefWidth="1154.0" text="RISULTATI ANALISI ">
          <font>
@@ -27,14 +27,15 @@
         </columnConstraints>
         <rowConstraints>
             <RowConstraints maxHeight="45.4" minHeight="10.0" prefHeight="45.4" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="43.19999389648438" minHeight="10.0" prefHeight="43.19999389648438" vgrow="SOMETIMES" />
-          <RowConstraints maxHeight="40.59998168945313" minHeight="10.0" prefHeight="35.00000610351563" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="43.19999389648438" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="40.59998168945313" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label alignment="CENTER" prefHeight="58.0" prefWidth="329.0" text="Monomateriali" GridPane.rowIndex="1">
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="329.0" text="Monomateriali" GridPane.rowIndex="1">
                <font>
                   <Font size="18.0" />
                </font>
@@ -44,17 +45,17 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="79.0" prefWidth="220.0" text="Frazioni Estranee" GridPane.rowIndex="3">
+            <Label alignment="CENTER" prefHeight="42.0" prefWidth="366.0" text="Materiale Differenziato Alluminio/Acciaio" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="65.0" prefWidth="267.0" text="Materiale Differenziato" GridPane.rowIndex="4">
+            <Label alignment="CENTER" prefHeight="65.0" prefWidth="267.0" text="Materiale Differenziato COREPLA" GridPane.rowIndex="4">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" prefHeight="88.0" prefWidth="262.0" text="Frazione Estranea Totale" GridPane.rowIndex="5">
+            <Label alignment="CENTER" prefHeight="88.0" prefWidth="262.0" text="Frazione Estranea Totale" GridPane.rowIndex="6">
                <font>
                   <Font size="18.0" />
                </font>
@@ -94,7 +95,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblFrazioniEstraneeKg" alignment="CENTER" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <Label fx:id="lblMDiffAllAccKg" alignment="CENTER" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font>
@@ -104,12 +105,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblFEKg" alignment="CENTER" prefHeight="80.0" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            <Label fx:id="lblFETotKg" alignment="CENTER" prefHeight="80.0" prefWidth="260.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblFrazioniEstraneePer" alignment="CENTER" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <Label fx:id="lblMDiffAllAccPer" alignment="CENTER" prefHeight="79.0" prefWidth="220.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
                <font>
                   <Font size="18.0" />
                </font>
@@ -119,7 +120,22 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="lblFEPer" alignment="CENTER" prefHeight="80.0" prefWidth="263.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            <Label fx:id="lblFETotPer" alignment="CENTER" prefHeight="80.0" prefWidth="263.0" GridPane.columnIndex="2" GridPane.rowIndex="6">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" prefHeight="65.0" prefWidth="267.0" text="Materiale Differenziato Totale" GridPane.rowIndex="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMDiffTotKg" alignment="CENTER" layoutX="350.0" layoutY="160.0" prefHeight="80.0" prefWidth="220.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMDiffTotPer" alignment="CENTER" layoutX="350.0" layoutY="196.0" prefHeight="80.0" prefWidth="220.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
                <font>
                   <Font size="18.0" />
                </font>
