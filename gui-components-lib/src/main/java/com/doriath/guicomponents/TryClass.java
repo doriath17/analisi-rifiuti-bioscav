@@ -1,11 +1,22 @@
 package com.doriath.guicomponents;
 
-public class TryClass {
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.HBox;
 
-    int x = 0;
+import java.io.IOException;
 
-    public void printX(){
-        System.out.println(x);
+public class TryClass extends HBox {
+
+    public TryClass(){
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("TryClass.fxml"));
+            loader.setRoot(this);
+            loader.setController(this);
+            loader.load();
+        } catch (IOException e){
+            System.err.println(e.getMessage());
+        }
     }
 
 }
