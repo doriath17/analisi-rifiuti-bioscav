@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.doriath.gui.PrimaryController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Chiudi App" />
+                  <MenuItem mnemonicParsing="false" onAction="#resetInput" text="Reset Pesi" />
+                  <MenuItem mnemonicParsing="false" onAction="#resetAnagrafe" text="Reset Anagrafe" />
+                  <MenuItem mnemonicParsing="false" onAction="#resetAllData" text="Reset Totale" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Window">
+               <items>
+                  <RadioMenuItem fx:id="mItemFullscreen" mnemonicParsing="false" onAction="#setFullscreen" text="Fullscreen" />
+               </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox alignment="CENTER" prefHeight="781.0" prefWidth="1260.0">
+         <children>
+            <VBox alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="61.0">
+               <children>
+                  <Button fx:id="btnSx" mnemonicParsing="false" onAction="#switchToLeft" prefHeight="224.0" prefWidth="51.0" text="&lt;">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox fx:id="content" alignment="CENTER" prefHeight="753.0" prefWidth="1171.0" />
+            <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="554.0" prefWidth="65.0">
+               <children>
+                  <Button fx:id="btnDx" mnemonicParsing="false" onAction="#switchToRight" prefHeight="224.0" prefWidth="54.0" text="&gt;">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>
