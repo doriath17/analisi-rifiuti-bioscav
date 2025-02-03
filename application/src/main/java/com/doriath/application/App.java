@@ -1,6 +1,5 @@
 package com.doriath.application;
 
-import com.doriath.guicomponents.TryClass;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

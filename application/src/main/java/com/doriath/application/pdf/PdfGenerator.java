@@ -1,12 +1,13 @@
 package com.doriath.application.pdf;
 
 import com.doriath.application.datamodel.*;
-import com.doriath.guicomponents.util.PositiveIntegerConverter;
+import com.doriath.guicomponents.util.stringconverter.PercentageStringConverter;
+import com.doriath.guicomponents.util.stringconverter.PositiveIntegerStringConverter;
 import com.lowagie.text.*;
 import com.lowagie.text.alignment.HorizontalAlignment;
 import com.lowagie.text.alignment.VerticalAlignment;
 import com.lowagie.text.pdf.PdfWriter;
-import com.doriath.application.gui.PositiveDoubleStringConverter;
+import com.doriath.guicomponents.util.stringconverter.WeightStringConverter;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,8 +19,9 @@ import static java.io.File.separator;
 public class PdfGenerator {
 
     static final int ANAGRAFE_COLSPAN = 4;
-    static final PositiveDoubleStringConverter converter = new PositiveDoubleStringConverter();
-    static final PositiveIntegerConverter rangeQualityConverter = new PositiveIntegerConverter();
+    final WeightStringConverter weightStringConverter = WeightStringConverter.instance;
+    final PercentageStringConverter percentageStringConverter = PercentageStringConverter.instance;
+    final PositiveIntegerStringConverter positiveIntegerStringConverter = PositiveIntegerStringConverter.instance;
 
     private ResultContainer resultContainer;
     private InputContainer inputContainer;
@@ -50,13 +52,21 @@ public class PdfGenerator {
         return cell;
     }
 
-    Cell getNewCell(Double val){
-        String s = converter.toString(val);
-        Phrase phrase = new Phrase(s, font);
-        Cell cell = new Cell(phrase);
-        cell.setVerticalAlignment(VerticalAlignment.CENTER);
-        return cell;
+    Cell getNewWeightCell(Double val){
+        String s = weightStringConverter.toString(val);
+        return getNewCell(s);
     }
+
+    Cell getNewPercentageCell(Double val){
+        String s = percentageStringConverter.toString(val);
+        return getNewCell(s);
+    }
+
+    Cell getNewPositiveIntegerCell(Integer val){
+        String s = positiveIntegerStringConverter.toString(val);
+        return getNewCell(s);
+    }
+
 
     private Cell getNewHeaderCell(String s){
         Phrase phrase = new Phrase(s, headerFont);
@@ -86,9 +96,9 @@ public class PdfGenerator {
         for (var rifiuto : Rifiuto.values()){
             InputRifiuto input = map.get(rifiuto);
             table.addCell(getNewCell(rifiuto.getText()));
-            table.addCell(getNewCell(input.getPesoLordo()));
-            table.addCell(getNewCell(input.getPesoTara()));
-            table.addCell(getNewCell(input.getPesoNetto()));
+            table.addCell(getNewWeightCell(input.getPesoLordo()));
+            table.addCell(getNewWeightCell(input.getPesoTara()));
+            table.addCell(getNewWeightCell(input.getPesoNetto()));
         }
     }
 
@@ -102,8 +112,8 @@ public class PdfGenerator {
         for (var category : CategoriaRifiuto.values()){
             var result = map.get(category);
             table.addCell(getNewCell(category.getText()));
-            table.addCell(getNewCell(result.getPesoTotale()));
-            table.addCell(getNewCell(result.getPesoPercentuale()));
+            table.addCell(getNewWeightCell(result.getPesoTotale()));
+            table.addCell(getNewPercentageCell(result.getPesoPercentuale()));
         }
     }
 
@@ -149,9 +159,9 @@ public class PdfGenerator {
             table.setBorderWidth(1);
             table.setPadding(2);
             table.addCell(getNewCell("Peso Campione (Kg)"));
-            table.addCell(getNewCell(converter.toString(resultContainer.getPesoCampione().getPesoCampione().getValue())));
+            table.addCell(getNewCell(weightStringConverter.toString(resultContainer.getPesoCampione().getPesoCampione().getValue())));
             table.addCell(getNewCell("Range Qualità"));
-            table.addCell(getNewCell(rangeQualityConverter.toString(resultContainer.getQualityRange().getValue())));
+            table.addCell(getNewCell(positiveIntegerStringConverter.toString(resultContainer.getQualityRange().getValue())));
             document.add(table);
 
             Paragraph note = new Paragraph("Nota: ", font);

@@ -1,10 +1,13 @@
 package com.doriath.application.datamodel;
 
+import com.doriath.guicomponents.util.stringconverter.PercentageStringConverter;
+import com.doriath.guicomponents.util.stringconverter.PositiveIntegerStringConverter;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
-import com.doriath.application.gui.PositiveDoubleStringConverter;
+import com.doriath.guicomponents.util.stringconverter.WeightStringConverter;
 
 public class CategoriaRifiutoBase {
+
     private final PesoCampione pesoCampione;
     private final SimpleObjectProperty<Double> pesoTotale = new SimpleObjectProperty<>(0.0);
     private final SimpleObjectProperty<Double> pesoPercentuale = new SimpleObjectProperty<>(0.0);
@@ -42,8 +45,8 @@ public class CategoriaRifiutoBase {
     }
 
     public void setupControls(Label lblPesoTotale, Label lblPesoPercentuale){
-        lblPesoTotale.textProperty().bindBidirectional(pesoTotale, new PositiveDoubleStringConverter());
-        lblPesoPercentuale.textProperty().bindBidirectional(pesoPercentuale, new PositiveDoubleStringConverter());
+        lblPesoTotale.textProperty().bindBidirectional(pesoTotale, WeightStringConverter.instance);
+        lblPesoPercentuale.textProperty().bindBidirectional(pesoPercentuale, PercentageStringConverter.instance);
     }
 
     public void reset(){

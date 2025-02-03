@@ -2,7 +2,7 @@ package com.doriath.application.datamodel;
 
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
-import com.doriath.application.gui.PositiveDoubleStringConverter;
+import com.doriath.guicomponents.util.stringconverter.WeightStringConverter;
 
 public class PesoCampione {
 
@@ -26,6 +26,6 @@ public class PesoCampione {
     }
 
     public void setupControls(Label lblPesoCampione){
-        lblPesoCampione.textProperty().bindBidirectional(pesoCampione, new PositiveDoubleStringConverter());
+        lblPesoCampione.textProperty().bindBidirectional(pesoCampione, new WeightStringConverter());
     }
 }

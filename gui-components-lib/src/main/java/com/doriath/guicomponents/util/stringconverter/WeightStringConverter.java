@@ -1,8 +1,10 @@
-package com.doriath.application.gui;
+package com.doriath.guicomponents.util.stringconverter;
 
 import javafx.util.converter.DoubleStringConverter;
 
-public class PositiveDoubleStringConverter extends DoubleStringConverter {
+public class WeightStringConverter extends DoubleStringConverter {
+
+    public static final WeightStringConverter instance = new WeightStringConverter();
 
     @Override
     public Double fromString(String value) {
@@ -21,7 +23,7 @@ public class PositiveDoubleStringConverter extends DoubleStringConverter {
         if (value < 0) {
             return "0";
         }
-        return String.format("%.2f", value);
+        return String.format("%.1f", value);
     }
 
 }

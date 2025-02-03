@@ -4,7 +4,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import com.doriath.application.gui.ControllerBase;
-import com.doriath.application.gui.PositiveDoubleStringConverter;
+import com.doriath.guicomponents.util.stringconverter.WeightStringConverter;
 
 import java.util.Random;
 
@@ -61,7 +61,7 @@ public class InputRifiuto {
             updatePesoNetto();
         });
 
-        lblPesoNetto.textProperty().bindBidirectional(pesoNetto, new PositiveDoubleStringConverter());
+        lblPesoNetto.textProperty().bindBidirectional(pesoNetto, WeightStringConverter.instance);
     }
 
     public void reset(){

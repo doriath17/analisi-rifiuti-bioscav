@@ -1,5 +1,6 @@
 package com.doriath.application.gui;
 
+import com.doriath.guicomponents.util.stringconverter.WeightStringConverter;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Parent;
 import javafx.scene.control.TextFormatter;
@@ -31,7 +32,7 @@ public class ControllerBase {
     }
 
     public static TextFormatter<Double> getTextFormatterInstance(SimpleObjectProperty<Double> toBind){
-        var textformatter = new TextFormatter<Double>(new PositiveDoubleStringConverter());
+        var textformatter = new TextFormatter<Double>(new WeightStringConverter());
         textformatter.valueProperty().bindBidirectional(toBind);
         return textformatter;
     }

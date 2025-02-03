@@ -1,8 +1,10 @@
-package com.doriath.guicomponents.util;
+package com.doriath.guicomponents.util.stringconverter;
 
 import javafx.util.StringConverter;
 
-public class PositiveIntegerConverter extends StringConverter<Integer> {
+public class PositiveIntegerStringConverter extends StringConverter<Integer> {
+
+    public static final PositiveIntegerStringConverter instance = new PositiveIntegerStringConverter();
 
     @Override
     public String toString(Integer value) {

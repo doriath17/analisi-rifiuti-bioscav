@@ -1,10 +1,12 @@
 package com.doriath.application.datamodel;
 
-import com.doriath.guicomponents.util.PositiveIntegerConverter;
+import com.doriath.guicomponents.util.stringconverter.PositiveIntegerStringConverter;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.control.Label;
 
 public class QualityRange extends SimpleObjectProperty<Integer> {
+    public static final PositiveIntegerStringConverter converter = new PositiveIntegerStringConverter();
+
     private final CategoriaRifiutoBase mdiff;
 
     public QualityRange(CategoriaRifiutoBase mdiff){
@@ -27,6 +29,6 @@ public class QualityRange extends SimpleObjectProperty<Integer> {
     }
 
     public void setupControls(Label label){
-        label.textProperty().bindBidirectional(this, new PositiveIntegerConverter());
+        label.textProperty().bindBidirectional(this, converter);
     }
 }

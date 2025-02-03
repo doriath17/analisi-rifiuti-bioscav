@@ -5,5 +5,5 @@ module gui.components.lib {
     opens com.doriath.guicomponents to javafx.fxml;
 
     exports com.doriath.guicomponents;
-    exports com.doriath.guicomponents.util;
+    exports com.doriath.guicomponents.util.stringconverter;
 }
