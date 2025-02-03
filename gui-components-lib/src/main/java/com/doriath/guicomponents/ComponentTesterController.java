@@ -10,7 +10,7 @@ public class ComponentTesterController {
     @FXML private Label lblTimePicker;
 
     @FXML private void initialize(){
-        lblTimePicker.textProperty().bindBidirectional(timePicker.hoursProperty(), TimePicker.createStringConverter());
+        lblTimePicker.textProperty().bindBidirectional(timePicker.timeStringProperty());
     }
 
 }

@@ -2,6 +2,8 @@ package com.doriath.guicomponents;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -22,32 +24,18 @@ public class TimePicker extends HBox {
     @FXML private Button btnAddMinute;
     @FXML private Button btnSubMinute;
 
-    private ObjectProperty<Integer> hours;
-    private ObjectProperty<Integer> minutes;
+    private SimpleObjectProperty<Integer> hours = new SimpleObjectProperty<>(0);
+    private SimpleObjectProperty<Integer> minutes = new SimpleObjectProperty<>(0);
 
-    public void setMinutes(Integer minutes) {
-        this.minutes.set(minutes);
+    public String getTimeString() {
+        return timeString.get();
     }
 
-    public void setHours(Integer hours) {
-        this.hours.set(hours);
+    public SimpleObjectProperty<String> timeStringProperty() {
+        return timeString;
     }
 
-    public Integer getHours() {
-        return hours.get();
-    }
-
-    public ObjectProperty<Integer> hoursProperty() {
-        return hours;
-    }
-
-    public Integer getMinutes() {
-        return minutes.get();
-    }
-
-    public ObjectProperty<Integer> minutesProperty() {
-        return minutes;
-    }
+    private SimpleObjectProperty<String> timeString = new SimpleObjectProperty<>("00:00");
 
     public TimePicker() throws IOException {
         try {
@@ -61,79 +49,181 @@ public class TimePicker extends HBox {
     }
 
     @FXML private void initialize(){
-        txtHours.setTextFormatter(
-                new TextFormatter<>(createStringConverter(), 0)
-        );
-        hours = (ObjectProperty<Integer>) txtHours.getTextFormatter().valueProperty();
+        var hoursConverter = createHoursStringConverter();
+        var tf = new TextFormatter<Integer>(hoursConverter, 0, createHoursFormatter());
+        var tfValueProperty = tf.valueProperty();
+        txtHours.setTextFormatter(tf);
+        tfValueProperty.addListener(new ChangeListener<Integer>() {
+            @Override
+            public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
+                timeString.setValue(txtHours.getText() + timeString.getValue().substring(2,5));
+                System.out.println(timeString.getValue());
+            }
+        });
 
-        txtMinutes.setTextFormatter(
-                new TextFormatter<>(createStringConverter(), 0)
-        );
-        minutes = (ObjectProperty<Integer>) txtMinutes.getTextFormatter().valueProperty();
+        tf = new TextFormatter<Integer>(createMinutesStringConverter(), 0);
+        tf.valueProperty().bindBidirectional(minutes);
+        txtMinutes.setTextFormatter(tf);
 
+        hours.addListener(new ChangeListener<Integer>() {
+            @Override
+            public void changed(ObservableValue<? extends Integer> observable, Integer oldValue, Integer newValue) {
+                timeString.setValue(hoursConverter.toString(minutes.getValue()) + timeString.getValue().substring(2,5));
+                System.out.println(timeString.getValue());
+            }
+        });
     }
 
     @FXML private void addHour(){
-        var value = hours.getValue();
-        if (value < 24){
-            hours.setValue(value + 1);
-        } else {
-            hours.setValue(0);
-        }
+
     }
 
     @FXML private void subHour(){
-        var value = hours.getValue();
-        if (value > 0){
-            hours.setValue(value - 1);
-        } else {
-            hours.setValue(23);
-        }
+
     }
 
     @FXML private void addMinute(){
-        var value = minutes.getValue();
-        if (value < 60){
-            minutes.setValue(value + 1);
-        } else {
-            minutes.setValue(0);
-        }
+
     }
 
     @FXML private void subMinute(){
-        var value = minutes.getValue();
-        if (value > 0){
-            minutes.setValue(value - 1);
-        } else {
-            minutes.setValue(59);
-        }
+
     }
 
-    public static StringConverter<Integer> createStringConverter(){
+    private StringConverter<Integer> createHoursStringConverter(){
         return new StringConverter<Integer>() {
+
+            private Integer lastHoursInteger = 0;
+
+            private boolean valid(int h){
+                if (h < 0 || h > 23){
+                    return false;
+                }
+                return true;
+            }
+
             @Override
             public String toString(Integer value) {
-                return value.toString();
+                StringBuilder sb = new StringBuilder();
+                if (value < 10){
+                    sb.append(0);
+                }
+                return sb.append(value).toString();
             }
 
             @Override
             public Integer fromString(String string) {
-                return Integer.valueOf(string);
+                if (string.isEmpty() || string.length() > 2){
+                    return lastHoursInteger;
+                }
+                try {
+                    if (string.length() == 1){
+                        lastHoursInteger = Integer.parseInt(string);
+                        return lastHoursInteger;
+                    } else {
+                        if (string.startsWith("0")){
+                            string = string.substring(1,2);
+                        }
+                        Integer value = Integer.parseInt(string);
+                        if (valid(value)){
+                            lastHoursInteger = value;
+                            return value;
+                        } else {
+                            return lastHoursInteger;
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                    return lastHoursInteger;
+                }
             }
         };
     }
 
-    private UnaryOperator<TextFormatter.Change> createFilter(){
+    private boolean validHour(String text){
+        if (text.startsWith("0")){
+            text = text.substring(1,2);
+            int h = Integer.parseInt(text);
+            if (h < 0 || h > 23){
+                return false;
+            }
+        } else {
+            int h = Integer.parseInt(text);
+            if (h < 0 || h > 23){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private UnaryOperator<TextFormatter.Change> createHoursFormatter(){
         return new UnaryOperator<TextFormatter.Change>() {
             @Override
             public TextFormatter.Change apply(TextFormatter.Change change) {
-                String text = change.getControlNewText();
-                //&& text.matches("[0-9]{1,2}")
-                if (!text.isEmpty()){
+                var text = change.getControlNewText();
+                if (text.isEmpty()){
                     return change;
+                }
+                if (text.length() <= 2){
+                    if (text.length() == 1 && Character.isDigit(text.charAt(0))){
+                        return change;
+                    } else if (text.length() == 2 && (Character.isDigit(text.charAt(0)) && Character.isDigit(text.charAt(1)))){
+                        if (validHour(text)){
+                            return change;
+                        }
+                    }
                 }
                 return null;
             }
         };
     }
+
+    private StringConverter<Integer> createMinutesStringConverter(){
+        return new StringConverter<Integer>() {
+
+            private Integer lastMinutesInteger = 0;
+
+            private boolean valid(int h){
+                if (h < 0 || h > 59){
+                    return false;
+                }
+                return true;
+            }
+
+            @Override
+            public String toString(Integer value) {
+                StringBuilder sb = new StringBuilder();
+                if (value < 10){
+                    sb.append(0);
+                }
+                return sb.append(value).toString();
+            }
+
+            @Override
+            public Integer fromString(String string) {
+                if (string.isEmpty() || string.length() > 2){
+                    return lastMinutesInteger;
+                }
+                try {
+                    if (string.length() == 1){
+                        lastMinutesInteger = Integer.parseInt(string);
+                        return lastMinutesInteger;
+                    } else {
+                        if (string.startsWith("0")){
+                            string = string.substring(1,2);
+                        }
+                        Integer value = Integer.parseInt(string);
+                        if (valid(value)){
+                            lastMinutesInteger = value;
+                            return value;
+                        } else {
+                            return lastMinutesInteger;
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                    return lastMinutesInteger;
+                }
+            }
+        };
+    }
+
 }
