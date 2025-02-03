@@ -1,6 +1,7 @@
 package com.doriath.application.pdf;
 
 import com.doriath.application.datamodel.*;
+import com.doriath.guicomponents.util.PositiveIntegerConverter;
 import com.lowagie.text.*;
 import com.lowagie.text.alignment.HorizontalAlignment;
 import com.lowagie.text.alignment.VerticalAlignment;
@@ -18,6 +19,7 @@ public class PdfGenerator {
 
     static final int ANAGRAFE_COLSPAN = 4;
     static final PositiveDoubleStringConverter converter = new PositiveDoubleStringConverter();
+    static final PositiveIntegerConverter rangeQualityConverter = new PositiveIntegerConverter();
 
     private ResultContainer resultContainer;
     private InputContainer inputContainer;
@@ -149,7 +151,7 @@ public class PdfGenerator {
             table.addCell(getNewCell("Peso Campione (Kg)"));
             table.addCell(getNewCell(converter.toString(resultContainer.getPesoCampione().getPesoCampione().getValue())));
             table.addCell(getNewCell("Range Qualità"));
-            table.addCell(getNewCell(converter.toString(resultContainer.getQualityRange().getValue())));
+            table.addCell(getNewCell(rangeQualityConverter.toString(resultContainer.getQualityRange().getValue())));
             document.add(table);
 
             Paragraph note = new Paragraph("Nota: ", font);
