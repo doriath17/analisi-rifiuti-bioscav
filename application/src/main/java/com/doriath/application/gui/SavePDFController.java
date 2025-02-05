@@ -1,5 +1,6 @@
 package com.doriath.application.gui;
 
+import com.doriath.application.datamodel.AnagrafeItem;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -42,13 +43,13 @@ public class SavePDFController extends ControllerBase {
         if (txtFilename.getText().isEmpty()) {
             StringBuilder builder = new StringBuilder("analisi");
 
-            String comune = anagrafe.getMap().get("Comune");
+            String comune = anagrafe.get(AnagrafeItem.COMUNE);
             if (!comune.isEmpty()){
                 builder.append("-");
                 builder.append(comune);
             }
 
-            String date = anagrafe.getMap().get("Data Analisi");
+            String date = anagrafe.get(AnagrafeItem.DATA_ANALISI);
             if (!date.isEmpty()){
                 builder.append("-");
                 builder.append(date.replaceAll("/", "-"));

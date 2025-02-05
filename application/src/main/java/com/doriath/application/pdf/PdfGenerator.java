@@ -77,11 +77,10 @@ public class PdfGenerator {
     }
 
     private void prepareAnagrafeTable(Table table){
-        var map = anagrafe.getMap();
-        for (Iterator<String> i = AnagrafeAnalisi.names.iterator(); i.hasNext();){
-            String name = i.next();
-            table.addCell(getNewCell(name));
-            table.addCell(getNewCell(map.get(name)));
+        for (var item : AnagrafeItem.values()){
+            String text = item.getText();
+            table.addCell(getNewCell(text));
+            table.addCell(getNewCell(anagrafe.get(item)));
         }
     }
 

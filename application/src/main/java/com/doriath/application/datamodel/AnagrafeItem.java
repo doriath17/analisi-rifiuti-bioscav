@@ -21,4 +21,8 @@ public enum AnagrafeItem {
     private AnagrafeItem(String text){
         this.text = text;
     }
+
+    public String getText() {
+        return text;
+    }
 }
