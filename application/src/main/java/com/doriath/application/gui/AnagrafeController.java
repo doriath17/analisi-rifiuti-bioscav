@@ -1,6 +1,7 @@
 package com.doriath.application.gui;
 //
 
+import com.doriath.application.datamodel.AnagrafeItem;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -70,23 +71,20 @@ public class AnagrafeController extends ControllerBase {
 
             @Override
             public void update(){
-                var map = anagrafe.getMap();
-                Iterator<String> i = AnagrafeAnalisi.names.iterator();
-                map.put("Comune",  txtComune.getText());
-                map.put("Numero Controllo", txtNumeroControllo.getText());
-                map.put("CER Rifiuto", txtCerRifiuto.getText());
-                map.put("Data Analisi", dateAnalisi.getConverter().toString(dateAnalisi.getValue()));
-                map.put("Formulario N°", txtNumeroFormulario.getText());
-                map.put("Data Formulario", dateFormulario.getConverter().toString(dateFormulario.getValue()));
-                map.put("Ora Inizio", txtOraInizio.getText());
-                map.put("Ora Fine", txtOraFine.getText());
-                map.put("Sfuso/In Balle", cboxSfusoInBalle.getValue());
-                map.put("Flusso", cboxFlusso.getValue());
-                map.put("Materiale Conferito", txtMaterialeConferito.getText());
-                map.put("Analizzatore", txtAnalizzatore.getText());
-                map.put("In presenza di: ", txtSupervisore.getText());
+                anagrafe.put(AnagrafeItem.COMUNE, txtComune.getText());
+                anagrafe.put(AnagrafeItem.NUM_CONTROLLO, txtNumeroControllo.getText());
+                anagrafe.put(AnagrafeItem.CER_RIFIUTO, txtCerRifiuto.getText());
+                anagrafe.put(AnagrafeItem.DATA_ANALISI, dateAnalisi.getConverter().toString(dateAnalisi.getValue()));
+                anagrafe.put(AnagrafeItem.NUM_FORMULARIO, txtNumeroFormulario.getText());
+                anagrafe.put(AnagrafeItem.DATA_FORMULARIO, dateFormulario.getConverter().toString(dateFormulario.getValue()));
+                anagrafe.put(AnagrafeItem.SFUSO_IN_BALLE, cboxSfusoInBalle.getValue());
+                anagrafe.put(AnagrafeItem.FLUSSO, cboxFlusso.getValue());
+                anagrafe.put(AnagrafeItem.ORA_INIZIO, txtOraInizio.getText());
+                anagrafe.put(AnagrafeItem.ORA_FINE, txtOraFine.getText());
+                anagrafe.put(AnagrafeItem.ANALIZZATORE, txtAnalizzatore.getText());
+                anagrafe.put(AnagrafeItem.SUPERVISORE, txtSupervisore.getText());
+                anagrafe.put(AnagrafeItem.MATERIALE_CONFERITO, txtMaterialeConferito.getText());
             }
-
         });
     }
 }

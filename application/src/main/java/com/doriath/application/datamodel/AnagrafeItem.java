@@ -13,7 +13,7 @@ public enum AnagrafeItem {
     ORA_INIZIO("Ora Inizio"),
     ORA_FINE("Ora Fine"),
     ANALIZZATORE("Analizzatore"),
-    PRESENZA("In presenza di:"),
+    SUPERVISORE("In presenza di:"),
     MATERIALE_CONFERITO("Materiale Conferito (Kg)");
 
     private final String text;
