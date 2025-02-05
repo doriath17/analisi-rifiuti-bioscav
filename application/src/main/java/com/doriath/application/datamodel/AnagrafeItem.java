@@ -16,7 +16,6 @@ public enum AnagrafeItem {
     PRESENZA("In presenza di:"),
     MATERIALE_CONFERITO("Materiale Conferito (Kg)");
 
-
     private final String text;
 
     private AnagrafeItem(String text){
