@@ -17,22 +17,16 @@
           <Menu mnemonicParsing="false" text="File">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#closeApp" text="Chiudi App" />
+                  <MenuItem mnemonicParsing="false" onAction="#resetAllData" text="Nuova Analisi" />
                   <MenuItem mnemonicParsing="false" onAction="#resetInput" text="Reset Pesi" />
                   <MenuItem mnemonicParsing="false" onAction="#resetAnagrafe" text="Reset Anagrafe" />
-                  <MenuItem mnemonicParsing="false" onAction="#resetAllData" text="Reset Totale" />
-                  <MenuItem mnemonicParsing="false" onAction="#saveCurrentData" text="Salva" />
-                  <MenuItem mnemonicParsing="false" onAction="#loadCurrentData" text="Carica" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadCurrentData" text="Carica Cache" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Window">
                <items>
                   <RadioMenuItem fx:id="mItemFullscreen" mnemonicParsing="false" onAction="#setFullscreen" text="Fullscreen" />
                </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" text="About" />
-            </items>
           </Menu>
         </menus>
       </MenuBar>

@@ -49,8 +49,8 @@ public class App extends Application {
     }
 
     @Override
-    public void stop(){
-
+    public void stop() throws IOException {
+        savedDataLoader.save();
     }
 
     public static void main(String[] args) {

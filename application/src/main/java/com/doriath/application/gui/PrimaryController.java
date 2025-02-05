@@ -114,10 +114,6 @@ public class PrimaryController {
         resetAnagrafe();
     }
 
-    @FXML private void saveCurrentData() throws IOException {
-        loader.getSavedDataLoader().save();
-    }
-
     @FXML private void loadCurrentData() throws IOException {
         loader.getSavedDataLoader().load();
     }
