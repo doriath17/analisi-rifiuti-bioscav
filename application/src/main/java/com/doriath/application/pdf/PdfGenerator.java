@@ -80,7 +80,7 @@ public class PdfGenerator {
         for (var item : AnagrafeItem.values()){
             String text = item.getText();
             table.addCell(getNewCell(text));
-            table.addCell(getNewCell(anagrafe.get(item)));
+            table.addCell(getNewCell(anagrafe.get(item).getValue()));
         }
     }
 

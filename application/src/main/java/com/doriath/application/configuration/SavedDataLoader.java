@@ -45,11 +45,13 @@ public class SavedDataLoader {
         }
         for (var item : AnagrafeItem.values()){
             String value = linesIterator.next();
-            // todo : load anagrafe
+            analisiDAO.getAnagrafeAnalisi()
+                    .get(item)
+                    .setValue(value);
         }
     }
 
-    public void save(){
+    public void save() throws IOException {
         List<String> lines = new ArrayList<>();
         for (var rifiuto : Rifiuto.values()){
             InputRifiuto inputRifiuto = analisiDAO.getInputContainer()
@@ -60,8 +62,9 @@ public class SavedDataLoader {
             lines.add(lordo + "," + tara);
         }
         for (var item : AnagrafeItem.values()){
-            lines.add(analisiDAO.getAnagrafeAnalisi().get(item));
+            lines.add(analisiDAO.getAnagrafeAnalisi().get(item).getValue());
         }
+        Files.write(dataFile, lines);
     }
 
 }

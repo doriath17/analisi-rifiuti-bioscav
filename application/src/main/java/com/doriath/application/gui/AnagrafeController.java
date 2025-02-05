@@ -2,6 +2,9 @@ package com.doriath.application.gui;
 //
 
 import com.doriath.application.datamodel.AnagrafeItem;
+import javafx.beans.property.StringProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
@@ -30,6 +33,8 @@ public class AnagrafeController extends ControllerBase {
     @FXML private TextField txtMaterialeConferito;
     @FXML private TextField txtAnalizzatore;
     @FXML private TextField txtSupervisore;
+
+    public static final StringConverter<LocalDate> localDateStringConverter = getLocalDateConverter();
 
     private static StringConverter<LocalDate> getLocalDateConverter(){
         return new StringConverter<LocalDate>() {
@@ -67,24 +72,32 @@ public class AnagrafeController extends ControllerBase {
     public void init(ControllerLoader loader, PrimaryController primaryController){
         super.init(loader, primaryController);
         var anagrafe = loader.getAnalisiDAO().getAnagrafeAnalisi();
-        anagrafe.setUpdater(new Updater() {
+        txtComune.textProperty().bindBidirectional(anagrafe.get(AnagrafeItem.COMUNE));
+        txtNumeroControllo.textProperty().bindBidirectional(anagrafe.get(AnagrafeItem.NUM_CONTROLLO));
+        txtCerRifiuto.textProperty().bindBidirectional(anagrafe.get(AnagrafeItem.CER_RIFIUTO));
+        txtNumeroFormulario.textProperty().bindBidirectional(anagrafe.get(AnagrafeItem.NUM_FORMULARIO));
+        cboxSfusoInBalle.valueProperty().bindBidirectional(anagrafe.get(AnagrafeItem.SFUSO_IN_BALLE));
+        cboxFlusso.valueProperty().bindBidirectional(anagrafe.get(AnagrafeItem.FLUSSO));
+        txtOraInizio.textProperty().bindBidirectional(anagrafe.get(AnagrafeItem.ORA_INIZIO));
+        txtOraFine.textProperty().bindBidirectional(anagrafe.get(AnagrafeItem.ORA_FINE));
+        txtAnalizzatore.textProperty().bindBidirectional(anagrafe.get(AnagrafeItem.ANALIZZATORE));
+        txtSupervisore.textProperty().bindBidirectional(anagrafe.get(AnagrafeItem.SUPERVISORE));
+        txtMaterialeConferito.textProperty().bindBidirectional(anagrafe.get(AnagrafeItem.MATERIALE_CONFERITO));
 
+        dateAnalisi.valueProperty().addListener(new ChangeListener<LocalDate>() {
             @Override
-            public void update(){
-                anagrafe.put(AnagrafeItem.COMUNE, txtComune.getText());
-                anagrafe.put(AnagrafeItem.NUM_CONTROLLO, txtNumeroControllo.getText());
-                anagrafe.put(AnagrafeItem.CER_RIFIUTO, txtCerRifiuto.getText());
-                anagrafe.put(AnagrafeItem.DATA_ANALISI, dateAnalisi.getConverter().toString(dateAnalisi.getValue()));
-                anagrafe.put(AnagrafeItem.NUM_FORMULARIO, txtNumeroFormulario.getText());
-                anagrafe.put(AnagrafeItem.DATA_FORMULARIO, dateFormulario.getConverter().toString(dateFormulario.getValue()));
-                anagrafe.put(AnagrafeItem.SFUSO_IN_BALLE, cboxSfusoInBalle.getValue());
-                anagrafe.put(AnagrafeItem.FLUSSO, cboxFlusso.getValue());
-                anagrafe.put(AnagrafeItem.ORA_INIZIO, txtOraInizio.getText());
-                anagrafe.put(AnagrafeItem.ORA_FINE, txtOraFine.getText());
-                anagrafe.put(AnagrafeItem.ANALIZZATORE, txtAnalizzatore.getText());
-                anagrafe.put(AnagrafeItem.SUPERVISORE, txtSupervisore.getText());
-                anagrafe.put(AnagrafeItem.MATERIALE_CONFERITO, txtMaterialeConferito.getText());
+            public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
+                anagrafe.get(AnagrafeItem.DATA_ANALISI)
+                        .setValue(localDateStringConverter.toString(dateAnalisi.getValue()));
             }
         });
+        dateFormulario.valueProperty().addListener(new ChangeListener<LocalDate>() {
+            @Override
+            public void changed(ObservableValue<? extends LocalDate> observable, LocalDate oldValue, LocalDate newValue) {
+                anagrafe.get(AnagrafeItem.DATA_FORMULARIO)
+                        .setValue(localDateStringConverter.toString(dateFormulario.getValue()));
+            }
+        });
+        anagrafe.syncController(dateAnalisi.valueProperty(), dateFormulario.valueProperty());
     }
 }

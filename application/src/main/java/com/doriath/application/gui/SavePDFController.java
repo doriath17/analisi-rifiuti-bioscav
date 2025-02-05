@@ -43,13 +43,13 @@ public class SavePDFController extends ControllerBase {
         if (txtFilename.getText().isEmpty()) {
             StringBuilder builder = new StringBuilder("analisi");
 
-            String comune = anagrafe.get(AnagrafeItem.COMUNE);
+            String comune = anagrafe.get(AnagrafeItem.COMUNE).getValue();
             if (!comune.isEmpty()){
                 builder.append("-");
                 builder.append(comune);
             }
 
-            String date = anagrafe.get(AnagrafeItem.DATA_ANALISI);
+            String date = anagrafe.get(AnagrafeItem.DATA_ANALISI).getValue();
             if (!date.isEmpty()){
                 builder.append("-");
                 builder.append(date.replaceAll("/", "-"));
