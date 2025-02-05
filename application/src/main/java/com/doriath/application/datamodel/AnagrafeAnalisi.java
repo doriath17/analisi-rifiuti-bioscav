@@ -15,7 +15,6 @@ import java.util.HashMap;
 import java.util.List;
 
 public class AnagrafeAnalisi extends HashMap<AnagrafeItem, SimpleStringProperty> {
-    private Updater updater;
 
     public static final int ANAGRAFE_ITEMS_NUM = 13;
 
@@ -47,14 +46,6 @@ public class AnagrafeAnalisi extends HashMap<AnagrafeItem, SimpleStringProperty>
         for (var item : AnagrafeItem.values()){
             get(item).setValue("");
         }
-    }
-
-    public void setUpdater(Updater updater){
-        this.updater = updater;
-    }
-
-    public void update(){
-        updater.update();
     }
 
 }

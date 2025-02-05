@@ -2,7 +2,6 @@ package com.doriath.application.gui;
 //
 
 import com.doriath.application.datamodel.AnagrafeItem;
-import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -10,12 +9,9 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.util.StringConverter;
-import com.doriath.application.datamodel.AnagrafeAnalisi;
-import com.doriath.application.datamodel.Updater;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Iterator;
 
 public class AnagrafeController extends ControllerBase {
 

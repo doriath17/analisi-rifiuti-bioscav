@@ -43,7 +43,9 @@ public class SavePDFController extends ControllerBase {
         if (txtFilename.getText().isEmpty()) {
             StringBuilder builder = new StringBuilder("analisi");
 
-            String comune = anagrafe.get(AnagrafeItem.COMUNE).getValue();
+            String comune = anagrafe.get(AnagrafeItem.COMUNE).getValue()
+                    .trim()
+                    .replace(" ", "-");
             if (!comune.isEmpty()){
                 builder.append("-");
                 builder.append(comune);
@@ -60,7 +62,6 @@ public class SavePDFController extends ControllerBase {
     }
 
     public void onShowing(){
-        anagrafe.update();
         txtFilename.setText("");
         setFilename();
     }
