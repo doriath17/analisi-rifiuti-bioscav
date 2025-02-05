@@ -8,4 +8,5 @@ module application {
     opens com.doriath.application.gui to javafx.fxml;
 
     exports com.doriath.application;
+    exports com.doriath.application.configuration;
 }

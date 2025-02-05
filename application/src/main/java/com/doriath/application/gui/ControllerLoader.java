@@ -1,5 +1,6 @@
 package com.doriath.application.gui;
 
+import com.doriath.application.configuration.SavedDataLoader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import com.doriath.application.App;
@@ -10,6 +11,7 @@ import java.io.IOException;
 public class ControllerLoader {
 
     private AnalisiDAO analisiDAO;
+    private SavedDataLoader savedDataLoader;
 
     private PrimaryController primaryController;
     private Parent root;
@@ -25,8 +27,9 @@ public class ControllerLoader {
     public static final String loc4 = "anagrafeWindow.fxml";
     public static final String loc5 = "savePDF.fxml";
 
-    public ControllerLoader(AnalisiDAO analisiDAO){
+    public ControllerLoader(AnalisiDAO analisiDAO, SavedDataLoader savedDataLoader){
         this.analisiDAO = analisiDAO;
+        this.savedDataLoader = savedDataLoader;
 
         loadPrimaryController();
         loadInputController();
@@ -46,6 +49,10 @@ public class ControllerLoader {
 
     public AnalisiDAO getAnalisiDAO() {
         return analisiDAO;
+    }
+
+    public SavedDataLoader getSavedDataLoader() {
+        return savedDataLoader;
     }
     
     public PrimaryController getPrimaryController() {

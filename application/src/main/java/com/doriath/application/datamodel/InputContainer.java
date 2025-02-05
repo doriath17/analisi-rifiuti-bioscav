@@ -5,6 +5,8 @@ import java.util.HashMap;
 public class InputContainer {
     private final HashMap<Rifiuto, InputRifiuto> map = new HashMap<>();
 
+    public static final int WASTE_NUM = 12;
+
     public InputContainer(ResultContainer resultContainer){
         for (var typeRifiuto : Rifiuto.values()){
             map.put(typeRifiuto, new InputRifiuto());

@@ -41,6 +41,12 @@ public class InputRifiuto {
         return pesoNetto.getValue();
     }
 
+    public void loadValues(Double lordo, Double tara){
+        pesoLordo.setValue(lordo);
+        pesoTara.setValue(tara);
+        updatePesoNetto();
+    }
+
     public void updatePesoNetto(){
         double prev = pesoNetto.getValue();
         pesoNetto.setValue(pesoLordo.getValue() - pesoTara.getValue());

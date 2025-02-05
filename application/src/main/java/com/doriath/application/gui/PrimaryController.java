@@ -6,6 +6,8 @@ import javafx.scene.control.RadioMenuItem;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class PrimaryController {
 
     public class State {
@@ -110,5 +112,13 @@ public class PrimaryController {
     @FXML private void resetAllData(){
         resetInput();
         resetAnagrafe();
+    }
+
+    @FXML private void saveCurrentData(){
+        loader.getSavedDataLoader().save();
+    }
+
+    @FXML private void loadCurrentData() throws IOException {
+        loader.getSavedDataLoader().load();
     }
 }
