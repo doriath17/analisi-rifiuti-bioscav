@@ -1,5 +1,7 @@
 package com.doriath.application.gui;
 
+import com.doriath.application.configuration.ConfigLoader;
+import com.doriath.application.configuration.ConfigOption;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioMenuItem;
@@ -29,6 +31,8 @@ public class PrimaryController {
     @FXML private RadioMenuItem mItemFullscreen;
 
     private ControllerLoader loader;
+    private ConfigLoader config;
+    private Stage stage;
 
     private State s1;
     private State s2;
@@ -37,6 +41,11 @@ public class PrimaryController {
 
     public void init(ControllerLoader loader){
         this.loader = loader;
+        this.config = loader.getConfig();
+        this.stage = loader.getStage();
+        if (config.get(ConfigOption.FULLSCREEN)){
+            stage.setFullScreen(true);
+        }
         s1 = new State(null, loader.getInputController(), loader.getResultController());
         s2 = new State(loader.getInputController(), loader.getResultController(), loader.getAnagrafeController());
         s3 = new State(loader.getResultController(), loader.getAnagrafeController(), null);
@@ -94,9 +103,11 @@ public class PrimaryController {
         if (mItemFullscreen.isSelected()){
             mItemFullscreen.setText("Fullscreen Attivo");
             ((Stage) content.getScene().getWindow()).setFullScreen(true);
+            config.put(ConfigOption.FULLSCREEN, true);
         } else {
             mItemFullscreen.setText("Attiva Fullscreen");
             ((Stage) content.getScene().getWindow()).setFullScreen(false);
+            config.put(ConfigOption.FULLSCREEN, false);
         }
     }
 

@@ -1,5 +1,6 @@
 package com.doriath.application;
 
+import com.doriath.application.configuration.ConfigLoader;
 import com.doriath.application.configuration.SavedDataLoader;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -29,18 +30,20 @@ public class App extends Application {
     }
 
     private ControllerLoader controllerLoader;
+    private ConfigLoader configLoader;
     private AnalisiDAO analisiDAO;
     private SavedDataLoader savedDataLoader;
 
     @Override
     public void init() throws IOException {
+        configLoader = new ConfigLoader();
         analisiDAO = new AnalisiDAO();
         savedDataLoader = new SavedDataLoader(analisiDAO);
     }
 
     @Override
     public void start(Stage stage) throws IOException {
-        controllerLoader = new ControllerLoader(analisiDAO, savedDataLoader);
+        controllerLoader = new ControllerLoader(stage, analisiDAO, savedDataLoader, configLoader);
 
         stage.setScene(new Scene(controllerLoader.getRoot()));
         stage.setResizable(false);
@@ -51,6 +54,7 @@ public class App extends Application {
     @Override
     public void stop() throws IOException {
         savedDataLoader.save();
+        configLoader.save();
     }
 
     public static void main(String[] args) {

@@ -2,16 +2,23 @@ package com.doriath.application.configuration;
 
 public enum ConfigOption {
 
-    AUTOSAVE("Autosave");
+    NUMERIC_KEYBOARD("NUMERIC_KEYBOARD", false),
+    AUTOSAVE("AUTOSAVE",true),
+    FULLSCREEN("FULLSCREEN", false);
 
-    private String text;
+    private Boolean defaultValue;
+    private String name;
 
-    private ConfigOption(String text){
-        this.text = text;
+    ConfigOption(String name, Boolean defaultValue){
+        this.name = name;
+        this.defaultValue = defaultValue;
     }
 
-    public String getText(){
-        return text;
+    public Boolean getDefaultValue() {
+        return defaultValue;
     }
 
+    public String getName() {
+        return name;
+    }
 }

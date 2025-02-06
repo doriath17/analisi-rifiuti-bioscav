@@ -1,15 +1,19 @@
 package com.doriath.application.gui;
 
+import com.doriath.application.configuration.ConfigLoader;
 import com.doriath.application.configuration.SavedDataLoader;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import com.doriath.application.App;
 import com.doriath.application.datamodel.AnalisiDAO;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 
 public class ControllerLoader {
 
+    private Stage stage;
+    private ConfigLoader configLoader;
     private AnalisiDAO analisiDAO;
     private SavedDataLoader savedDataLoader;
 
@@ -27,7 +31,9 @@ public class ControllerLoader {
     public static final String loc4 = "anagrafeWindow.fxml";
     public static final String loc5 = "savePDF.fxml";
 
-    public ControllerLoader(AnalisiDAO analisiDAO, SavedDataLoader savedDataLoader){
+    public ControllerLoader(Stage stage, AnalisiDAO analisiDAO, SavedDataLoader savedDataLoader, ConfigLoader configLoader){
+        this.stage = stage;
+        this.configLoader = configLoader;
         this.analisiDAO = analisiDAO;
         this.savedDataLoader = savedDataLoader;
 
@@ -45,6 +51,14 @@ public class ControllerLoader {
         inputController.init(this, primaryController);
         anagrafeController.init(this, primaryController);
         savePDFController.init(this, primaryController);
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public ConfigLoader getConfig() {
+        return configLoader;
     }
 
     public AnalisiDAO getAnalisiDAO() {

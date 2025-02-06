@@ -1,5 +1,6 @@
 package com.doriath.application.gui;
 
+import com.doriath.application.configuration.ConfigLoader;
 import com.doriath.guicomponents.util.stringconverter.WeightStringConverter;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.Parent;
@@ -9,6 +10,7 @@ public class ControllerBase {
     protected ControllerLoader loader;
     protected PrimaryController primaryController;
     protected Parent content;
+    protected ConfigLoader config;
 
     public void setContent(Parent content){
         this.content = content;
@@ -28,6 +30,7 @@ public class ControllerBase {
 
     public void init(ControllerLoader loader, PrimaryController primaryController){
         this.loader = loader;
+        this.config = loader.getConfig();
         this.primaryController = primaryController;
     }
 
