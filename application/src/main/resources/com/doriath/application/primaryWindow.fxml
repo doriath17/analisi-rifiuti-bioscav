@@ -28,6 +28,11 @@
                   <RadioMenuItem fx:id="mItemFullscreen" mnemonicParsing="false" onAction="#setFullscreen" text="Fullscreen" />
                </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="View">
+              <items>
+                  <RadioMenuItem mnemonicParsing="false" onAction="#toggleNumericKeyboard" text="Tastiera Numerica" />
+              </items>
+            </Menu>
         </menus>
       </MenuBar>
       <HBox alignment="CENTER" prefHeight="781.0" prefWidth="1260.0">
