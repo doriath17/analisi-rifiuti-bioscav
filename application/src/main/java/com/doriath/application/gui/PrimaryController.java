@@ -2,6 +2,8 @@ package com.doriath.application.gui;
 
 import com.doriath.application.configuration.ConfigLoader;
 import com.doriath.application.configuration.ConfigOption;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioMenuItem;
@@ -29,6 +31,7 @@ public class PrimaryController {
     @FXML private Button btnSx;
 
     @FXML private RadioMenuItem mItemFullscreen;
+    @FXML private RadioMenuItem mItemNumKb;
 
     private ControllerLoader loader;
     private ConfigLoader config;
@@ -38,6 +41,15 @@ public class PrimaryController {
     private State s2;
     private State s3;
     private State currentState;
+
+    @FXML private void initialize(){
+        mItemNumKb.selectedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                toggleNumericKeyboard();
+            }
+        });
+    }
 
     public void init(ControllerLoader loader){
         this.loader = loader;
@@ -127,5 +139,16 @@ public class PrimaryController {
 
     @FXML private void loadCurrentData() throws IOException {
         loader.getSavedDataLoader().load();
+    }
+
+    @FXML private void toggleNumericKeyboard(){
+        if (mItemNumKb.isSelected()){
+            config.put(ConfigOption.NUMERIC_KEYBOARD, true);
+            loader.getInputController().configNumericKeyboard();
+        } else {
+            config.put(ConfigOption.NUMERIC_KEYBOARD, false);
+            loader.getInputController().configNumericKeyboard();
+        }
+
     }
 }

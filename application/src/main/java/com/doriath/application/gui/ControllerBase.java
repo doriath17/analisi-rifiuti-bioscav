@@ -9,7 +9,7 @@ import javafx.scene.control.TextFormatter;
 public class ControllerBase {
     protected ControllerLoader loader;
     protected PrimaryController primaryController;
-    protected Parent content;
+    Parent content;
     protected ConfigLoader config;
 
     public void setContent(Parent content){

@@ -1,10 +1,14 @@
 package com.doriath.application.gui;
 
+import com.doriath.application.configuration.ConfigOption;
+import com.doriath.guicomponents.NumericKeyboard;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import com.doriath.application.datamodel.InputContainer;
 import com.doriath.application.datamodel.Rifiuto;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class InputController extends ControllerBase {
 
@@ -57,6 +61,10 @@ public class InputController extends ControllerBase {
     @FXML private TextField txtPesoTaraAltreFE;
     @FXML private Label lblPesoNettoAltreFE;
 
+    @FXML private HBox hboxContent;
+    @FXML private VBox numKbBox;
+    @FXML private NumericKeyboard numKb;
+
     // data model
     private InputContainer inputContainer;
 
@@ -65,6 +73,7 @@ public class InputController extends ControllerBase {
         super.init(loader, primaryController);
         inputContainer = loader.getAnalisiDAO().getInputContainer();
         setupControls();
+        configNumericKeyboard();
     }
 
     private void setupControls() {
@@ -120,5 +129,15 @@ public class InputController extends ControllerBase {
 
     @FXML private void refreshInput(){
         inputContainer.refresh();
+    }
+
+    public void configNumericKeyboard(){
+        if (config.get(ConfigOption.NUMERIC_KEYBOARD)){
+            if (!hboxContent.getChildren().contains(numKbBox)){
+                hboxContent.getChildren().add(numKbBox);
+            }
+        } else {
+            hboxContent.getChildren().remove(numKbBox);
+        }
     }
 }
