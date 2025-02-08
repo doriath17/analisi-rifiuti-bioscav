@@ -1,6 +1,7 @@
 package com.doriath.guicomponents;
 
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
@@ -10,7 +11,7 @@ import java.io.IOException;
 
 public class NumericKeyboard extends GridPane {
 
-    private SimpleObjectProperty<TextField> selectedTF = new SimpleObjectProperty<>(null);
+    private SimpleStringProperty output = null;
 
     public NumericKeyboard() throws IOException {
         try {
@@ -24,15 +25,27 @@ public class NumericKeyboard extends GridPane {
         }
     }
 
+    public String getOutput() {
+        return output.get();
+    }
+
+    public SimpleStringProperty outputProperty() {
+        return output;
+    }
+
+    public void setOutput(String output) {
+        this.output.set(output);
+    }
+
     @FXML private void add0(){
-        if (selectedTF.getValue() != null){
-            selectedTF.getValue().setText(selectedTF.getValue().getText() + "0");
+        if (output != null){
+            output.setValue(output.getValue() + "0");
         }
     }
 
     @FXML private void add1(){
-        if (selectedTF.getValue() != null){
-            selectedTF.getValue().setText(selectedTF.getValue().getText() + "1");
+        if (output != null){
+            output.setValue(output.getValue() + "1");
         }
     }
 
