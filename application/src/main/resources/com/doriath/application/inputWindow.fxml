@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="623.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.doriath.application.gui.InputController">
+<VBox alignment="CENTER" prefHeight="623.0" prefWidth="742.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.doriath.application.controllers.InputController">
    <children>
       <HBox fx:id="hboxContent" alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
          <children>

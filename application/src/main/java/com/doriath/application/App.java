@@ -2,11 +2,11 @@ package com.doriath.application;
 
 import com.doriath.application.configuration.ConfigLoader;
 import com.doriath.application.configuration.SavedDataLoader;
+import com.doriath.model.AnalisiDAO;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import com.doriath.application.datamodel.AnalisiDAO;
-import com.doriath.application.gui.ControllerLoader;
+import com.doriath.application.controllers.ControllerLoader;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -21,7 +21,7 @@ public class App extends Application {
     public static String appName = "analisi-rifiuti-bioscav";
     public static final Path configPath = Paths.get(System.getProperty("user.home") + "\\." + App.appName);
 
-    {
+    static {
         try {
             Files.createDirectories(configPath);
         } catch (IOException e) {

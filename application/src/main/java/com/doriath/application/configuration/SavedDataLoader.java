@@ -1,8 +1,11 @@
 package com.doriath.application.configuration;
 
 import com.doriath.application.App;
-import com.doriath.application.datamodel.*;
-import com.doriath.guicomponents.util.stringconverter.WeightStringConverter;
+import com.doriath.model.AnagrafeItem;
+import com.doriath.model.AnalisiDAO;
+import com.doriath.model.InputRifiuto;
+import com.doriath.model.Rifiuto;
+import com.doriath.model.stringconverter.WeightStringConverter;
 
 import java.io.IOException;
 import java.nio.file.Files;
